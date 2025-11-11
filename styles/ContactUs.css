@@ -1,0 +1,133 @@
+.contact-container {
+    padding: 80px 10%;
+    background: linear-gradient(to bottom, #fff, #f9f7ff);
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: #000;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(to right bottom, #fefcff, #f5f2ff);
+    border-radius: 12px;
+    padding: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info {
+    flex: 1;
+    margin-right: 60px;
+}
+
+.contact-info h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-detail .icon {
+    color: #000;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+}
+
+.contact-detail span {
+    font-size: 15px;
+    color: #222;
+}
+
+.phones {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-form {
+    flex: 1.2;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-container .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-container input,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+    font-size: 14px;
+    background: #fff;
+    transition: all 0.2s;
+}
+
+.contact-container input:focus,
+textarea:focus {
+    border-color: #6b4eff;
+    box-shadow: 0 0 5px rgba(107, 78, 255, 0.3);
+}
+
+.contact-container textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.contact-container button {
+    background: #1a1244;
+    color: #fff;
+    border: none;
+    padding: 14px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-container button:hover {
+    background: #2a1d70;
+}
+
+@media (max-width: 900px) {
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}

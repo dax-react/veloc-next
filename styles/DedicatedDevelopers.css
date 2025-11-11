@@ -1,0 +1,791 @@
+/* Main wrapper to isolate styles and prevent horizontal scroll */
+.dd-wrapper {
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+}
+
+.dd-wrapper * {
+    box-sizing: border-box;
+}
+
+.dedicated-developers-page {
+    width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+.dd-hero-section {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+    background-image: url('../public/images/hero-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Animated Background Decorations */
+.dd-bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.dd-circle-1 {
+    top: 10%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #7c4dff, #651fff);
+    animation-delay: 0s;
+}
+
+.dd-circle-2 {
+    bottom: 15%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8787);
+    animation-delay: 5s;
+}
+
+.dd-circle-3 {
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    animation-delay: 10s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(20px, 30px) scale(1.05);
+    }
+}
+
+.dd-hero-content {
+    text-align: center;
+    z-index: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.dd-hero-title {
+    font-size: clamp(2.2rem, 10vw, 5.6rem);
+    font-weight: 900;
+    color: #1a1a4d;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #1a1a4d 0%, #4a4a8a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dd-hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: #4a4a6a;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature Badges */
+.dd-feature-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    padding: 0 10px;
+}
+
+.dd-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.dd-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dd-badge-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.dd-badge-green {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.dd-badge-purple {
+    background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+}
+
+.dd-badge-orange {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.dd-badge-blue {
+    background: linear-gradient(135deg, #5c6bc0, #3949ab);
+}
+
+.dd-badge span {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Action Buttons */
+.dd-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.dd-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.dd-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dd-btn-secondary {
+    background: white;
+    border: 2px solid #e0e0e0;
+    color: #333;
+}
+
+.dd-btn-primary {
+    background: linear-gradient(135deg, #2d2d5f, #1a1a3a);
+    color: white;
+}
+
+.dd-btn-primary:hover {
+    background: linear-gradient(135deg, #1a1a3a, #0d0d1f);
+}
+
+/* ===== STACK SECTION ===== */
+.dd-stack-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
+    width: 100%;
+}
+
+.dd-stack-title {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    font-weight: 700;
+    color: #1a1a4d;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.dd-stack-subtitle {
+    margin-top: 15px;
+    margin-bottom: 50px;
+    color: rgba(0, 0, 0, 0.66);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+.dd-stack-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 15px;
+}
+
+.dd-stack-card {
+    width: 150px;
+    padding: 0;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+    border: 1px solid #f0f0f5;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dd-stack-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(124, 77, 255, 0.2);
+    border-color: #7c4dff;
+}
+
+.dd-stack-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, rgba(124, 77, 255, 0.1), rgba(101, 31, 255, 0.05)) border-box;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dd-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(124, 77, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    margin: 35px auto 20px auto;
+    position: relative;
+    z-index: 1;
+    padding: 18px;
+    transition: all 0.3s ease;
+}
+
+.dd-stack-card:hover .dd-icon-wrapper {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(124, 77, 255, 0.25);
+}
+
+.dd-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 15px;
+    background: radial-gradient(ellipse, rgba(124, 77, 255, 0.2), transparent);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.tech-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.nextjs-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.dd-stack-label {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    color: #1a1a4d;
+    font-weight: 600;
+    padding-bottom: 30px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* ===== PRICING SECTION ===== */
+.dd-pricing-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.dd-pricing-heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: #1a1a4d;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.dd-pricing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 420px));
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 15px;
+}
+
+.dd-pricing-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #e8e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.dd-pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(124, 77, 255, 0.15);
+    border-color: #7c4dff;
+    z-index: 10;
+}
+
+.dd-pricing-card.dd-highlighted {
+    border: 2px solid #7c4dff;
+    box-shadow: 0 15px 40px rgba(124, 77, 255, 0.2);
+    transform: translateY(-10px) scale(1.03);
+    z-index: 5;
+}
+
+.dd-pricing-card.dd-enterprise {
+    background: linear-gradient(135deg, #fafbff 0%, #ffffff 100%);
+}
+
+.dd-card-header {
+    margin-bottom: 35px;
+}
+
+.dd-plan-title {
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: #1a1a4d;
+    margin-bottom: 12px;
+}
+
+.dd-pricing-card.dd-highlighted .dd-plan-title {
+    color: #7c4dff;
+}
+
+.dd-plan-subtitle {
+    font-size: clamp(0.82rem, 1.5vw, 0.88rem);
+    color: #7c4dff;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.dd-plan-description {
+    font-size: clamp(0.88rem, 1.5vw, 0.92rem);
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.dd-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.dd-plan-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    gap: 10px;
+}
+
+.dd-plan-item:hover {
+    background: #f8f9ff;
+    transform: translateX(5px);
+}
+
+.dd-plan-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.dd-plan-name {
+    font-size: clamp(0.9rem, 1.5vw, 0.95rem);
+    font-weight: 600;
+    color: #1a1a4d;
+}
+
+.dd-plan-details {
+    font-size: clamp(0.78rem, 1.3vw, 0.82rem);
+    color: #888;
+}
+
+.dd-plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.dd-price-range,
+.dd-price {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    font-weight: 700;
+    color: #7c4dff;
+}
+
+.dd-period {
+    font-size: clamp(0.8rem, 1.3vw, 0.85rem);
+    color: #7c4dff;
+    font-weight: 500;
+}
+
+.dd-price-range-info {
+    text-align: center;
+    padding: 16px;
+    background: #f8f9ff;
+    border-radius: 8px;
+    font-size: clamp(0.82rem, 1.3vw, 0.87rem);
+    color: #666;
+    margin-top: 8px;
+}
+
+.dd-card-footer {
+    margin-top: auto;
+}
+
+.dd-pricing-btn {
+    width: 100%;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(0.9rem, 1.5vw, 0.95rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.dd-pricing-btn.btn-light {
+    background: #f5f5f8;
+    color: #1a1a4d;
+    border: 1px solid #e0e0e5;
+}
+
+.dd-pricing-btn.btn-light:hover {
+    background: #ebebf0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dd-pricing-btn.btn-primary {
+    background: linear-gradient(135deg, #7c4dff 0%, #651fff 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+}
+
+.dd-pricing-btn.btn-primary:hover {
+    background: linear-gradient(135deg, #6c3dff 0%, #5510ff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 77, 255, 0.4);
+}
+
+.dd-pricing-card.dd-enterprise .dd-card-body {
+    min-height: 200px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.dd-pricing-card.dd-enterprise .dd-plan-description {
+    font-size: clamp(0.9rem, 1.5vw, 0.95rem);
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+/* ===== CAROUSEL SECTION ===== */
+.dd-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+}
+
+.dd-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.dd-carousel-track {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    gap: 40px;
+    width: max-content;
+}
+
+.dd-carousel-track img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.dd-carousel-track img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Tablets (769px - 1024px) */
+@media (max-width: 1024px) {
+    .dd-pricing-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+        gap: 20px;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media (max-width: 768px) {
+    .dd-hero-section {
+        padding: 60px 15px;
+        min-height: auto;
+    }
+
+    .dd-feature-badges {
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+
+    .dd-badge {
+        padding: 8px 16px;
+        max-width: 100%;
+    }
+
+    .dd-action-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .dd-btn {
+        width: 100%;
+        max-width: 400px;
+        justify-content: center;
+    }
+
+    .dd-bg-decoration {
+        opacity: 0.05;
+    }
+
+    .dd-circle-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .dd-circle-2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .dd-circle-3 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .dd-stack-section {
+        padding: 60px 15px;
+    }
+
+    .dd-stack-cards {
+        gap: 15px;
+    }
+
+    .dd-stack-card {
+        width: 130px;
+    }
+
+    .dd-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        margin: 30px auto 15px auto;
+        padding: 15px;
+    }
+
+    .dd-stack-label {
+        padding-bottom: 25px;
+    }
+
+    .dd-pricing-section {
+        padding: 60px 15px;
+    }
+
+    .dd-pricing-heading {
+        margin-bottom: 40px;
+    }
+
+    .dd-pricing-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .dd-pricing-card.dd-highlighted {
+        transform: none;
+    }
+
+    .dd-pricing-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .dd-carousel-track img {
+        height: 50px;
+    }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+    .dd-hero-section {
+        padding: 50px 15px;
+    }
+
+    .dd-badge {
+        padding: 6px 12px;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .dd-badge-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .dd-btn {
+        padding: 12px 20px;
+    }
+
+    .dd-stack-section {
+        padding: 50px 15px;
+    }
+
+    .dd-stack-cards {
+        gap: 12px;
+    }
+
+    .dd-stack-card {
+        width: 120px;
+    }
+
+    .dd-icon-wrapper {
+        width: 65px;
+        height: 65px;
+        padding: 14px;
+    }
+
+    .dd-pricing-card {
+        padding: 30px 20px;
+        min-height: auto;
+    }
+
+    .dd-carousel-track img {
+        height: 40px;
+    }
+}
+
+/* Extra Small (≤375px) */
+@media (max-width: 375px) {
+    .dd-stack-card {
+        width: 110px;
+    }
+
+    .dd-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dd-badge {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,723 @@
+/* Main wrapper to prevent CSS conflicts */
+.shopify-detail-page .hero-wrapper-shopify {
+    padding-bottom: 8%;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../public/images/hero-bg.png') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6%;
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-content h1 {
+    font-family: Josefin Sans Bold;
+    font-size: 70px;
+    margin-top: -1vh;
+    font-weight: 900;
+    line-height: 101px;
+    word-spacing: -4%;
+    color: rgba(55, 55, 55, 1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-content:hover h1 {
+    transform: scale(1.02);
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-content span {
+    color: #1d1d1d;
+    position: relative;
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-content span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #4230C4, #6B5AE0);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease;
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-content:hover span::after {
+    transform: scaleX(1);
+}
+
+.shopify-detail-page .hero-icons {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-icons img {
+    height: 20vh !important;
+    margin-top: 6vh;
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.shopify-detail-page .hero-wrapper-shopify .hero-icons img:hover {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 10px 20px rgba(66, 48, 196, 0.3));
+}
+
+.shopify-detail-page .shopify-container {
+    margin: 30px;
+    background: rgba(66, 48, 196, 1);
+    padding: 60px 40px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.shopify-detail-page .shopify-container::before,
+.shopify-detail-page .shopify-container::after {
+    content: '';
+    position: absolute;
+    opacity: 0.1;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.shopify-detail-page .shopify-container::before {
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.shopify-detail-page .shopify-container::after {
+    bottom: 10%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation-delay: 3s;
+}
+
+.shopify-detail-page .shopify-title {
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.shopify-detail-page .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+}
+
+.shopify-detail-page .benefit-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 180px;
+    cursor: pointer;
+}
+
+.shopify-detail-page .benefit-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.shopify-detail-page .benefit-card.featured {
+    background: white;
+    border: none;
+    grid-column: 1;
+    grid-row: 2;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shopify-detail-page .benefit-card.featured:hover {
+    background: #f8f8f8;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.shopify-detail-page .benefit-card.featured .benefit-title {
+    color: #999;
+    font-size: 18px;
+}
+
+.shopify-detail-page .benefit-card.featured .benefit-description {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.shopify-detail-page .benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.shopify-detail-page .benefit-card:hover .benefit-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.shopify-detail-page .benefit-title {
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    font-weight: 600;
+    margin: 0;
+}
+
+.shopify-detail-page .benefit-description {
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 600;
+    font-family: Segoe UI;
+}
+
+.shopify-detail-page .shopify-services {
+    text-align: center;
+    padding: 25px 40px 120px 40px;
+    background: #fafafa;
+    font-family: "Poppins", sans-serif;
+}
+
+.shopify-detail-page .shopify-services h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.shopify-detail-page .shopify-services p {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Card Grid --- */
+.shopify-detail-page .services-grid {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* --- Card --- */
+.shopify-detail-page .service-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 260px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 40px 25px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.shopify-detail-page .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(66, 48, 196, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.shopify-detail-page .service-card:hover::before {
+    left: 100%;
+}
+
+.shopify-detail-page .service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(66, 48, 196, 0.2);
+}
+
+.shopify-detail-page .service-card:hover .service-number {
+    color: rgba(66, 48, 196, 0.15);
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Card Content --- */
+.shopify-detail-page .service-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.shopify-detail-page .service-content img {
+    width: auto;
+    height: 90px;
+    transition: transform 0.3s ease;
+}
+
+.shopify-detail-page .service-card:hover .service-content img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.shopify-detail-page .service-content h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+    line-height: 1.3;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.shopify-detail-page .service-card:hover .service-content h3 {
+    color: #4230C4;
+}
+
+.shopify-detail-page .service-content p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 230px;
+    margin: 12px auto;
+}
+
+/* --- Number styles --- */
+.shopify-detail-page .service-number {
+    position: absolute;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+/* Odd cards: top-left */
+.shopify-detail-page .number-top .service-number {
+    top: -80px;
+    left: -5px;
+}
+
+/* Even cards: bottom-left (outside) */
+.shopify-detail-page .number-bottom .service-number {
+    bottom: -85px;
+    left: -5px;
+}
+
+.shopify-detail-page .shopify-work-container {
+    background-color: #f5f3ef;
+    padding: 60px 80px;
+    min-height: 100vh;
+}
+
+.shopify-detail-page .main-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 60px;
+    font-family: Josefin Sans Bold;
+}
+
+.shopify-detail-page .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+}
+
+.shopify-detail-page .project-card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.shopify-detail-page .project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.shopify-detail-page .project-card.large {
+    height: 440px;
+}
+
+.shopify-detail-page .project-card.small {
+    height: 340px;
+}
+
+.shopify-detail-page .project-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.shopify-detail-page .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.shopify-detail-page .project-card:hover .project-image {
+    transform: scale(1.15);
+}
+
+.shopify-detail-page .project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    padding: 30px 24px;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+.shopify-detail-page .project-card:hover .project-overlay {
+    background: linear-gradient(to top, rgba(66, 48, 196, 0.95) 0%, rgba(66, 48, 196, 0.6) 70%, transparent 100%);
+    padding: 35px 24px;
+}
+
+.shopify-detail-page .project-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.shopify-detail-page .company-name {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.68);
+    transition: all 0.3s ease;
+}
+
+.shopify-detail-page .project-card:hover .company-name {
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 1px;
+}
+
+.shopify-detail-page .project-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 4px 0 8px 0;
+    transition: transform 0.3s ease;
+}
+
+.shopify-detail-page .project-card:hover .project-title {
+    transform: translateX(5px);
+}
+
+.shopify-detail-page .project-category {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+/* Carousel Section */
+.shopify-detail-page .carousel-container {
+    overflow: hidden;
+    background: #fff;
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+.shopify-detail-page .carousel {
+    position: relative;
+    width: 100%;
+}
+
+.shopify-detail-page .carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    gap: 60px;
+}
+
+.shopify-detail-page .carousel-track img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.shopify-detail-page .carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.shopify-detail-page .carousel-track img:hover {
+    transform: scale(1.15);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+    .shopify-detail-page .hero-wrapper-shopify .hero-content h1 {
+        font-size: 56px;
+        line-height: 80px;
+    }
+
+    .shopify-detail-page .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shopify-detail-page .benefit-card.featured {
+        grid-column: 1 / -1;
+    }
+
+    .shopify-detail-page .service-card {
+        max-width: 220px;
+        height: auto;
+    }
+
+    .shopify-detail-page .shopify-work-container {
+        padding: 40px 40px;
+    }
+
+    .shopify-detail-page .projects-grid {
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .shopify-detail-page .hero-wrapper-shopify {
+        padding: 60px 20px;
+        background-attachment: scroll;
+    }
+
+    .shopify-detail-page .hero-wrapper-shopify .hero-content h1 {
+        font-size: 36px;
+        line-height: 50px;
+        padding: 0 10px;
+    }
+
+    .shopify-detail-page .hero-wrapper-shopify .hero-icons img {
+        height: 15vh;
+        max-width: 90%;
+    }
+
+    .shopify-detail-page .shopify-container {
+        padding: 40px 20px;
+        margin: 15px;
+    }
+
+    .shopify-detail-page .shopify-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .shopify-detail-page .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .shopify-detail-page .benefit-card {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .shopify-detail-page .benefit-card hr {
+        display: none !important;
+    }
+
+    .shopify-detail-page .benefit-icon {
+        font-size: 36px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .shopify-detail-page .benefit-title {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .shopify-detail-page .benefit-description {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .shopify-detail-page .shopify-services {
+        padding: 40px 20px 80px 20px;
+    }
+
+    .shopify-detail-page .shopify-services h2 {
+        font-size: 28px;
+    }
+
+    .shopify-detail-page .shopify-services p {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    .shopify-detail-page .services-grid {
+        gap: 20px;
+    }
+
+    .shopify-detail-page .service-card {
+        max-width: 100%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .shopify-detail-page .service-number {
+        font-size: 3rem;
+    }
+
+    .shopify-detail-page .number-top .service-number {
+        top: -60px;
+    }
+
+    .shopify-detail-page .number-bottom .service-number {
+        bottom: -65px;
+    }
+
+    .shopify-detail-page .shopify-work-container {
+        padding: 30px 20px;
+    }
+
+    .shopify-detail-page .main-title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .shopify-detail-page .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .shopify-detail-page .project-card.large,
+    .shopify-detail-page .project-card.small {
+        height: 360px;
+    }
+
+    .shopify-detail-page .carousel-track {
+        gap: 40px;
+    }
+
+
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+    .shopify-detail-page .hero-wrapper-shopify .hero-content h1 {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .shopify-detail-page .hero-wrapper-shopify .hero-icons img {
+        height: 12vh;
+    }
+
+    .shopify-detail-page .shopify-container {
+        margin: 10px;
+        padding: 30px 15px;
+    }
+
+    .shopify-detail-page .shopify-title {
+        font-size: 26px;
+    }
+
+    .shopify-detail-page .benefit-card {
+        padding: 15px;
+        min-height: 140px;
+    }
+
+    .shopify-detail-page .shopify-services {
+        padding: 30px 15px 60px 15px;
+    }
+
+    .shopify-detail-page .service-card {
+        padding: 25px 15px;
+    }
+
+    .shopify-detail-page .main-title {
+        font-size: 28px;
+    }
+
+    .shopify-detail-page .project-overlay {
+        padding: 20px 16px;
+    }
+
+    .shopify-detail-page .company-name {
+        font-size: 14px;
+    }
+
+    .shopify-detail-page .project-title {
+        font-size: 16px;
+    }
+
+    .shopify-detail-page .project-category {
+        font-size: 14px;
+    }
+}
