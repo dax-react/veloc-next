@@ -189,7 +189,7 @@ const OurWork = () => {
             <section className="unique-what-we-built-page">
                 <div className="what-we-built" data-aos="fade-up">
                     <h2 className="title" data-aos="zoom-in">
-                        What We've Built
+                        What We&apos;ve Built
                     </h2>
 
                     <div className="grid-container">
@@ -269,7 +269,7 @@ const OurWork = () => {
                             Each project we deliver is a reflection of our commitment to creativity,
                             usability, and performance.
                             <br />
-                            👉 Explore our featured projects below to see how we've helped clients
+                            👉 Explore our featured projects below to see how we&apos;ve helped clients
                             transform their digital presence.
                         </p>
                     </div>
@@ -325,7 +325,7 @@ const OurWork = () => {
                                 onClick={() => handleNavigate(item.link)}
                             >
                                 <div className="card-image">
-                                    <img src={item.image} alt={item.category} />
+                                    <Image src={item.image} alt={item.category} />
                                     {item.textInside && (
                                         <div className="card-content-overlay">
                                             <p className="card-category">{item.category}</p>
@@ -481,10 +481,10 @@ const OurWork = () => {
                         >
                             {testimonials.map((testimonial) => (
                                 <div key={testimonial.id} className="testimonial-card">
-                                    <p className="testimonial-text">"{testimonial.text}"</p>
+                                    <p className="testimonial-text">&quot;{testimonial.text}&quot;</p>
                                     <div className="card-divider"></div>
                                     <div className="testimonial-author">
-                                        <img
+                                        <Image
                                             src={testimonial.image}
                                             alt={testimonial.name}
                                             className="author-image"
@@ -504,10 +504,10 @@ const OurWork = () => {
             <div className="hero-wrapper-shopify">
                 <div className="hero-content">
                     <Typography variant="h2" className="hero-title">
-                        Let's Start Building Your
+                        Let&apos;s Start Building Your
                     </Typography>
                     <Typography variant="h2" className="hero-subtitle" data-delay="100">
-                        Brand's unique Story <span style={{
+                        Brand&apos;s unique Story <span style={{
                             fontFamily: 'Space Grotesk, sans-serif',
                             fontWeight: 400,
                             fontStyle: 'normal',
@@ -520,7 +520,7 @@ const OurWork = () => {
                         }}> Together</span>
                     </Typography>
                     <Typography className="hero-text" data-delay="200">
-                        Tell us about your ideas. Let's talk about how we can help you build them into brilliant, successful digital products. Let's talk today!
+                        Tell us about your ideas. Let&apos;s talk about how we can help you build them into brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
                     <div className="container" data-delay="300">
                         <button className="connect-button">
@@ -543,7 +543,7 @@ const OurWork = () => {
                                     strokeWidth="2.5"
                                 />
                             </svg>
-                            <span style={{ color: '#fff' }}>Let's Connect</span>
+                            <span style={{ color: '#fff' }}>Let&apos;s Connect</span>
                         </button>
                     </div>
                 </div>

@@ -216,7 +216,7 @@ const backendDevlopment = {
 // AI Development Page Data
 const artificialIntelligent = {
     hero: {
-        title: (<>AI:Drive the Future,<br /> Don't Get Left Behind</>),
+        title: (<>AI:Drive the Future,<br /> Don&apos;t Get Left Behind</>),
         icons: bottomIconai
     },
     benefits: {

@@ -389,7 +389,7 @@ export default function Contact() {
                     <div className="contact-info-section">
                         <h2 className="contact-info-title">Get In Touch</h2>
                         <p className="contact-info-description">
-                            We'd love to hear from you! Whether you have a project in mind, a question about our services, or just want to say hello — feel free to reach out.
+                            We&apos;d love to hear from you! Whether you have a project in mind, a question about our services, or just want to say hello — feel free to reach out.
                         </p>
 
                         <div className="contact-info-list">

@@ -175,10 +175,10 @@ export default function Smitle() {
             <div className="hero-wrapper-shopify">
                 <div className="hero-content">
                     <Typography variant="h2" className="hero-title">
-                        Let's Start Building Your
+                        Let&apos;s Start Building Your
                     </Typography>
                     <Typography variant="h2" className="hero-subtitle" data-delay="100">
-                        Brand's unique Story{" "}
+                        Brand&apos;s unique Story{" "}
                         <span
                             style={{
                                 fontFamily: "Space Grotesk, sans-serif",
@@ -195,8 +195,8 @@ export default function Smitle() {
                         </span>
                     </Typography>
                     <Typography className="hero-text" data-delay="200">
-                        Tell us about your ideas. Let's talk about how we can help you build them into
-                        brilliant, successful digital products. Let's talk today!
+                        Tell us about your ideas. Let&apos;s talk about how we can help you build them into
+                        brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
                     <div className="container" data-delay="300">
                         <button className="connect-button">
@@ -219,7 +219,7 @@ export default function Smitle() {
                                     strokeWidth="2.5"
                                 />
                             </svg>
-                            <span style={{ color: "#fff" }}>Let's Connect</span>
+                            <span style={{ color: "#fff" }}>Let&apos;s Connect</span>
                         </button>
                     </div>
                 </div>
