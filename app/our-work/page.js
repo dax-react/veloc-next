@@ -16,6 +16,7 @@ import approach1 from '@/public/images/aprroach1.png';
 import approach2 from '@/public/images/aprroach2.png';
 import approach3 from '@/public/images/aprroach3.png';
 import approach4 from '@/public/images/aprroach4.png';
+import Link from 'next/link';
 
 const OurWork = () => {
     const [value, setValue] = useState(0);
@@ -325,7 +326,7 @@ const OurWork = () => {
                                 onClick={() => handleNavigate(item.link)}
                             >
                                 <div className="card-image">
-                                    <Image src={item.image} alt={item.category} />
+                                    <img src={item.image} alt={item.category} />
                                     {item.textInside && (
                                         <div className="card-content-overlay">
                                             <p className="card-category">{item.category}</p>
@@ -484,7 +485,7 @@ const OurWork = () => {
                                     <p className="testimonial-text">&quot;{testimonial.text}&quot;</p>
                                     <div className="card-divider"></div>
                                     <div className="testimonial-author">
-                                        <Image
+                                        <img
                                             src={testimonial.image}
                                             alt={testimonial.name}
                                             className="author-image"
@@ -523,28 +524,30 @@ const OurWork = () => {
                         Tell us about your ideas. Let&apos;s talk about how we can help you build them into brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
                     <div className="container" data-delay="300">
-                        <button className="connect-button">
-                            <svg
-                                className="icon"
-                                viewBox="0 0 40 40"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M20 5L5 20L20 35L35 20L20 5Z"
-                                    stroke="currentColor"
-                                    strokeWidth="2.5"
-                                    strokeLinejoin="round"
+                        <Link href="/contact">
+                            <button className="connect-button">
+                                <svg
+                                    className="icon"
+                                    viewBox="0 0 40 40"
                                     fill="none"
-                                />
-                                <path
-                                    d="M20 5L35 20M5 20L20 35"
-                                    stroke="currentColor"
-                                    strokeWidth="2.5"
-                                />
-                            </svg>
-                            <span style={{ color: '#fff' }}>Let&apos;s Connect</span>
-                        </button>
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M20 5L5 20L20 35L35 20L20 5Z"
+                                        stroke="currentColor"
+                                        strokeWidth="2.5"
+                                        strokeLinejoin="round"
+                                        fill="none"
+                                    />
+                                    <path
+                                        d="M20 5L35 20M5 20L20 35"
+                                        stroke="currentColor"
+                                        strokeWidth="2.5"
+                                    />
+                                </svg>
+                                <span style={{ color: '#fff' }}>Let&apos;s Connect</span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

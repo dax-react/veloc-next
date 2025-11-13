@@ -51,16 +51,16 @@ const Navbar = () => {
     }, [menuOpen]);
 
     // Close menu on route change
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/immutability
+        closeAllMenus();
+    }, [pathname]);
 
     // Helper function to close all menus
     const closeAllMenus = () => {
         setMenuOpen(false);
         setMegaMenuOpen(false);
     };
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        closeAllMenus();
-    }, [pathname]);
 
     // Toggle mobile menu
     const toggleMenu = () => {

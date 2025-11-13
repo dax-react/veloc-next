@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "../styles/Home.css";
 import footerlogo from '../public/images/footerlogo.png';
+import Link from "next/link";
 
 const HeroSection = () => {
   const [activeItem, setActiveItem] = useState(null);
@@ -206,28 +207,30 @@ const HeroSection = () => {
             Turn your business idea into reality with us. Make your business grow and scalable through Technology.
           </Typography>
           <div className="container aos fade-up" data-delay="300">
-            <button className="connect-button">
-              <svg
-                className="icon"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 5L5 20L20 35L35 20L20 5Z"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinejoin="round"
+            <Link href="/contact">
+              <button className="connect-button">
+                <svg
+                  className="icon"
+                  viewBox="0 0 40 40"
                   fill="none"
-                />
-                <path
-                  d="M20 5L35 20M5 20L20 35"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                />
-              </svg>
-              <span>Let&apos;s Connect</span>
-            </button>
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 5L5 20L20 35L35 20L20 5Z"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M20 5L35 20M5 20L20 35"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  />
+                </svg>
+                <span>Let&apos;s Connect</span>
+              </button>
+            </Link>
           </div>
         </Box>
       </div>
@@ -475,28 +478,30 @@ const HeroSection = () => {
             Tell us about your ideas. Let&apos;s talk about how we can help you build them into brilliant, successful digital products. Let&apos;s talk today!
           </Typography>
           <div className="container aos fade-up" data-delay="300">
-            <button className="connect-button">
-              <svg
-                className="icon"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 5L5 20L20 35L35 20L20 5Z"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinejoin="round"
+            <Link href="/contact">
+              <button className="connect-button">
+                <svg
+                  className="icon"
+                  viewBox="0 0 40 40"
                   fill="none"
-                />
-                <path
-                  d="M20 5L35 20M5 20L20 35"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                />
-              </svg>
-              <span>Let&apos;s Connect</span>
-            </button>
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 5L5 20L20 35L35 20L20 5Z"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M20 5L35 20M5 20L20 35"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  />
+                </svg>
+                <span>Let&apos;s Connect</span>
+              </button>
+            </Link>
           </div>
         </Box>
       </div>

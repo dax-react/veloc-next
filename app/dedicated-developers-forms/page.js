@@ -10,6 +10,31 @@ import emailjs from 'emailjs-com';
 import Image from 'next/image';
 import dedicated_team from '../../public/images/dedicated team.png'
 import dedicated_dev from '../../public/images/dedicated developer.png'
+import {
+    FaReact,
+    FaAngular,
+    FaVuejs,
+    FaNodeJs,
+    FaPython,
+    FaAws,
+    FaDocker,
+    FaJava,
+    FaAndroid,
+    FaApple,
+    FaEthereum,
+    FaLaravel,
+    FaHtml5,
+    FaJs,
+    FaGitAlt,
+    FaCloud,
+    FaCogs,
+    FaRobot,
+    FaBrain,
+    FaCube,
+    FaServer,
+    FaNetworkWired,
+} from "react-icons/fa";
+
 const MultiStepForm = () => {
     const router = useRouter();
 
@@ -35,6 +60,102 @@ const MultiStepForm = () => {
         phone: '',
         additionalInfo: ''
     });
+
+    const techStackByRole = {
+        Frontend: [
+            "React.js",
+            "Next.js",
+            "Angular",
+            "Vue.js",
+            "Svelte",
+            "HTML/CSS/JS",
+            "TypeScript",
+        ],
+        Backend: [
+            "Node.js",
+            "Python / FastAPI",
+            "Django",
+            "Laravel / PHP",
+            "Ruby on Rails",
+            "Java / Spring Boot",
+            "Go (Golang)",
+        ],
+        Mobile: [
+            "Flutter",
+            "React Native",
+            "Native iOS (Swift / SwiftUI)",
+            "Native Android (Kotlin)",
+        ],
+        DevOps: [
+            "AWS",
+            "GCP",
+            "Azure",
+            "Docker",
+            "Kubernetes",
+            "Terraform",
+            "CI/CD",
+        ],
+        "Data / AI": [
+            "Python",
+            "TensorFlow",
+            "PyTorch",
+            "OpenAI / LLMs",
+            "LangChain",
+            "Airflow",
+            "Spark",
+        ],
+        Blockchain: [
+            "Solidity (Ethereum)",
+            "Hardhat",
+            "Web3.js",
+            "Ethers.js",
+            "Rust (Solana)",
+            "Polygon / BSC",
+            "IPFS",
+        ],
+    };
+    const techIcons = {
+        "React.js": <FaReact color="#61DBFB" size={40} />,
+        "Next.js": <FaReact color="#000" size={40} />, // fallback React icon
+        "Angular": <FaAngular color="#DD0031" size={40} />,
+        "Vue.js": <FaVuejs color="#42b883" size={40} />,
+        "Svelte": <FaCode color="#FF3E00" size={40} />,
+        "HTML/CSS/JS": <FaHtml5 color="#E34F26" size={40} />,
+        "TypeScript": <FaJs color="#3178C6" size={40} />,
+        "Node.js": <FaNodeJs color="#3C873A" size={40} />,
+        "Python / FastAPI": <FaPython color="#3776AB" size={40} />,
+        "Django": <FaPython color="#092E20" size={40} />,
+        "Laravel / PHP": <FaLaravel color="#FF2D20" size={40} />,
+        "Ruby on Rails": <FaCode color="#CC0000" size={40} />,
+        "Java / Spring Boot": <FaJava color="#007396" size={40} />,
+        "Go (Golang)": <FaCode color="#00ADD8" size={40} />,
+        "Flutter": <FaAndroid color="#02569B" size={40} />,
+        "React Native": <FaReact color="#61DBFB" size={40} />,
+        "Native iOS (Swift / SwiftUI)": <FaApple color="#000" size={40} />,
+        "Native Android (Kotlin)": <FaAndroid color="#3DDC84" size={40} />,
+        "AWS": <FaAws color="#FF9900" size={40} />,
+        "GCP": <FaCloud color="#4285F4" size={40} />,
+        "Azure": <FaCloud color="#008AD7" size={40} />,
+        "Docker": <FaDocker color="#2496ED" size={40} />,
+        "Kubernetes": <FaServer color="#326CE5" size={40} />,
+        "Terraform": <FaCogs color="#844FBA" size={40} />,
+        "CI/CD": <FaGitAlt color="#F05032" size={40} />,
+        "Python": <FaPython color="#3776AB" size={40} />,
+        "TensorFlow": <FaBrain color="#FF6F00" size={40} />,
+        "PyTorch": <FaBrain color="#EE4C2C" size={40} />,
+        "OpenAI / LLMs": <FaRobot color="#10A37F" size={40} />,
+        "LangChain": <FaNetworkWired color="#333" size={40} />,
+        "Airflow": <FaCloud color="#017CEE" size={40} />,
+        "Spark": <FaDatabase color="#E25A1C" size={40} />,
+        "Solidity (Ethereum)": <FaEthereum color="#3C3C3D" size={40} />,
+        "Hardhat": <FaCogs color="#F7DF1E" size={40} />,
+        "Web3.js": <FaEthereum color="#3C3C3D" size={40} />,
+        "Ethers.js": <FaEthereum color="#3C3C3D" size={40} />,
+        "Rust (Solana)": <FaCube color="#000" size={40} />,
+        "Polygon / BSC": <FaEthereum color="#8247E5" size={40} />,
+        "IPFS": <FaCube color="#65C2CB" size={40} />,
+    };
+
 
     const handleTeamTypeSelect = (type, hours, pricing) => {
         setFormData({ ...formData, teamType: type, pricing: pricing, teamTypeDetails: hours });
@@ -127,7 +248,6 @@ const MultiStepForm = () => {
         };
 
         try {
-            // Submit to HubSpot
             const response = await fetch(hubspotEndpoint, {
                 method: "POST",
                 headers: {
@@ -136,7 +256,6 @@ const MultiStepForm = () => {
                 body: JSON.stringify(payload),
             });
 
-            // Send Email via EmailJS
             await emailjs.send(
                 "service_n4sxm91",
                 "template_i6q1796",
@@ -350,19 +469,7 @@ const MultiStepForm = () => {
                     <p style={styles.roleLabel}>DevOps</p>
                 </div>
 
-                <div style={styles.roleCard} onClick={() => handleRoleSelect('QA')}>
-                    <div style={styles.roleIcon}>
-                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                            <rect x="15" y="15" width="25" height="25" rx="2" stroke="#333" strokeWidth="2" />
-                            <circle cx="45" cy="35" r="8" stroke="#333" strokeWidth="2" />
-                            <path d="M50 40 L55 45" stroke="#333" strokeWidth="2" strokeLinecap="round" />
-                            <path d="M20 25 L25 30 L33 22" stroke="#5b5bff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                    <p style={styles.roleLabel}>QA</p>
-                </div>
-
-                <div style={styles.roleCard} onClick={() => handleRoleSelect('Data/AI')}>
+                <div style={styles.roleCard} onClick={() => handleRoleSelect('Data / AI')}>
                     <div style={styles.roleIcon}>
                         <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
                             <rect x="15" y="20" width="10" height="20" fill="#5b5bff" opacity="0.3" />
@@ -371,7 +478,7 @@ const MultiStepForm = () => {
                             <line x1="10" y1="40" x2="55" y2="40" stroke="#333" strokeWidth="2" />
                         </svg>
                     </div>
-                    <p style={styles.roleLabel}>Data/AI</p>
+                    <p style={styles.roleLabel}>Data / AI</p>
                 </div>
 
                 <div style={styles.roleCard} onClick={() => handleRoleSelect('Blockchain')}>
@@ -390,99 +497,36 @@ const MultiStepForm = () => {
         </div>
     );
 
+    const renderTechStep = () => {
+        const techOptions = techStackByRole[formData.role] || [];
 
-    const renderTechStep = () => (
-        <div style={styles.stepContent}>
-            <h3 style={styles.sectionTitle}>Select the tech</h3>
-            <div style={styles.techGrid}>
-                <div style={styles.techCard} onClick={() => handleTechSelect('React')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <circle cx="25" cy="25" r="4" fill="#61DAFB" />
-                            <ellipse cx="25" cy="25" rx="18" ry="8" stroke="#61DAFB" strokeWidth="2" fill="none" />
-                            <ellipse cx="25" cy="25" rx="18" ry="8" stroke="#61DAFB" strokeWidth="2" fill="none" transform="rotate(60 25 25)" />
-                            <ellipse cx="25" cy="25" rx="18" ry="8" stroke="#61DAFB" strokeWidth="2" fill="none" transform="rotate(120 25 25)" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>React</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('Next.js')}>
-                    <div style={styles.techIconBox}>
-                        <div style={{ height: '50px', borderRadius: '50%', fontSize: '50px', fontWeight: 'bold' }}><RiNextjsFill style={{ 'height': '50px' }} /></div>
-                    </div>
-                    <p style={styles.techLabel}>Next.js</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('Node.js')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <path d="M25 5 L45 15 L45 35 L25 45 L5 35 L5 15 Z" fill="#68A063" stroke="#68A063" strokeWidth="2" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>Node.js</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('Python / FastAPI')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <path d="M15 20 Q15 10 25 10 Q35 10 35 20 L35 30 Q35 40 25 40 Q15 40 15 30 Z" fill="#3776AB" />
-                            <circle cx="20" cy="17" r="2" fill="#FFD43B" />
-                            <circle cx="30" cy="33" r="2" fill="#FFD43B" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>Python / FastAPI</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('AI / LLMs')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <circle cx="25" cy="25" r="15" stroke="#9333EA" strokeWidth="2" />
-                            <circle cx="25" cy="25" r="3" fill="#9333EA" />
-                            <circle cx="15" cy="20" r="2" fill="#9333EA" />
-                            <circle cx="35" cy="20" r="2" fill="#9333EA" />
-                            <circle cx="20" cy="35" r="2" fill="#9333EA" />
-                            <circle cx="30" cy="35" r="2" fill="#9333EA" />
-                            <line x1="25" y1="25" x2="15" y2="20" stroke="#9333EA" strokeWidth="1.5" />
-                            <line x1="25" y1="25" x2="35" y2="20" stroke="#9333EA" strokeWidth="1.5" />
-                            <line x1="25" y1="25" x2="20" y2="35" stroke="#9333EA" strokeWidth="1.5" />
-                            <line x1="25" y1="25" x2="30" y2="35" stroke="#9333EA" strokeWidth="1.5" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>AI / LLMs</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('Laravel / PHP')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <path d="M10 35 L15 15 L25 25 L35 15 L40 35" stroke="#FF2D20" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>Laravel / PHP</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('Flutter')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <path d="M30 10 L15 25 L20 30 L40 10 Z" fill="#02569B" />
-                            <path d="M20 30 L15 35 L25 45 L30 40 L20 30" fill="#02569B" opacity="0.7" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>Flutter</p>
-                </div>
-
-                <div style={styles.techCard} onClick={() => handleTechSelect('Blockchain')}>
-                    <div style={styles.techIconBox}>
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                            <path d="M25 10 L35 20 L25 30 L15 20 Z" fill="#000" stroke="#000" strokeWidth="2" />
-                            <path d="M25 20 L35 30 L25 40 L15 30 Z" fill="#000" opacity="0.6" stroke="#000" strokeWidth="2" />
-                        </svg>
-                    </div>
-                    <p style={styles.techLabel}>Blockchain</p>
+        return (
+            <div style={styles.stepContent}>
+                <h3 style={styles.sectionTitle}>
+                    Select the tech for {formData.role}
+                </h3>
+                <div style={styles.techGrid}>
+                    {techOptions.map((tech) => (
+                        <div
+                            key={tech}
+                            style={styles.techCard}
+                            onClick={() => handleTechSelect(tech)}
+                        >
+                            <div style={styles.techIconBox}>
+                                {techIcons[tech] || (
+                                    <div style={styles.techIconPlaceholder}>
+                                        {tech.substring(0, 2).toUpperCase()}
+                                    </div>
+                                )}
+                            </div>
+                            <p style={styles.techLabel}>{tech}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
-    );
+        );
+    };
+
 
     const renderLevelStep = () => (
         <div style={styles.stepContent}>

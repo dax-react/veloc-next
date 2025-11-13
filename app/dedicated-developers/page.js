@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../../styles/DedicatedDevelopers.css";
 import footerlogo from '../../public/images/footerlogo.png';
+import Link from 'next/link';
 
 export default function DedicatedDevelopers() {
     const router = useRouter();
@@ -187,10 +188,14 @@ export default function DedicatedDevelopers() {
 
                         {/* Action buttons */}
                         <div className="dd-action-buttons" data-aos="fade-up" data-aos-delay="400">
-                            <button className="dd-btn dd-btn-secondary">
+                            <button
+                                className="dd-btn dd-btn-secondary"
+                                onClick={() => window.open('https://calendly.com/kaushik-veloc/introduction-call', '_blank')}
+                            >
                                 <FaCalendar />
                                 <span>Book a 15 min call</span>
                             </button>
+
 
                             <button
                                 className="dd-btn dd-btn-primary"
@@ -266,9 +271,12 @@ export default function DedicatedDevelopers() {
                                     )}
                                 </div>
                                 <div className="dd-card-footer">
-                                    <button className={`dd-pricing-btn ${plan.buttonClass}`}>
-                                        {plan.buttonText}
-                                    </button>
+                                    <Link href="/dedicated-developers-forms">
+                                        <button className={`dd-pricing-btn ${plan.buttonClass}`}>
+                                            {plan.buttonText}
+                                        </button>
+                                    </Link>
+
                                 </div>
                             </div>
                         ))}

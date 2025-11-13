@@ -11,6 +11,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+    padding-top: 6%;
 }
 
 .shopify-detail-page .hero-wrapper-shopify .hero-content h1 {
