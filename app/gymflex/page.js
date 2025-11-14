@@ -28,7 +28,9 @@ export default function Gymflex() {
             easing: "ease-in-out",
         });
     }, []);
-
+useEffect(() => {
+        document.title = "Gymflex";
+    }, []);
     return (
         <>
             <div className="background-about">

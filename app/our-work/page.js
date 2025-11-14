@@ -176,7 +176,9 @@ const OurWork = () => {
             easing: "ease-in-out",
         });
     }, []);
-
+    useEffect(() => {
+        document.title = "Our Work";
+    }, []);
     const handleNavigate = (link) => {
         router.push(link);
     };

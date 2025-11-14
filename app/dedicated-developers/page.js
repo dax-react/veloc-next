@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { FaBook, FaCalendar, FaCode, FaUser } from 'react-icons/fa';
-import { FaCircleQuestion } from 'react-icons/fa6';
+import { FaCircleQuestion, FaFlutter } from 'react-icons/fa6';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import AOS from 'aos';
@@ -21,7 +21,9 @@ export default function DedicatedDevelopers() {
             offset: 100
         });
     }, []);
-
+    useEffect(() => {
+        document.title = "Dedicated Developers"; // becomes About Us | Veloc
+    }, []);
     const stacks = [
         {
             label: 'React',
@@ -85,10 +87,7 @@ export default function DedicatedDevelopers() {
         {
             label: 'Flutter',
             icon: (
-                <svg viewBox="0 0 24 24" fill="#02569B" className="tech-icon">
-                    <path d="M14.5 2L4 12.5l3.5 3.5L18 6h-3.5z" />
-                    <path d="M14.5 12.5L11 16l3.5 3.5L21 13l-6.5-6.5h-3.5l3.5 3.5-3.5 3.5z" opacity="0.5" />
-                </svg>
+                <FaFlutter />
             )
         },
         {

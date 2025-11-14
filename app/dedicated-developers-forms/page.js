@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaCode, FaCog, FaLayerGroup, FaMobileAlt, FaDatabase, FaLink, FaEdit } from 'react-icons/fa';
-import { RiNextjsFill } from 'react-icons/ri';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import emailjs from 'emailjs-com';
@@ -156,7 +155,9 @@ const MultiStepForm = () => {
         "IPFS": <FaCube color="#65C2CB" size={40} />,
     };
 
-
+    useEffect(() => {
+        document.title = "Dedicated Form";
+    }, []);
     const handleTeamTypeSelect = (type, hours, pricing) => {
         setFormData({ ...formData, teamType: type, pricing: pricing, teamTypeDetails: hours });
         setCurrentStep(2);

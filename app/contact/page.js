@@ -1,7 +1,7 @@
 // app/contact/page.js or pages/contact.js (depending on your Next.js version)
 'use client'; // Required for App Router if using client-side features
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from 'emailjs-com';
@@ -10,83 +10,85 @@ import emailjs from 'emailjs-com';
 import footerlogo from '@/public/images/footerlogo.png';
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  useEffect(() => {
+    document.title = "Contact Us";
+  }, []);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
     });
+  };
 
-    const handleChange = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const portalId = "244252598";
+    const formGuid = "fb621206-3269-4871-9cb1-04c7feadf7ef";
+    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
+
+    const data = {
+      fields: [
+        { name: "firstname", value: formData.name },
+        { name: "email", value: formData.email },
+        { name: "phone", value: formData.phone },
+        { name: "subject", value: formData.subject },
+        { name: "message", value: formData.message },
+      ],
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      await emailjs.send(
+        "service_n4sxm91",
+        "template_76yd6o8",
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "xaklfWfIfvCP76y0o"
+      );
+
+      if (response.ok) {
+        alert("Message sent successfully!");
         setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
         });
-    };
+      } else {
+        alert("HubSpot submission failed, but EmailJS sent successfully.");
+      }
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const portalId = "244252598";
-        const formGuid = "fb621206-3269-4871-9cb1-04c7feadf7ef";
-        const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
-
-        const data = {
-            fields: [
-                { name: "firstname", value: formData.name },
-                { name: "email", value: formData.email },
-                { name: "phone", value: formData.phone },
-                { name: "subject", value: formData.subject },
-                { name: "message", value: formData.message },
-            ],
-        };
-
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
-
-            await emailjs.send(
-                "service_n4sxm91",
-                "template_76yd6o8",
-                {
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
-                    subject: formData.subject,
-                    message: formData.message,
-                },
-                "xaklfWfIfvCP76y0o"
-            );
-
-            if (response.ok) {
-                alert("Message sent successfully!");
-                setFormData({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    subject: "",
-                    message: "",
-                });
-            } else {
-                alert("HubSpot submission failed, but EmailJS sent successfully.");
-            }
-        } catch (error) {
-            console.error("❌ Error submitting form:", error);
-            alert("Something went wrong. Please try again.");
-        }
-    };
-
-    return (
-        <>
-            <div className="contact-wrapper">
-                <style jsx>{`
+  return (
+    <>
+      <div className="contact-wrapper">
+        <style jsx>{`
 .contact-wrapper {
   min-height: 100vh;
-  padding: 80px 20px;
+  padding: 20px 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: #fafafa;
 }
@@ -95,7 +97,7 @@ export default function Contact() {
   font-size: 60px;
   font-weight: 800;
   text-align: center;
-  margin: 0 0 70px 0;
+  margin: 0 0 0 0;
   color: #000000;
   letter-spacing: -1px;
 }
@@ -283,6 +285,7 @@ export default function Contact() {
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
+  margin-top:3vh;
 }
 
 .contact-submit-btn:hover {
@@ -382,135 +385,135 @@ export default function Contact() {
 }
         `}</style>
 
-                <div>
-                    <h1 className="contact-main-title" style={{ padding: '8vh' }}>Contact us</h1>
+        <div>
+          <h1 className="contact-main-title" style={{ padding: '8vh' }}>Contact us</h1>
+        </div>
+        <div className="contact-grid">
+          <div className="contact-info-section">
+            <h2 className="contact-info-title">Get In Touch</h2>
+            <p className="contact-info-description">
+              We&apos;d love to hear from you! Whether you have a project in mind, a question about our services, or just want to say hello — feel free to reach out.
+            </p>
+
+            <div className="contact-info-list">
+              <div className="contact-info-item">
+                <div className="contact-icon-circle">
+                  <Mail size={22} color="#1a1a1a" strokeWidth={2} />
                 </div>
-                <div className="contact-grid">
-                    <div className="contact-info-section">
-                        <h2 className="contact-info-title">Get In Touch</h2>
-                        <p className="contact-info-description">
-                            We&apos;d love to hear from you! Whether you have a project in mind, a question about our services, or just want to say hello — feel free to reach out.
-                        </p>
-
-                        <div className="contact-info-list">
-                            <div className="contact-info-item">
-                                <div className="contact-icon-circle">
-                                    <Mail size={22} color="#1a1a1a" strokeWidth={2} />
-                                </div>
-                                <div className="contact-info-text">
-                                    info@veloc.in
-                                </div>
-                            </div>
-
-                            <div className="contact-info-item">
-                                <div className="contact-icon-circle">
-                                    <MapPin size={22} color="#1a1a1a" strokeWidth={2} />
-                                </div>
-                                <div className="contact-info-text">
-                                    A-1, Golden City, Aspire Road, Mota<br />
-                                    Varachha, Surat - 395004
-                                </div>
-                            </div>
-
-                            <div className="contact-info-item">
-                                <div className="contact-icon-circle">
-                                    <Phone size={22} color="#1a1a1a" strokeWidth={2} />
-                                </div>
-                                <div className="contact-info-text">
-                                    <div className="contact-phone-list">
-                                        <div className="contact-phone-item">
-                                            <span className="contact-flag contact-flag-india"></span>
-                                            <span>+91 97123 72394</span>
-                                        </div>
-                                        <div className="contact-phone-item">
-                                            <span className="contact-flag contact-flag-usa"></span>
-                                            <span>+1 (415) 409-8951</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="contact-form-container">
-                        <form onSubmit={handleSubmit}>
-                            <div className="contact-form-row">
-                                <div className="contact-form-group">
-                                    <label className="contact-form-label">Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Eg. John deo"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className="contact-form-input"
-                                        required
-                                    />
-                                </div>
-
-                                <div className="contact-form-group">
-                                    <label className="contact-form-label">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Eg. Johndeo@gmail.com"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="contact-form-input"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="contact-form-row">
-                                <div className="contact-form-group">
-                                    <label className="contact-form-label">Phone No.</label>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        placeholder="Eg. (+91) 000 000 0000"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        className="contact-form-input"
-                                        required
-                                    />
-                                </div>
-
-                                <div className="contact-form-group">
-                                    <label className="contact-form-label">Subject</label>
-                                    <input
-                                        type="text"
-                                        name="subject"
-                                        placeholder="Eg. Website Development"
-                                        value={formData.subject}
-                                        onChange={handleChange}
-                                        className="contact-form-input"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="contact-form-group-full">
-                                <label className="contact-form-label">Message</label>
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    className="contact-form-textarea"
-                                    required
-                                ></textarea>
-                            </div>
-
-                            <button type="submit" className="contact-submit-btn">
-                                Submit
-                            </button>
-                        </form>
-                    </div>
+                <div className="contact-info-text">
+                  info@veloc.in
                 </div>
+              </div>
+
+              <div className="contact-info-item">
+                <div className="contact-icon-circle">
+                  <MapPin size={22} color="#1a1a1a" strokeWidth={2} />
+                </div>
+                <div className="contact-info-text">
+                  A-1, Golden City, Aspire Road, Mota<br />
+                  Varachha, Surat - 395004
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <div className="contact-icon-circle">
+                  <Phone size={22} color="#1a1a1a" strokeWidth={2} />
+                </div>
+                <div className="contact-info-text">
+                  <div className="contact-phone-list">
+                    <div className="contact-phone-item">
+                      <span className="contact-flag contact-flag-india"></span>
+                      <span>+91 97123 72394</span>
+                    </div>
+                    <div className="contact-phone-item">
+                      <span className="contact-flag contact-flag-usa"></span>
+                      <span>+1 (415) 409-8951</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <div className="dd-carousel-container">
-                <style jsx>{`
+          <div className="contact-form-container">
+            <form onSubmit={handleSubmit}>
+              <div className="contact-form-row">
+                <div className="contact-form-group">
+                  <label className="contact-form-label">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Eg. John deo"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="contact-form-input"
+                    required
+                  />
+                </div>
+
+                <div className="contact-form-group">
+                  <label className="contact-form-label">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Eg. Johndeo@gmail.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="contact-form-input"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="contact-form-row">
+                <div className="contact-form-group">
+                  <label className="contact-form-label">Phone No.</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Eg. (+91) 000 000 0000"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="contact-form-input"
+                    required
+                  />
+                </div>
+
+                <div className="contact-form-group">
+                  <label className="contact-form-label">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Eg. Website Development"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="contact-form-input"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="contact-form-group-full">
+                <label className="contact-form-label">Message</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="contact-form-textarea"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" className="contact-submit-btn">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div className="dd-carousel-container">
+        <style jsx>{`
           .dd-carousel-container {
             overflow: hidden;
             padding: 40px 0;
@@ -537,17 +540,17 @@ export default function Contact() {
             }
           }
         `}</style>
-                <div className="dd-carousel-container" data-aos="fade-up">
-                    <div className="dd-carousel">
-                        <div className="dd-carousel-track">
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                        </div>
-                    </div>
-                </div>
+        <div className="dd-carousel-container" data-aos="fade-up">
+          <div className="dd-carousel">
+            <div className="dd-carousel-track">
+              <Image src={footerlogo} alt="Trusted Logos" />
+              <Image src={footerlogo} alt="Trusted Logos" />
+              <Image src={footerlogo} alt="Trusted Logos" />
+              <Image src={footerlogo} alt="Trusted Logos" />
             </div>
-        </>
-    );
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

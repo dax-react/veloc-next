@@ -28,7 +28,9 @@ export default function ServiceDetailPage({ params }) {
         });
         AOS.refresh();
     }, []);
-
+    useEffect(() => {
+        document.title = `Services`;
+    }, []);
 
     if (!pageData) {
         return (
@@ -60,6 +62,10 @@ export default function ServiceDetailPage({ params }) {
         <div className="shopify-detail-page">
             {/* HERO SECTION */}
             <section className="hero-wrapper-shopify">
+                {/* Animated Background Elements */}
+                <div className="dd-bg-decoration dd-circle-1"></div>
+                <div className="dd-bg-decoration dd-circle-2"></div>
+                <div className="dd-bg-decoration dd-circle-3"></div>
                 <div className="hero-content" data-aos="fade-up" data-aos-delay="100">
                     <h1>{hero.title}</h1>
                     {hero.subtitle && <p className="hero-subtitle">{hero.subtitle}</p>}

@@ -13,6 +13,7 @@ import about from '@/public/images/about-hero.jpg';
 import about_creative from '@/public/images/about-creative.jpg';
 import footerlogo from '@/public/images/footerlogo.png';
 
+
 export default function AboutSection() {
     useEffect(() => {
         AOS.init({
@@ -22,7 +23,9 @@ export default function AboutSection() {
             once: true,
         });
     }, []);
-
+    useEffect(() => {
+        document.title = "About Us"; // becomes About Us | Veloc
+    }, []);
     const stats = [
         { number: 9, suffix: '+', label: 'Years', sublabel: 'Experience' },
         { number: 100, suffix: '+', label: 'Delivers', sublabel: 'Project' },

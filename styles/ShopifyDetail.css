@@ -14,6 +14,61 @@
     padding-top: 6%;
 }
 
+.dd-bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.dd-circle-1 {
+    top: 10%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #7c4dff, #651fff);
+    animation-delay: 0s;
+}
+
+.dd-circle-2 {
+    bottom: 15%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8787);
+    animation-delay: 5s;
+}
+
+.dd-circle-3 {
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    animation-delay: 10s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(20px, 30px) scale(1.05);
+    }
+}
+
 .shopify-detail-page .hero-wrapper-shopify .hero-content h1 {
     font-family: Josefin Sans Bold;
     font-size: 70px;
