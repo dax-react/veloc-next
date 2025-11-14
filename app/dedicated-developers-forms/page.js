@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaCode, FaCog, FaLayerGroup, FaMobileAlt, FaDatabase, FaLink, FaEdit } from 'react-icons/fa';
 import PhoneInput from 'react-phone-input-2';
@@ -33,6 +33,8 @@ import {
     FaServer,
     FaNetworkWired,
 } from "react-icons/fa";
+import { Close, CloseTwoTone } from '@mui/icons-material';
+import { navigate } from 'next/dist/client/components/segment-cache-impl/navigation';
 
 const MultiStepForm = () => {
     const router = useRouter();
@@ -889,6 +891,12 @@ const MultiStepForm = () => {
     return (
         <div style={styles.container}>
             <div style={styles.formCard}>
+                <CloseTwoTone
+                    style={styles.closeBtn}
+                    onClick={() => router.push("/")}
+                />
+
+
                 <h1 style={styles.formTitle}>Get a personalized quote</h1>
 
                 {renderProgressBar()}
@@ -1005,7 +1013,21 @@ const styles = {
         width: '100%',
         boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15)',
         boxSizing: 'border-box',
+
+        // REQUIRED for top-right button
+        position: 'relative',
     },
+
+    closeBtn: {
+        position: "absolute",
+        top: "12px",
+        right: "12px",
+        border: "none",
+        fontSize: "22px",
+        cursor: "pointer",
+        color: "#333",
+    },
+
     formTitle: {
         textAlign: 'center',
         color: '#1a1a4d',

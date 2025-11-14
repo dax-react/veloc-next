@@ -21,12 +21,21 @@ export default function ServiceDetailPage({ params }) {
     const pageData = servicePages[slug];
 
     useEffect(() => {
+        // Fix scroll shift on first load
+        document.documentElement.style.scrollBehavior = "auto";
+
         AOS.init({
             duration: 1000,
-            offset: 100,
-            easing: "ease-out-cubic",
+            offset: 0, // IMPORTANT — fix scroll jump
+            easing: "ease-in-out",
+            once: true,
         });
-        AOS.refresh();
+
+        // Re-enable smooth scroll again after initialization
+        setTimeout(() => {
+            document.documentElement.style.scrollBehavior = "smooth";
+        }, 100);
+
     }, []);
     useEffect(() => {
         document.title = `Services`;
@@ -63,10 +72,7 @@ export default function ServiceDetailPage({ params }) {
             {/* HERO SECTION */}
             <section className="hero-wrapper-shopify">
                 {/* Animated Background Elements */}
-                <div className="dd-bg-decoration dd-circle-1"></div>
-                <div className="dd-bg-decoration dd-circle-2"></div>
-                <div className="dd-bg-decoration dd-circle-3"></div>
-                <div className="hero-content" data-aos="fade-up" data-aos-delay="100">
+                <div className="hero-content" >
                     <h1>{hero.title}</h1>
                     {hero.subtitle && <p className="hero-subtitle">{hero.subtitle}</p>}
                 </div>
