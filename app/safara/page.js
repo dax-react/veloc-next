@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import Image from "next/image";
 import { ArrowForwardTwoTone } from "@mui/icons-material";
 import "../../styles/Portfolio.css";
-
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 // Import static assets from public/
 import safara1 from "@/public/images/safara1 copy.png";
 import safara2 from "@/public/images/safara2 copy.png";
@@ -45,6 +45,7 @@ export default function Safara() {
     }, []);
     return (
         <>
+            <TitleActivityWatcher activeTitle="Safara" />
             <div className="background-about">
                 <Box className="project-wrapper">
                     <Box className="project-container">
@@ -248,7 +249,7 @@ export default function Safara() {
                         into brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
 
-                    <div className="container" data-delay="300">
+                    <div data-delay="300">
                         <button className="connect-button">
                             <svg
                                 className="icon"

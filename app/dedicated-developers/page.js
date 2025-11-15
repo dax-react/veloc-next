@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 import "../../styles/DedicatedDevelopers.css";
 import footerlogo from '../../public/images/footerlogo.png';
 import Link from 'next/link';
-
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 export default function DedicatedDevelopers() {
     const router = useRouter();
 
@@ -144,156 +144,159 @@ export default function DedicatedDevelopers() {
     ];
 
     return (
-        <div className="dd-wrapper">
-            <div className="dedicated-developers-page">
-                {/* Hero Section */}
-                <div className="dd-hero-section">
-                    {/* Animated Background Elements */}
-                    <div className="dd-bg-decoration dd-circle-1"></div>
-                    <div className="dd-bg-decoration dd-circle-2"></div>
-                    <div className="dd-bg-decoration dd-circle-3"></div>
+        <>
+            <TitleActivityWatcher activeTitle="Dedicated Developers" />
+            <div className="dd-wrapper">
+                <div className="dedicated-developers-page">
+                    {/* Hero Section */}
+                    <div className="dd-hero-section">
+                        {/* Animated Background Elements */}
+                        <div className="dd-bg-decoration dd-circle-1"></div>
+                        <div className="dd-bg-decoration dd-circle-2"></div>
+                        <div className="dd-bg-decoration dd-circle-3"></div>
 
-                    <div className="dd-hero-content" data-aos="fade-up">
-                        <h1 className="dd-hero-title" data-aos="fade-up" data-aos-delay="100">
-                            Dedicated Developers & Teams
-                        </h1>
+                        <div className="dd-hero-content" data-aos="fade-up">
+                            <h1 className="dd-hero-title" data-aos="fade-up" data-aos-delay="100">
+                                Dedicated Developers & Teams
+                            </h1>
 
-                        <p className="dd-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                            Spin up a dedicated developer or a small team—fast, flexible, and aligned to your roadmap.
+                            <p className="dd-hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                                Spin up a dedicated developer or a small team—fast, flexible, and aligned to your roadmap.
+                            </p>
+
+                            {/* Feature badges */}
+                            <div className="dd-feature-badges" data-aos="fade-up" data-aos-delay="300">
+                                <div className="dd-badge">
+                                    <div className="dd-badge-icon dd-badge-green">✓</div>
+                                    <span>Start in 5-7 days</span>
+                                </div>
+
+                                <div className="dd-badge">
+                                    <div className="dd-badge-icon dd-badge-purple"><FaUser /></div>
+                                    <span>NDA & 100% IP ownership</span>
+                                </div>
+
+                                <div className="dd-badge">
+                                    <div className="dd-badge-icon dd-badge-orange"><FaCode /></div>
+                                    <span>Code tests & peer reviews</span>
+                                </div>
+
+                                <div className="dd-badge">
+                                    <div className="dd-badge-icon dd-badge-blue"><FaBook /></div>
+                                    <span>Sprint planning & reports</span>
+                                </div>
+                            </div>
+
+                            {/* Action buttons */}
+                            <div className="dd-action-buttons" data-aos="fade-up" data-aos-delay="400">
+                                <button
+                                    className="dd-btn dd-btn-secondary"
+                                    onClick={() => window.open('https://calendly.com/kaushik-veloc/introduction-call', '_blank')}
+                                >
+                                    <FaCalendar />
+                                    <span>Book a 15 min call</span>
+                                </button>
+
+
+                                <button
+                                    className="dd-btn dd-btn-primary"
+                                    onClick={() => router.push('/dedicated-developers-forms')}
+                                >
+                                    <FaCircleQuestion />
+                                    <span>Request Vetted Developer Resume</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Stack Section */}
+                    <div className="dd-stack-section">
+                        <h2 className="dd-stack-title" data-aos="fade-up">
+                            STACK WE OFFER
+                        </h2>
+                        <p className="dd-stack-subtitle" data-aos="fade-up" data-aos-delay="100">
+                            Need something else? Tell us your stack—we&apos;ll match the right engineers and set up a trial week.
                         </p>
-
-                        {/* Feature badges */}
-                        <div className="dd-feature-badges" data-aos="fade-up" data-aos-delay="300">
-                            <div className="dd-badge">
-                                <div className="dd-badge-icon dd-badge-green">✓</div>
-                                <span>Start in 5-7 days</span>
-                            </div>
-
-                            <div className="dd-badge">
-                                <div className="dd-badge-icon dd-badge-purple"><FaUser /></div>
-                                <span>NDA & 100% IP ownership</span>
-                            </div>
-
-                            <div className="dd-badge">
-                                <div className="dd-badge-icon dd-badge-orange"><FaCode /></div>
-                                <span>Code tests & peer reviews</span>
-                            </div>
-
-                            <div className="dd-badge">
-                                <div className="dd-badge-icon dd-badge-blue"><FaBook /></div>
-                                <span>Sprint planning & reports</span>
-                            </div>
-                        </div>
-
-                        {/* Action buttons */}
-                        <div className="dd-action-buttons" data-aos="fade-up" data-aos-delay="400">
-                            <button
-                                className="dd-btn dd-btn-secondary"
-                                onClick={() => window.open('https://calendly.com/kaushik-veloc/introduction-call', '_blank')}
-                            >
-                                <FaCalendar />
-                                <span>Book a 15 min call</span>
-                            </button>
-
-
-                            <button
-                                className="dd-btn dd-btn-primary"
-                                onClick={() => router.push('/dedicated-developers-forms')}
-                            >
-                                <FaCircleQuestion />
-                                <span>Request Vetted Developer Resume</span>
-                            </button>
+                        <div className="dd-stack-cards">
+                            {stacks.map((item, index) => (
+                                <div
+                                    className="dd-stack-card"
+                                    key={index}
+                                    data-aos="zoom-in"
+                                    data-aos-delay={index * 100}
+                                >
+                                    <div className="dd-icon-wrapper">{item.icon}</div>
+                                    <span className="dd-stack-label">{item.label}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </div>
 
-                {/* Stack Section */}
-                <div className="dd-stack-section">
-                    <h2 className="dd-stack-title" data-aos="fade-up">
-                        STACK WE OFFER
-                    </h2>
-                    <p className="dd-stack-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Need something else? Tell us your stack—we&apos;ll match the right engineers and set up a trial week.
-                    </p>
-                    <div className="dd-stack-cards">
-                        {stacks.map((item, index) => (
-                            <div
-                                className="dd-stack-card"
-                                key={index}
-                                data-aos="zoom-in"
-                                data-aos-delay={index * 100}
-                            >
-                                <div className="dd-icon-wrapper">{item.icon}</div>
-                                <span className="dd-stack-label">{item.label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Pricing Section */}
-                <div className="dd-pricing-section">
-                    <h2 className="dd-pricing-heading" data-aos="fade-up">Pricing (monthly)</h2>
-                    <div className="dd-pricing-container">
-                        {pricingPlans.map((plan, index) => (
-                            <div
-                                key={index}
-                                className={`dd-pricing-card ${plan.isHighlighted ? 'dd-highlighted' : ''} ${plan.isEnterprise ? 'dd-enterprise' : ''}`}
-                                data-aos="fade-up"
-                                data-aos-delay={index * 150}
-                            >
-                                <div className="dd-card-header">
-                                    <h3 className="dd-plan-title">{plan.title}</h3>
-                                    <p className="dd-plan-subtitle">{plan.subtitle}</p>
-                                    <p className="dd-plan-description">{plan.description}</p>
-                                </div>
-                                <div className="dd-card-body">
-                                    {plan.plans && plan.plans.map((item, idx) => (
-                                        <div key={idx} className="dd-plan-item">
-                                            <div className="dd-plan-info">
-                                                <span className="dd-plan-name">{item.name}</span>
-                                                <span className="dd-plan-details">{item.details}</span>
+                    {/* Pricing Section */}
+                    <div className="dd-pricing-section">
+                        <h2 className="dd-pricing-heading" data-aos="fade-up">Pricing (monthly)</h2>
+                        <div className="dd-pricing-container">
+                            {pricingPlans.map((plan, index) => (
+                                <div
+                                    key={index}
+                                    className={`dd-pricing-card ${plan.isHighlighted ? 'dd-highlighted' : ''} ${plan.isEnterprise ? 'dd-enterprise' : ''}`}
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 150}
+                                >
+                                    <div className="dd-card-header">
+                                        <h3 className="dd-plan-title">{plan.title}</h3>
+                                        <p className="dd-plan-subtitle">{plan.subtitle}</p>
+                                        <p className="dd-plan-description">{plan.description}</p>
+                                    </div>
+                                    <div className="dd-card-body">
+                                        {plan.plans && plan.plans.map((item, idx) => (
+                                            <div key={idx} className="dd-plan-item">
+                                                <div className="dd-plan-info">
+                                                    <span className="dd-plan-name">{item.name}</span>
+                                                    <span className="dd-plan-details">{item.details}</span>
+                                                </div>
+                                                <div className="dd-plan-price">
+                                                    {item.priceRange ? (
+                                                        <span className="dd-price-range">{item.priceRange}</span>
+                                                    ) : (
+                                                        <span className="dd-price">{item.price}</span>
+                                                    )}
+                                                    <span className="dd-period">{item.period}</span>
+                                                </div>
                                             </div>
-                                            <div className="dd-plan-price">
-                                                {item.priceRange ? (
-                                                    <span className="dd-price-range">{item.priceRange}</span>
-                                                ) : (
-                                                    <span className="dd-price">{item.price}</span>
-                                                )}
-                                                <span className="dd-period">{item.period}</span>
+                                        ))}
+                                        {plan.range && (
+                                            <div className="dd-price-range-info">
+                                                {plan.range}
                                             </div>
-                                        </div>
-                                    ))}
-                                    {plan.range && (
-                                        <div className="dd-price-range-info">
-                                            {plan.range}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="dd-card-footer">
-                                    <Link href="/dedicated-developers-forms">
-                                        <button className={`dd-pricing-btn ${plan.buttonClass}`}>
-                                            {plan.buttonText}
-                                        </button>
-                                    </Link>
+                                        )}
+                                    </div>
+                                    <div className="dd-card-footer">
+                                        <Link href="/dedicated-developers-forms">
+                                            <button className={`dd-pricing-btn ${plan.buttonClass}`}>
+                                                {plan.buttonText}
+                                            </button>
+                                        </Link>
 
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                {/* Carousel Section */}
-                <div className="dd-carousel-container" data-aos="fade-up">
-                    <div className="dd-carousel">
-                        <div className="dd-carousel-track">
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                            <Image src={footerlogo} alt="Trusted Logos" />
-                            <Image src={footerlogo} alt="Trusted Logos" />
+                    {/* Carousel Section */}
+                    <div className="dd-carousel-container" data-aos="fade-up">
+                        <div className="dd-carousel">
+                            <div className="dd-carousel-track">
+                                <Image src={footerlogo} alt="Trusted Logos" />
+                                <Image src={footerlogo} alt="Trusted Logos" />
+                                <Image src={footerlogo} alt="Trusted Logos" />
+                                <Image src={footerlogo} alt="Trusted Logos" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

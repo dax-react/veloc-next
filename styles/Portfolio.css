@@ -43,7 +43,7 @@
 .background-about .project-title {
     font-weight: 700 !important;
     margin-bottom: 1rem;
-    font-size: 2.5rem !important;
+    font-size: 3rem !important;
     letter-spacing: 0.3px;
     font-family: Montserrat, sans-serif;
     transition: all 0.3s ease;
@@ -58,7 +58,7 @@
     color: rgba(151, 151, 151, 1);
     font-family: Segoe UI;
     font-weight: 400;
-    font-size: 13.5px !important;
+    font-size: 15px !important;
     line-height: 1.6;
     margin-top: 3vh !important;
     margin: 0 auto 2.5rem auto;

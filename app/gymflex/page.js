@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import "@/styles/Portfolio.css";
 import { ArrowForwardTwoTone } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 export default function Gymflex() {
     // ✅ All images & videos are now served from /public
     const video = "/videos/safara.mp4";
@@ -33,6 +34,7 @@ export default function Gymflex() {
     }, []);
     return (
         <>
+            <TitleActivityWatcher activeTitle="Gymflex" />
             <div className="background-about">
                 <Box className="project-wrapper">
                     <Box className="project-container">
@@ -110,7 +112,7 @@ export default function Gymflex() {
                 </div>
 
                 {/* Images Grid */}
-                <div className="container">
+                <div style={{ 'padding': '40px 20px' }}>
                     <div className="image-grid">
                         <div className="left-section">
                             <div
@@ -250,7 +252,7 @@ export default function Gymflex() {
                         Tell us about your ideas. Let&apos;s talk about how we can help you build them into
                         brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
-                    <div style={{ 'padding': '40px 20px' }}>
+                    <div>
                         <button className="connect-button">
                             <svg
                                 className="icon"

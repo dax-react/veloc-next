@@ -9,6 +9,7 @@ import emailjs from 'emailjs-com';
 import Image from 'next/image';
 import dedicated_team from '../../public/images/dedicated team.png'
 import dedicated_dev from '../../public/images/dedicated developer.png'
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 import {
     FaReact,
     FaAngular,
@@ -889,109 +890,112 @@ const MultiStepForm = () => {
     );
 
     return (
-        <div style={styles.container}>
-            <div style={styles.formCard}>
-                <CloseTwoTone
-                    style={styles.closeBtn}
-                    onClick={() => router.push("/")}
-                />
+        <>
+            <TitleActivityWatcher activeTitle="Dedicated form" />
+            <div style={styles.container}>
+                <div style={styles.formCard}>
+                    <CloseTwoTone
+                        style={styles.closeBtn}
+                        onClick={() => router.push("/")}
+                    />
 
 
-                <h1 style={styles.formTitle}>Get a personalized quote</h1>
+                    <h1 style={styles.formTitle}>Get a personalized quote</h1>
 
-                {renderProgressBar()}
+                    {renderProgressBar()}
 
-                {currentStep === 1 && renderStep1()}
-                {formData.teamType === 'Dedicated team (POD)' && currentStep === 2 && renderStep2()}
-                {formData.teamType === 'Dedicated team (POD)' && currentStep === 3 && renderStep3()}
-                {formData.teamType === 'Dedicated Developer' && currentStep === 2 && renderRoleStep()}
-                {formData.teamType === 'Dedicated Developer' && currentStep === 3 && renderTechStep()}
-                {formData.teamType === 'Dedicated Developer' && currentStep === 4 && renderLevelStep()}
-                {((formData.teamType === 'Dedicated team (POD)' && currentStep === 4) || (formData.teamType === 'Dedicated Developer' && currentStep === 5)) && renderStep4()}
-                {((formData.teamType === 'Dedicated team (POD)' && currentStep === 5) || (formData.teamType === 'Dedicated Developer' && currentStep === 6)) && renderStep5()}
-                {((formData.teamType === 'Dedicated team (POD)' && currentStep === 6) || (formData.teamType === 'Dedicated Developer' && currentStep === 7)) && renderStep6()}
-                {((formData.teamType === 'Dedicated team (POD)' && currentStep === 7) || (formData.teamType === 'Dedicated Developer' && currentStep === 8)) && renderStep7()}
+                    {currentStep === 1 && renderStep1()}
+                    {formData.teamType === 'Dedicated team (POD)' && currentStep === 2 && renderStep2()}
+                    {formData.teamType === 'Dedicated team (POD)' && currentStep === 3 && renderStep3()}
+                    {formData.teamType === 'Dedicated Developer' && currentStep === 2 && renderRoleStep()}
+                    {formData.teamType === 'Dedicated Developer' && currentStep === 3 && renderTechStep()}
+                    {formData.teamType === 'Dedicated Developer' && currentStep === 4 && renderLevelStep()}
+                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 4) || (formData.teamType === 'Dedicated Developer' && currentStep === 5)) && renderStep4()}
+                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 5) || (formData.teamType === 'Dedicated Developer' && currentStep === 6)) && renderStep5()}
+                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 6) || (formData.teamType === 'Dedicated Developer' && currentStep === 7)) && renderStep6()}
+                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 7) || (formData.teamType === 'Dedicated Developer' && currentStep === 8)) && renderStep7()}
 
-                <div style={styles.buttonContainer}>
-                    {currentStep > 1 && ((formData.teamType === 'Dedicated team (POD)' && currentStep < 7) || (formData.teamType === 'Dedicated Developer' && currentStep < 8)) && (
-                        <button style={styles.btnBack} onClick={handleBack}>
-                            Back
-                        </button>
-                    )}
-
-                    {((formData.teamType === 'Dedicated team (POD)' && currentStep < 4) || (formData.teamType === 'Dedicated Developer' && currentStep < 5)) && (
-                        <button style={styles.btnSecondary}>
-                            Book a Call
-                        </button>
-                    )}
-
-                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 4) || (formData.teamType === 'Dedicated Developer' && currentStep === 5)) && (
-                        <>
-                            <button style={styles.btnSecondary}>
-                                Book a Call
-                            </button>
-                            <button
-                                style={{
-                                    ...styles.btnPrimary,
-                                    ...(isStep4Valid() ? {} : styles.btnDisabled)
-                                }}
-                                onClick={handleContinue}
-                                disabled={!isStep4Valid()}
-                            >
-                                Next
-                            </button>
-                        </>
-                    )}
-
-                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 5) || (formData.teamType === 'Dedicated Developer' && currentStep === 6)) && (
-                        <>
-                            <button style={styles.btnSecondary}>
-                                Book a Call
-                            </button>
-                            <button
-                                style={{
-                                    ...styles.btnPrimary,
-                                    ...(isStep5Valid() ? {} : styles.btnDisabled)
-                                }}
-                                onClick={handleContinue}
-                                disabled={!isStep5Valid()}
-                            >
-                                Next
-                            </button>
-                        </>
-                    )}
-
-                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 6) || (formData.teamType === 'Dedicated Developer' && currentStep === 7)) && (
-                        <>
-                            <button style={styles.btnSecondary}>
-                                Book a Call
-                            </button>
-                            <button
-                                style={{
-                                    ...styles.btnPrimary,
-                                    ...(isStep6Valid() ? {} : styles.btnDisabled)
-                                }}
-                                onClick={handleContinue}
-                                disabled={!isStep6Valid()}
-                            >
-                                Next
-                            </button>
-                        </>
-                    )}
-
-                    {((formData.teamType === 'Dedicated team (POD)' && currentStep === 7) || (formData.teamType === 'Dedicated Developer' && currentStep === 8)) && (
-                        <>
+                    <div style={styles.buttonContainer}>
+                        {currentStep > 1 && ((formData.teamType === 'Dedicated team (POD)' && currentStep < 7) || (formData.teamType === 'Dedicated Developer' && currentStep < 8)) && (
                             <button style={styles.btnBack} onClick={handleBack}>
                                 Back
                             </button>
-                            <button style={styles.btnPrimary} onClick={handleSubmit}>
-                                Send
+                        )}
+
+                        {((formData.teamType === 'Dedicated team (POD)' && currentStep < 4) || (formData.teamType === 'Dedicated Developer' && currentStep < 5)) && (
+                            <button style={styles.btnSecondary}>
+                                Book a Call
                             </button>
-                        </>
-                    )}
+                        )}
+
+                        {((formData.teamType === 'Dedicated team (POD)' && currentStep === 4) || (formData.teamType === 'Dedicated Developer' && currentStep === 5)) && (
+                            <>
+                                <button style={styles.btnSecondary}>
+                                    Book a Call
+                                </button>
+                                <button
+                                    style={{
+                                        ...styles.btnPrimary,
+                                        ...(isStep4Valid() ? {} : styles.btnDisabled)
+                                    }}
+                                    onClick={handleContinue}
+                                    disabled={!isStep4Valid()}
+                                >
+                                    Next
+                                </button>
+                            </>
+                        )}
+
+                        {((formData.teamType === 'Dedicated team (POD)' && currentStep === 5) || (formData.teamType === 'Dedicated Developer' && currentStep === 6)) && (
+                            <>
+                                <button style={styles.btnSecondary}>
+                                    Book a Call
+                                </button>
+                                <button
+                                    style={{
+                                        ...styles.btnPrimary,
+                                        ...(isStep5Valid() ? {} : styles.btnDisabled)
+                                    }}
+                                    onClick={handleContinue}
+                                    disabled={!isStep5Valid()}
+                                >
+                                    Next
+                                </button>
+                            </>
+                        )}
+
+                        {((formData.teamType === 'Dedicated team (POD)' && currentStep === 6) || (formData.teamType === 'Dedicated Developer' && currentStep === 7)) && (
+                            <>
+                                <button style={styles.btnSecondary}>
+                                    Book a Call
+                                </button>
+                                <button
+                                    style={{
+                                        ...styles.btnPrimary,
+                                        ...(isStep6Valid() ? {} : styles.btnDisabled)
+                                    }}
+                                    onClick={handleContinue}
+                                    disabled={!isStep6Valid()}
+                                >
+                                    Next
+                                </button>
+                            </>
+                        )}
+
+                        {((formData.teamType === 'Dedicated team (POD)' && currentStep === 7) || (formData.teamType === 'Dedicated Developer' && currentStep === 8)) && (
+                            <>
+                                <button style={styles.btnBack} onClick={handleBack}>
+                                    Back
+                                </button>
+                                <button style={styles.btnPrimary} onClick={handleSubmit}>
+                                    Send
+                                </button>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

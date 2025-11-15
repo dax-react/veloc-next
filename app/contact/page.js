@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from 'emailjs-com';
-
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 // Import images - adjust paths based on your project structure
 import footerlogo from '@/public/images/footerlogo.png';
 
@@ -84,6 +84,7 @@ export default function Contact() {
 
   return (
     <>
+      <TitleActivityWatcher activeTitle="Contact Us" />
       <div className="contact-wrapper">
         <style jsx>{`
 .contact-wrapper {

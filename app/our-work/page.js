@@ -9,7 +9,7 @@ import { FaBrain, FaGlobe, FaLink, FaMobileAlt, FaPencilRuler, FaServer, FaStore
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import '../../styles/OurWork.css';
-
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 // Import images - adjust paths based on your project structure
 import footerlogo from '@/public/images/footerlogo.png';
 import approach1 from '@/public/images/aprroach1.png';
@@ -191,6 +191,7 @@ const OurWork = () => {
 
     return (
         <>
+            <TitleActivityWatcher activeTitle="Our Work" />
             <div className="our-work-container">
                 <h1 className="our-work-title">Our Work</h1>
             </div>

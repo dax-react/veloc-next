@@ -12,7 +12,7 @@ import '../../styles/AboutUs.css';
 import about from '@/public/images/about-hero.jpg';
 import about_creative from '@/public/images/about-creative.jpg';
 import footerlogo from '@/public/images/footerlogo.png';
-
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 
 export default function AboutSection() {
     useEffect(() => {
@@ -58,6 +58,7 @@ export default function AboutSection() {
 
     return (
         <>
+            <TitleActivityWatcher activeTitle="About Us" />
             {/* ===== ABOUT HERO SECTION ===== */}
             <div className="about-section-wrapper" data-aos="fade-up">
                 <div className="about-section-container">

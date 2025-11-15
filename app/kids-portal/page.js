@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "@/styles/Portfolio.css";
 import { useRouter } from "next/navigation";
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 export default function KidsPortalPage() {
     const images = [
         { id: 1, url: "/images/kids1.png", alt: "Image 1" },
@@ -30,6 +31,7 @@ export default function KidsPortalPage() {
     }, []);
     return (
         <>
+            <TitleActivityWatcher activeTitle="Kids Portal" />
             <div className="background-about">
                 <Box className="project-wrapper">
                     <Box className="project-container">
@@ -212,7 +214,7 @@ export default function KidsPortalPage() {
                         Tell us about your ideas. Let&apos;s talk about how we can help you build them into
                         brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
-                    <div className="container" data-delay="300">
+                    <div data-delay="300">
                         <button className="connect-button">
                             <svg
                                 className="icon"

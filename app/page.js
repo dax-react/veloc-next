@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import "../styles/Home.css";
 import footerlogo from '../public/images/footerlogo.png';
 import Link from "next/link";
-
+import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 const HeroSection = () => {
   const [activeItem, setActiveItem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -195,6 +195,7 @@ const HeroSection = () => {
 
   return (
     <>
+     <TitleActivityWatcher activeTitle="Home" />
       <div className="hero-wrapper">
         <Box className="hero-content">
           <Typography variant="h2" className="hero-title aos fade-up">
