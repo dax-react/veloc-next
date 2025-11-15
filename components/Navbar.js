@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/immutability */
 'use client';
 
 import React, { useState, useEffect } from "react";
@@ -13,10 +14,12 @@ import {
     FaBrain,
     FaCode,
     FaCubes,
+    FaGlobe,
     FaMobileAlt,
     FaPalette,
     FaServer,
     FaShopify,
+    FaShoppingBag,
     FaUsers,
 } from "react-icons/fa";
 
@@ -52,7 +55,6 @@ const Navbar = () => {
 
     // Close menu on route change
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/immutability
         closeAllMenus();
     }, [pathname]);
 
@@ -89,6 +91,22 @@ const Navbar = () => {
         }
     };
 
+    // Helper function to check if link is active
+    const isActive = (path) => pathname === path;
+
+    // Helper function to check if services section is active
+    const isServicesActive = () => pathname.startsWith('/services');
+    const menuItems = [
+        { icon: <FaUsers />, label: "Dedicated Team & Developers", link: "/dedicated-developers" },
+        { icon: <FaCubes />, label: "Blockchain Development", link: "/services/blockchain_development" },
+        { icon: <FaServer />, label: "Backend Development", link: "/services/backend_development" },
+        { icon: <FaMobileAlt />, label: "Mobile App Development", link: "/services/mobile_development" },
+        { icon: <FaBrain />, label: "Artificial Intelligence", link: "/services/artificial_intelligent" },
+        { icon: <FaPalette />, label: "UI UX Design", link: "/services/ui_ux" },
+        { icon: <FaCode />, label: "Web Development", link: "/services/web_development" },
+        { icon: <FaShopify />, label: "Shopify Development", link: "/services/shopify_development" },
+    ];
+
     return (
         <>
             {/* Top Info Bar */}
@@ -118,13 +136,18 @@ const Navbar = () => {
                     {/* Desktop Contact + Hamburger */}
                     <div className="nav-right">
                         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-                            <Link href="/" onClick={closeAllMenus}>
+                            <Link
+                                href="/"
+                                onClick={closeAllMenus}
+                                className={isActive('/') ? 'active' : ''}
+                            >
                                 Home
                             </Link>
 
                             <Link
                                 href="/dedicated-developers"
                                 onClick={closeAllMenus}
+                                className={isActive('/dedicated-developers') ? 'active' : ''}
                                 style={{
                                     background: "linear-gradient(90deg, #FFAB4A -19.03%, #5344BC 57.79%)",
                                     WebkitBackgroundClip: "text",
@@ -142,204 +165,47 @@ const Navbar = () => {
                                 onMouseEnter={handleMegaMenuEnter}
                                 onMouseLeave={handleMegaMenuLeave}
                             >
-                                <Link href="/" onClick={toggleMegaMenuMobile}>
+                                <Link
+                                    href="/"
+                                    onClick={toggleMegaMenuMobile}
+                                    className={isServicesActive() ? 'active' : ''}
+                                >
                                     Services
                                 </Link>
 
                                 {/* Mega Menu Dropdown */}
                                 <div className={`mega-menu ${megaMenuOpen ? "show" : ""}`}>
                                     <div className="mega-menu-grid">
-                                        {/* Dedicated Developers */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/dedicated-developers");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaUsers className="menu-icon" />
-                                            <span>Dedicated Team & Developers</span>
-                                        </div>
-
-                                        {/* Blockchain Development */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/blockchain_development");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaCubes className="menu-icon" />
-                                            <span>Blockchain Development</span>
-                                        </div>
-
-                                        {/* Backend Development */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/backend_development");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaServer className="menu-icon" />
-                                            <span>Backend Development</span>
-                                        </div>
-
-                                        {/* Mobile App Development */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/mobile_development");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaMobileAlt className="menu-icon" />
-                                            <span>Mobile App Development</span>
-                                        </div>
-
-                                        {/* Artificial Intelligence */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/artificial_intelligent");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaBrain className="menu-icon" />
-                                            <span>Artificial Intelligence</span>
-                                        </div>
-
-                                        {/* UI UX Design */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/ui_ux");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaPalette className="menu-icon" />
-                                            <span>UI UX Design</span>
-                                        </div>
-
-                                        {/* Web Development */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/web_development");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaCode className="menu-icon" />
-                                            <span>Web Development</span>
-                                        </div>
-
-                                        {/* Shopify Development */}
-                                        <div
-                                            className="menu-item"
-                                            onClick={() => {
-                                                router.push("/services/shopify_development");
-                                                closeAllMenus();
-                                            }}
-                                        >
-                                            <FaShopify className="menu-icon" />
-                                            <span>Shopify Development</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Bottom Cards */}
-                                    <div className="mega-menu-cards">
-                                        {/* Development Category */}
-                                        <div className="mega-card">
-                                            <div className="card-icon">
-                                                <FaCode />
+                                        {menuItems.map((item, i) => (
+                                            <div
+                                                key={i}
+                                                className="menu-item"
+                                                onClick={() => {
+                                                    router.push(item.link);
+                                                    closeAllMenus();
+                                                }}
+                                            >
+                                                <div className="menu-icon">{item.icon}</div>
+                                                <span>{item.label}</span>
                                             </div>
-                                            <h3>Development</h3>
-                                            <ul>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/dedicated_developers");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Dedicated Team & Developers
-                                                </li>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/mobile_development");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Mobile App Development
-                                                </li>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/web_development");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Web Development
-                                                </li>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/shopify_development");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Shopify Development
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        {/* Emerging Technologies Category */}
-                                        <div className="mega-card">
-                                            <div className="card-icon">
-                                                <FaBrain />
-                                            </div>
-                                            <h3>Emerging Technologies</h3>
-                                            <ul>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/blockchain_development");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Blockchain Development
-                                                </li>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/artificial_intelligent");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Artificial Intelligence
-                                                </li>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/backend_development");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    Backend Development
-                                                </li>
-                                                <li
-                                                    onClick={() => {
-                                                        router.push("/services/ui_ux");
-                                                        closeAllMenus();
-                                                    }}
-                                                >
-                                                    UI UX Design
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
 
-                            <Link href="/our-work" onClick={closeAllMenus}>
+                            <Link
+                                href="/our-work"
+                                onClick={closeAllMenus}
+                                className={isActive('/our-work') ? 'active' : ''}
+                            >
                                 Our Work
                             </Link>
 
-                            <Link href="/about-us" onClick={closeAllMenus}>
+                            <Link
+                                href="/about-us"
+                                onClick={closeAllMenus}
+                                className={isActive('/about-us') ? 'active' : ''}
+                            >
                                 About Us
                             </Link>
 

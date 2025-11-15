@@ -18,10 +18,11 @@ import safara6 from "@/public/images/safara6 copy.png";
 import safara7 from "@/public/images/safara7 copy.png";
 import profile from "@/public/images/profile.jpg";
 import footerlogo from "@/public/images/footerlogo.png";
+import { useRouter } from "next/navigation";
 
 export default function Safara() {
     const video = "/videos/safara.mp4";
-
+    const router = useRouter();
     const images = [
         { id: 1, url: safara1, alt: "Image 1" },
         { id: 3, url: safara3, alt: "Image 3" },
@@ -128,7 +129,7 @@ export default function Safara() {
                 </div>
 
                 {/* Image Grid Section */}
-                <div className="container">
+                <div style={{ 'padding': '40px 20px' }}>
                     <div className="image-grid">
                         <div className="left-section">
                             <div
@@ -208,12 +209,13 @@ export default function Safara() {
                 <div className="hero-container">
                     <div className="hero-content" data-aos="fade-up" data-aos-duration="1200">
                         <h1 className="hero-title" data-aos="fade-down" data-aos-delay="100">
-                            Textgrab Pro
+                            Gymflex
                         </h1>
                         <button
                             className="hero-button"
                             data-aos="zoom-in"
                             data-aos-delay="300"
+                            onClick={() => router.push('/gymflex')}
                         >
                             Next <ArrowForwardTwoTone />
                         </button>

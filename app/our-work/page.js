@@ -72,7 +72,8 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: false,
             isShort: false,
-            link: "/safara"
+            link: "/safara",
+            projectName: "Safara"
         },
         {
             id: 2,
@@ -82,7 +83,8 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: false,
             isShort: true,
-            link: "/gymflex"
+            link: "/gymflex",
+            projectName: "Gymflex"
         },
         {
             id: 3,
@@ -92,7 +94,8 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: false,
             isShort: false,
-            link: "/kids-portal"
+            link: "/kids-portal",
+            projectName: "Kids Portal"
         },
         {
             id: 4,
@@ -102,7 +105,8 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: true,
             isShort: false,
-            link: "/kids-portal"
+            link: "/kids-portal",
+            projectName: "Kids Portal"
         },
         {
             id: 5,
@@ -112,7 +116,8 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: true,
             isShort: true,
-            link: "/gymflex"
+            link: "/gymflex",
+            projectName: "Gymflex"
         },
         {
             id: 6,
@@ -122,17 +127,18 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: true,
             isShort: false,
-            link: "/safara"
+            link: "/safara",
+            projectName: "Safara"
         }
     ];
 
-    const categories = [
-        "All Projects",
-        "Job Portal",
-        "Service marketplace",
-        "E-Commerce Development",
-        "Mobile App Development",
-    ];
+    // Get unique project names for tabs
+    const categories = ["All Projects", ...Array.from(new Set(portfolioItems.map(item => item.projectName)))];
+
+    // Filter portfolio items based on selected tab
+    const filteredPortfolioItems = value === 0
+        ? portfolioItems
+        : portfolioItems.filter(item => item.projectName === categories[value]);
 
     const services = [
         { title: "Web Development", icon: <FaGlobe /> },
@@ -200,8 +206,6 @@ const OurWork = () => {
                             <div
                                 className="card"
                                 key={index}
-                                data-aos="fade-up"
-                                data-aos-delay={index * 100}
                             >
                                 <div className="icon" data-aos="zoom-in">
                                     {service.icon}
@@ -320,7 +324,7 @@ const OurWork = () => {
                     </div>
 
                     <div className="portfolio-grid" style={{ marginTop: "8vh" }}>
-                        {portfolioItems.map((item, index) => (
+                        {filteredPortfolioItems.map((item, index) => (
                             <div
                                 key={item.id}
                                 className={`portfolio-card ${item.textInside ? 'text-inside' : 'text-outside'} ${item.isShort ? 'short-image' : ''}`}
@@ -525,7 +529,7 @@ const OurWork = () => {
                     <Typography className="hero-text" data-delay="200">
                         Tell us about your ideas. Let&apos;s talk about how we can help you build them into brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
-                    <div className="container" data-delay="300">
+                    <div className="" data-delay="300">
                         <Link href="/contact">
                             <button className="connect-button">
                                 <svg

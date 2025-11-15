@@ -6,7 +6,7 @@ import { ArrowForwardTwoTone } from "@mui/icons-material";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@/styles/Portfolio.css";
-
+import { useRouter } from "next/navigation";
 export default function KidsPortalPage() {
     const images = [
         { id: 1, url: "/images/kids1.png", alt: "Image 1" },
@@ -17,7 +17,7 @@ export default function KidsPortalPage() {
         { id: 6, url: "/images/kids6.png", alt: "Image 6" },
         { id: 7, url: "/images/kids7.png", alt: "Image 7" },
     ];
-
+    const router = useRouter();
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -25,8 +25,8 @@ export default function KidsPortalPage() {
             easing: "ease-in-out",
         });
     }, []);
-useEffect(() => {
-        document.title = "Kids Portal"; 
+    useEffect(() => {
+        document.title = "Kids Portal";
     }, []);
     return (
         <>
@@ -114,7 +114,7 @@ useEffect(() => {
                 </div>
 
                 {/* Image Gallery */}
-                <div className="container">
+                <div style={{ 'padding': '40px 20px' }}>
                     <div className="image-grid">
                         {/* Left Section */}
                         <div className="left-section">
@@ -175,9 +175,9 @@ useEffect(() => {
                 <div className="hero-container">
                     <div className="hero-content" data-aos="fade-up" data-aos-duration="1200">
                         <h1 className="hero-title" data-aos="fade-down" data-aos-delay="100">
-                            Textgrab Pro
+                            Smitle
                         </h1>
-                        <button className="hero-button" data-aos="zoom-in" data-aos-delay="300">
+                        <button className="hero-button" data-aos="zoom-in" data-aos-delay="300" onClick={() => router.push('/smitle')}>
                             Next
                             <ArrowForwardTwoTone />
                         </button>

@@ -206,7 +206,7 @@ const HeroSection = () => {
           <Typography className="hero-text aos fade-up" data-delay="200">
             Turn your business idea into reality with us. Make your business grow and scalable through Technology.
           </Typography>
-          <div className="container aos fade-up" data-delay="300">
+          <div className=" aos fade-up">
             <Link href="/contact">
               <button className="connect-button">
                 <svg
@@ -477,7 +477,7 @@ const HeroSection = () => {
           <Typography className="hero-text aos fade-up" data-delay="200">
             Tell us about your ideas. Let&apos;s talk about how we can help you build them into brilliant, successful digital products. Let&apos;s talk today!
           </Typography>
-          <div className="container aos fade-up" data-delay="300">
+          <div className="aos fade-up" data-delay="300">
             <Link href="/contact">
               <button className="connect-button">
                 <svg

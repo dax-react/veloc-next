@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "@/styles/Portfolio.css";
 import { ArrowForwardTwoTone } from "@mui/icons-material";
-
+import { useRouter } from "next/navigation";
 export default function Gymflex() {
     // ✅ All images & videos are now served from /public
     const video = "/videos/safara.mp4";
@@ -20,7 +20,7 @@ export default function Gymflex() {
     ];
     const profile = "/images/profile.jpg";
     const footerlogo = "/images/footerlogo.png";
-
+    const router = useRouter();
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -28,7 +28,7 @@ export default function Gymflex() {
             easing: "ease-in-out",
         });
     }, []);
-useEffect(() => {
+    useEffect(() => {
         document.title = "Gymflex";
     }, []);
     return (
@@ -207,12 +207,13 @@ useEffect(() => {
                         data-aos-duration="1200"
                     >
                         <h1 className="hero-title" data-aos="fade-down" data-aos-delay="100">
-                            Textgrab Pro
+                            Kids Portal
                         </h1>
                         <button
                             className="hero-button"
                             data-aos="zoom-in"
                             data-aos-delay="300"
+                            onClick={() => router.push('/kids-portal')}
                         >
                             Next
                             <ArrowForwardTwoTone />
@@ -249,7 +250,7 @@ useEffect(() => {
                         Tell us about your ideas. Let&apos;s talk about how we can help you build them into
                         brilliant, successful digital products. Let&apos;s talk today!
                     </Typography>
-                    <div className="container" data-delay="300">
+                    <div style={{ 'padding': '40px 20px' }}>
                         <button className="connect-button">
                             <svg
                                 className="icon"

@@ -142,9 +142,9 @@
 .mega-menu {
     position: absolute;
     top: 100%;
-    left: -100%;
+    left: -20%;
     transform: translateX(-55%);
-    background: #7a6ed4;
+    background: #3600a8;
     border-radius: 24px;
     padding: 35px 40px;
     min-width: 850px;
@@ -169,7 +169,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px 25px;
-    margin-bottom: 30px;
 }
 
 /* Menu items */
@@ -189,6 +188,7 @@
 .menu-icon {
     width: 22px;
     height: 22px;
+    font-size: 22px;
     color: #fff;
     transition: all 0.3s ease;
 }

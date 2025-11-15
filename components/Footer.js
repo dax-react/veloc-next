@@ -55,10 +55,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>SERVICES</h3>
                         <ul>
-                            <li>Web Development</li>
-                            <li>Mobile App Development</li>
-                            <li>Game Development</li>
-                            <li>UI/UX Design</li>
+                            <li><Link href='/services/web_development'>Web Development</Link></li>
+                            <li><Link href='/services/mobile_development'>Mobile App Development</Link></li>
+                            <li><Link href='/services/shopify_development'>Game Development</Link></li>
+                            <li><Link href='/services/ui_ux'>UI/UX Design</Link></li>
                         </ul>
                     </div>
 
@@ -67,13 +67,13 @@ const Footer = () => {
                         <h3>COMPANY</h3>
                         <ul>
                             <li>
-                                <Link href="/about">About Us</Link>
+                                <Link href="/about-us">About Us</Link>
                             </li>
                             <li>
                                 <Link href="/dedicated-developers">Dedicated Dev & Teams</Link>
                             </li>
                             <li>
-                                <Link href="/ourwork">Our Work</Link>
+                                <Link href="/our-work">Our Work</Link>
                             </li>
                         </ul>
                     </div>
@@ -83,13 +83,13 @@ const Footer = () => {
                         <h3>USEFUL LINKS</h3>
                         <ul>
                             <li>
-                                <Link href="/contact">Let's Talk</Link>
+                                <Link href="/contact">Let&apos;s Talk</Link>
                             </li>
                             <li>
-                                <Link href="/partners">Become A Partner</Link>
+                                <Link href="/contact">Become A Partner</Link>
                             </li>
                             <li>
-                                <Link href="/case-studies">Case Studies</Link>
+                                <Link href="/contact">Case Studies</Link>
                             </li>
                         </ul>
                     </div>

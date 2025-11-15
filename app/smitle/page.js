@@ -6,6 +6,7 @@ import { ArrowForwardTwoTone } from "@mui/icons-material";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@/styles/Portfolio.css";
+import { useRouter } from "next/navigation";
 
 export default function Smitle() {
     const images = [
@@ -17,7 +18,7 @@ export default function Smitle() {
         { id: 6, url: "/images/safara6.png", alt: "Image 6" },
         { id: 7, url: "/images/gymflex5.png", alt: "Image 7" },
     ];
-
+    const router = useRouter();
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -105,7 +106,7 @@ export default function Smitle() {
                 </div>
 
                 {/* Image Grid */}
-                <div className="container">
+                <div style={{ 'padding': '40px 20px' }}>
                     <div className="image-grid">
                         <div className="left-section">
                             <div className="image-wrapper small" data-aos="fade-right" data-aos-delay="100">
@@ -158,12 +159,12 @@ export default function Smitle() {
                 </div>
 
                 {/* Hero Section */}
-                <div className="hero-container">
+                <div className="hero-container" style={{ 'height': '80%' }}>
                     <div className="hero-content" data-aos="fade-up" data-aos-duration="1200">
                         <h1 className="hero-title" data-aos="fade-down" data-aos-delay="100">
-                            Textgrab Pro
+                            Safara
                         </h1>
-                        <button className="hero-button" data-aos="zoom-in" data-aos-delay="300">
+                        <button className="hero-button" data-aos="zoom-in" data-aos-delay="300" onClick={() => router.push('/safara')}>
                             Next
                             <ArrowForwardTwoTone />
                         </button>

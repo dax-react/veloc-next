@@ -78,7 +78,6 @@ body {
     background-image: url('../public/images/hero-bg.png') !important;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 .dd-bg-decoration {
@@ -199,11 +198,14 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 8vh;
+    width: 100%;
+    padding: 0 20px;
 }
 
 /* Connect Button */
 .connect-button {
-    display: flex;
+    margin-top: 5vh;
+    display: inline-flex;
     align-items: center;
     gap: 12px;
     padding: 16px 32px;
@@ -293,6 +295,24 @@ body {
 
 /* === RESPONSIVE STYLES === */
 
+/* Laptops & Tablets (≤ 1280px) - NEW BREAKPOINT */
+@media (max-width: 1280px) {
+
+    .hero-title,
+    .hero-subtitle {
+        font-size: 70px !important;
+    }
+
+    .hero-text {
+        font-size: 21px !important;
+        max-width: 750px;
+    }
+
+    .container {
+        padding: 0 30px;
+    }
+}
+
 /* Laptops & Tablets (≤ 1200px) */
 @media (max-width: 1200px) {
 
@@ -363,9 +383,6 @@ body {
 @media (max-width: 576px) {
     .hero-wrapper {
         background-attachment: scroll;
-    }
-
-    .hero-wrapper {
         padding-bottom: 35%;
     }
 
@@ -1219,6 +1236,7 @@ body {
     margin: 0;
     position: relative;
     display: inline-block;
+    margin-bottom: 20px;
 }
 
 .portfolio-title::after {
