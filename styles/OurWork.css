@@ -5,8 +5,9 @@
     justify-content: center;
     align-items: center;
     height: 65vh;
-    background: repeating-conic-gradient(#f0f0f0 0% 10%, #ffffff 10% 20%);
-    background-size: 40px 40px;
+    background: url('../public/images/ourwork-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     overflow: hidden;
@@ -597,7 +598,7 @@
 
 .what-we-built {
     text-align: left;
-    padding: 40px 100px;
+    padding: 40px 100px 100px 100px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -643,6 +644,8 @@
     grid-row: span 1;
     background: linear-gradient(135deg, #f8e8e5 0%, #f5ddd8 100%);
     color: #8b7b75;
+    height: 30vh;
+
 }
 
 .what-we-built .card:nth-child(2) {
@@ -657,9 +660,13 @@
     grid-row: span 1;
     background: linear-gradient(135deg, #e8e8f5 0%, #ddddef 100%);
     color: #7b7b9b;
+    height: 30vh;
+
 }
 
 .what-we-built .card:nth-child(4) {
+    margin-top: 8vh;
+    height: 25vh;
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e3f0f5 0%, #d8e8ef 100%);
@@ -671,9 +678,11 @@
     grid-row: span 1;
     background: linear-gradient(135deg, #fffae8 0%, #fff5dd 100%);
     color: #a39b7b;
+    height: 33.2vh;
 }
 
 .what-we-built .card:nth-child(6) {
+    height: 33.2vh;
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e8f5f0 0%, #ddefea 100%);
@@ -681,6 +690,8 @@
 }
 
 .what-we-built .card:nth-child(7) {
+    margin-top: 8vh;
+    height: 25vh;
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e8e8f5 0%, #ddddef 100%);
@@ -725,6 +736,17 @@
 
     .what-we-built .card:nth-child(2) {
         grid-column: span 1;
+    }
+
+    .what-we-built .card:nth-child(7),
+    .what-we-built .card:nth-child(6),
+    .what-we-built .card:nth-child(5),
+    .what-we-built .card:nth-child(4),
+    .what-we-built .card:nth-child(3),
+    .what-we-built .card:nth-child(2),
+    .what-we-built .card:nth-child(1) {
+        height: 100%;
+        margin-top: 0;
     }
 }
 

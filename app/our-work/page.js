@@ -16,7 +16,16 @@ import approach1 from '@/public/images/aprroach1.png';
 import approach2 from '@/public/images/aprroach2.png';
 import approach3 from '@/public/images/aprroach3.png';
 import approach4 from '@/public/images/aprroach4.png';
+
+import ourwork1 from '../../public/images/ourwork1.png'
+import ourwork2 from '../../public/images/ourwork2.png'
+import ourwork13 from '../../public/images/ourwork13.png'
+import ourwor4 from '../../public/images/ourwork4.png'
+import ourwor5 from '../../public/images/ourwork5.png'
+import ourwor6 from '../../public/images/ourwork6.png'
+import ourwork7 from '../../public/images/ourwork7.png'
 import Link from 'next/link';
+import { Code } from '@mui/icons-material';
 
 const OurWork = () => {
     const [value, setValue] = useState(0);
@@ -141,13 +150,13 @@ const OurWork = () => {
         : portfolioItems.filter(item => item.projectName === categories[value]);
 
     const services = [
-        { title: "Web Development", icon: <FaGlobe /> },
-        { title: "Blockchain Development", icon: <FaLink /> },
-        { title: "UI UX Design", icon: <FaPencilRuler /> },
-        { title: "Mobile App Development", icon: <FaMobileAlt /> },
-        { title: "Artificial Intelligence", icon: <FaBrain /> },
-        { title: "Shopify Development", icon: <FaStore /> },
-        { title: "Backend Development", icon: <FaServer /> },
+        { title: "Web Development", icon: <Image src={ourwork1} alt='ourwork1' /> },
+        { title: "Blockchain Development", icon: <Image src={ourwork2} alt='ourwork1' /> },
+        { title: "UI UX Design", icon: <Image src={ourwork13} alt='ourwork1' /> },
+        { title: "Mobile App Development", icon: <Image src={ourwor4} alt='ourwork1' /> },
+        { title: "Artificial Intelligence", icon: <Image src={ourwor5} alt='ourwork1' /> },
+        { title: "Shopify Development", icon: <Image src={ourwor6} alt='ourwork1' /> },
+        { title: "Backend Development", icon: <Code style={{ 'fontSize': '50px' }} /> },
     ];
 
     const handleChange = (e, newValue) => {
@@ -211,7 +220,7 @@ const OurWork = () => {
                                 <div className="icon" data-aos="zoom-in">
                                     {service.icon}
                                 </div>
-                                <h3 data-aos="fade-up">{service.title}</h3>
+                                <h3 >{service.title}</h3>
                             </div>
                         ))}
                     </div>
