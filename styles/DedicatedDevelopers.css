@@ -360,6 +360,8 @@
 }
 
 /* ===== PRICING SECTION ===== */
+/* components/PricingSection.css */
+
 .dd-pricing-section {
     padding: 80px 20px;
     background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
@@ -438,14 +440,14 @@
 
 .dd-plan-subtitle {
     font-size: clamp(0.82rem, 1.5vw, 0.88rem);
-    color: #7c4dff;
     margin-bottom: 18px;
     font-weight: 600;
+    color: rgba(184, 184, 184, 1);
 }
 
 .dd-plan-description {
     font-size: clamp(0.88rem, 1.5vw, 0.92rem);
-    color: #555;
+    color: rgba(66, 48, 196, 1);
     line-height: 1.5;
     margin: 0;
 }
@@ -463,9 +465,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px;
-    border-radius: 8px;
     transition: all 0.3s ease;
     gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+
 }
 
 .dd-plan-item:hover {
@@ -482,8 +485,9 @@
 
 .dd-plan-name {
     font-size: clamp(0.9rem, 1.5vw, 0.95rem);
-    font-weight: 600;
+    font-weight: 700;
     color: #1a1a4d;
+    font-size: 18px;
 }
 
 .dd-plan-details {
@@ -541,22 +545,26 @@
     background: #f5f5f8;
     color: #1a1a4d;
     border: 1px solid #e0e0e5;
+    transition: all 0.3s ease;
 }
 
 .dd-pricing-btn.btn-light:hover {
-    background: #ebebf0;
+    background: linear-gradient(90deg, #5344BC 0%, #8D2BAB 100%);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .dd-pricing-btn.btn-primary {
-    background: linear-gradient(135deg, #7c4dff 0%, #651fff 100%);
+    background: linear-gradient(90deg, #8D2BAB 0%, #5344BC 100%);
+    transition: all 0.3s ease;
     color: white;
     box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
 }
 
 .dd-pricing-btn.btn-primary:hover {
-    background: linear-gradient(135deg, #6c3dff 0%, #5510ff 100%);
+    background: linear-gradient(90deg, #5344BC 0%, #8D2BAB 100%);
+
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(124, 77, 255, 0.4);
 }
@@ -573,49 +581,6 @@
     margin-top: 10px;
 }
 
-/* ===== CAROUSEL SECTION ===== */
-.dd-carousel-container {
-    width: 100%;
-    overflow: hidden;
-    padding: 60px 0;
-    background: white;
-}
-
-.dd-carousel {
-    width: 100%;
-    overflow: hidden;
-}
-
-.dd-carousel-track {
-    display: flex;
-    animation: scroll 30s linear infinite;
-    gap: 40px;
-    width: max-content;
-}
-
-.dd-carousel-track img {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-    opacity: 0.6;
-    transition: all 0.3s ease;
-}
-
-.dd-carousel-track img:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Large Tablets (769px - 1024px) */
@@ -628,75 +593,6 @@
 
 /* Tablets (481px - 768px) */
 @media (max-width: 768px) {
-    .dd-hero-section {
-        padding: 60px 15px;
-        min-height: auto;
-    }
-
-    .dd-feature-badges {
-        gap: 10px;
-        margin-bottom: 40px;
-    }
-
-    .dd-badge {
-        padding: 8px 16px;
-        max-width: 100%;
-    }
-
-    .dd-action-buttons {
-        flex-direction: column;
-        width: 100%;
-        gap: 15px;
-    }
-
-    .dd-btn {
-        width: 100%;
-        max-width: 400px;
-        justify-content: center;
-    }
-
-    .dd-bg-decoration {
-        opacity: 0.05;
-    }
-
-    .dd-circle-1 {
-        width: 200px;
-        height: 200px;
-    }
-
-    .dd-circle-2 {
-        width: 150px;
-        height: 150px;
-    }
-
-    .dd-circle-3 {
-        width: 100px;
-        height: 100px;
-    }
-
-    .dd-stack-section {
-        padding: 60px 15px;
-    }
-
-    .dd-stack-cards {
-        gap: 15px;
-    }
-
-    .dd-stack-card {
-        width: 130px;
-    }
-
-    .dd-icon-wrapper {
-        width: 70px;
-        height: 70px;
-        margin: 30px auto 15px auto;
-        padding: 15px;
-    }
-
-    .dd-stack-label {
-        padding-bottom: 25px;
-    }
-
     .dd-pricing-section {
         padding: 60px 15px;
     }
@@ -717,75 +613,861 @@
     .dd-pricing-card:hover {
         transform: translateY(-5px);
     }
-
-    .dd-carousel-track img {
-        height: 50px;
-    }
 }
 
 /* Mobile (≤480px) */
 @media (max-width: 480px) {
-    .dd-hero-section {
-        padding: 50px 15px;
-    }
-
-    .dd-badge {
-        padding: 6px 12px;
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-    }
-
-    .dd-badge-icon {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
-    }
-
-    .dd-btn {
-        padding: 12px 20px;
-    }
-
-    .dd-stack-section {
-        padding: 50px 15px;
-    }
-
-    .dd-stack-cards {
-        gap: 12px;
-    }
-
-    .dd-stack-card {
-        width: 120px;
-    }
-
-    .dd-icon-wrapper {
-        width: 65px;
-        height: 65px;
-        padding: 14px;
-    }
-
     .dd-pricing-card {
         padding: 30px 20px;
         min-height: auto;
-    }
-
-    .dd-carousel-track img {
-        height: 40px;
     }
 }
 
 /* Extra Small (≤375px) */
 @media (max-width: 375px) {
-    .dd-stack-card {
-        width: 110px;
+    .dd-pricing-section {
+        padding: 50px 15px;
+    }
+}
+
+/* components/IndustriesSection.css */
+
+.industries-section {
+    width: 100%;
+    background: rgba(217, 217, 217, 0.25);
+    padding: 60px 80px;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.industries-left {
+    width: 30%;
+    flex-shrink: 0;
+}
+
+.industries-title {
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000;
+}
+
+.industries-divider {
+    width: 1px;
+    height: 400px;
+    background: #e5e5e5;
+    flex-shrink: 0;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px 34px;
+    flex: 1;
+}
+
+.industry-box {
+    width: 100%;
+    max-width: 248px;
+    height: 182px;
+    background: #fff;
+    border-radius: 13px;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.3s ease;
+}
+
+.industry-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.icon-img {
+    object-fit: contain;
+}
+
+.industry-box p {
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-weight: 400;
+    font-size: 19px;
+    color: #000;
+    margin: 0;
+}
+
+.industry-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive Design */
+
+/* Large Desktop (1440px - 1920px) */
+@media (max-width: 1600px) {
+    .industries-section {
+        padding: 60px 60px;
+        gap: 50px;
     }
 
-    .dd-icon-wrapper {
+    .industries-title {
+        font-size: 52px;
+    }
+
+    .industry-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .industry-box {
+        max-width: 230px;
+        height: 170px;
+    }
+}
+
+/* Desktop (1200px - 1440px) */
+@media (max-width: 1440px) {
+    .industries-section {
+        padding: 50px 50px;
+        gap: 40px;
+    }
+
+    .industries-title {
+        font-size: 48px;
+    }
+
+    .industries-divider {
+        height: 350px;
+    }
+
+    .industry-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .industry-box {
+        max-width: 220px;
+        height: 165px;
+    }
+
+    .industry-box p {
+        font-size: 18px;
+    }
+}
+
+/* Small Desktop / Large Tablet (1024px - 1200px) */
+@media (max-width: 1200px) {
+    .industries-section {
+        padding: 50px 40px;
+        gap: 35px;
+    }
+
+    .industries-left {
+        width: 35%;
+    }
+
+    .industries-title {
+        font-size: 42px;
+    }
+
+    .industries-divider {
+        height: 320px;
+    }
+
+    .industries-grid {
+        gap: 20px 28px;
+    }
+
+    .industry-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .industry-box {
+        max-width: 200px;
+        height: 155px;
+    }
+
+    .industry-box p {
+        font-size: 17px;
+    }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .industries-section {
+        padding: 40px 30px;
+        gap: 30px;
+    }
+
+    .industries-left {
+        width: 40%;
+    }
+
+    .industries-title {
+        font-size: 38px;
+    }
+
+    .industries-divider {
+        height: 280px;
+    }
+
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 24px;
+    }
+
+    .industry-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .industry-box {
+        max-width: 100%;
+        height: 145px;
+    }
+
+    .industry-box p {
+        font-size: 16px;
+    }
+}
+
+/* Small Tablet (640px - 768px) */
+@media (max-width: 768px) {
+    .industries-section {
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 30px;
+    }
+
+    .industries-left {
+        width: 100%;
+    }
+
+    .industries-title {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .industries-divider {
+        display: none;
+    }
+
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 20px;
+        width: 100%;
+    }
+
+    .industry-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .industry-box {
+        height: 140px;
+    }
+
+    .industry-box p {
+        font-size: 16px;
+    }
+}
+
+/* Mobile (480px - 640px) */
+@media (max-width: 640px) {
+    .industries-section {
+        padding: 35px 20px;
+        gap: 25px;
+    }
+
+    .industries-title {
+        font-size: 32px;
+    }
+
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px 16px;
+    }
+
+    .industry-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .industry-box {
+        height: 130px;
+    }
+
+    .industry-box p {
+        font-size: 15px;
+    }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .industries-section {
+        padding: 30px 16px;
+        gap: 20px;
+    }
+
+    .industries-title {
+        font-size: 28px;
+    }
+
+    .industries-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .industry-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .industry-box {
+        max-width: 100%;
+        height: 120px;
+    }
+
+    .industry-box p {
+        font-size: 15px;
+    }
+}
+
+/* Extra Small Mobile (< 320px) */
+@media (max-width: 360px) {
+    .industries-section {
+        padding: 25px 12px;
+    }
+
+    .industries-title {
+        font-size: 24px;
+    }
+
+    .industry-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .industry-box {
+        height: 110px;
+    }
+
+    .industry-box p {
+        font-size: 14px;
+    }
+}
+
+/* components/TestimonialCarousel.css */
+
+.testimonial-section {
+    background: rgba(21, 12, 78, 1);
+    padding: 80px 20px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-title {
+    color: #ffffff;
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-card {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 32px;
+    width: 380px;
+    min-height: 240px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transform: scale(0.8) translateX(0);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Left Card */
+.testimonial-card.left {
+    transform: scale(0.85) translateX(-420px) translateY(0);
+    opacity: 0.5;
+    z-index: 5;
+}
+
+/* Center Card (Active) */
+.testimonial-card.center {
+    transform: scale(1.05) translateX(0) translateY(0);
+    opacity: 1;
+    z-index: 10;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    pointer-events: auto;
+}
+
+/* Right Card */
+.testimonial-card.right {
+    transform: scale(0.85) translateX(420px) translateY(0);
+    opacity: 0.5;
+    z-index: 5;
+}
+
+/* Hidden Cards */
+.testimonial-card.hidden {
+    opacity: 0;
+    transform: scale(0.7) translateX(0);
+    pointer-events: none;
+}
+
+.quote-text {
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.quote-text p {
+    color: #1a1447;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.author-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid #f3f4f6;
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.author-name {
+    color: #1a1447;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.author-title {
+    color: rgba(66, 48, 196, 1);
+    font-size: 0.875rem;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.carousel-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    flex-shrink: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.08);
+}
+
+.carousel-button:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.carousel-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.prev-button,
+.next-button {
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .testimonial-card.left {
+        transform: scale(0.8) translateX(-380px);
+    }
+
+    .testimonial-card.right {
+        transform: scale(0.8) translateX(380px);
+    }
+
+    .carousel-wrapper {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .testimonial-card {
+        width: 300px;
+        min-height: 220px;
+    }
+
+    .testimonial-card.left {
+        transform: scale(0.75) translateX(-340px);
+    }
+
+    .testimonial-card.right {
+        transform: scale(0.75) translateX(340px);
+    }
+
+    .testimonial-card.center {
+        transform: scale(1) translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .carousel-container {
+        height: 260px;
+    }
+
+    .testimonial-card {
+        width: 280px;
+        padding: 24px;
+        min-height: 200px;
+    }
+
+    .testimonial-card.left,
+    .testimonial-card.right {
+        opacity: 0.3;
+        transform: scale(0.7) translateX(0);
+    }
+
+    .testimonial-card.left {
+        transform: scale(0.7) translateX(-250px);
+    }
+
+    .testimonial-card.right {
+        transform: scale(0.7) translateX(250px);
+    }
+
+    .carousel-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .carousel-wrapper {
+        gap: 20px;
+    }
+
+    .quote-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonial-section {
+        padding: 60px 15px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .testimonial-card {
+        width: 260px;
+        padding: 20px;
+    }
+
+    .testimonial-card.left,
+    .testimonial-card.right {
+        opacity: 0;
+        transform: scale(0.6) translateX(0);
+    }
+
+    .carousel-button {
+        width: 44px;
+        height: 44px;
+    }
+
+    .carousel-wrapper {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .testimonial-card {
+        width: 240px;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* components/WhyChooseVeloc.css */
+
+.why-choose-section {
+    background: #ffffff;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-choose-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.why-choose-title {
+    color: #000000;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 64px;
+    font-family: Josefin Sans, sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(217, 217, 217, 0.27);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.feature-card:hover {
+    background: #f3f4f6;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.icon-wrapper {
+    background: rgba(66, 48, 196, 1);
+    border-radius: 12px;
+    width: 92px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(91, 71, 219, 0.3);
+}
+
+.feature-content {
+    flex: 1;
+    padding-top: 4px;
+}
+
+.feature-title {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    font-family: Josefin Sans, sans-serif;
+    letter-spacing: -0.3px;
+}
+
+.feature-description {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .why-choose-title {
+        font-size: 2.25rem;
+        margin-bottom: 50px;
+    }
+
+    .features-grid {
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 32px;
+    }
+
+    .icon-wrapper {
+        width: 68px;
+        height: 68px;
+    }
+
+    .feature-title {
+        font-size: 1.25rem;
+    }
+
+    .feature-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-choose-section {
+        padding: 60px 20px;
+    }
+
+    .why-choose-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 28px;
+    }
+
+    .icon-wrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .feature-title {
+        font-size: 1.2rem;
+    }
+
+    .feature-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .why-choose-section {
+        padding: 50px 16px;
+    }
+
+    .why-choose-title {
+        font-size: 1.75rem;
+        margin-bottom: 32px;
+    }
+
+    .feature-card {
+        padding: 24px;
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .icon-wrapper {
         width: 60px;
         height: 60px;
     }
 
-    .dd-badge {
-        max-width: 100%;
+    .feature-content {
+        padding-top: 0;
+    }
+
+    .feature-title {
+        font-size: 1.125rem;
+    }
+
+    .feature-description {
+        font-size: 0.875rem;
     }
 }
