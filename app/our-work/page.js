@@ -253,17 +253,6 @@ const OurWork = () => {
                 </div>
             </section>
 
-            <div className="dd-carousel-container">
-                <div className="dd-carousel">
-                    <div className="dd-carousel-track">
-                        <Image src={footerlogo} alt="Trusted Logos" />
-                        <Image src={footerlogo} alt="Trusted Logos" />
-                        <Image src={footerlogo} alt="Trusted Logos" />
-                        <Image src={footerlogo} alt="Trusted Logos" />
-                    </div>
-                </div>
-            </div>
-
             <div className="portfolio-wrapper">
                 <div className="portfolio-container">
                     <div

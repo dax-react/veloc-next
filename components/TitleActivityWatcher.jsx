@@ -8,9 +8,27 @@ export default function TitleActivityWatcher({ activeTitle }) {
         const originalTitle = activeTitle;
 
         const handleVisibilityChange = () => {
+            let intervalId;
+
+            const titles = [
+                "🥹 We miss you!",
+                "👋 Come back!",
+            ];
+
+            let currentIndex = 0;
+
             if (document.hidden) {
-                document.title = "We miss you! Come back 💜";
+                intervalId = setInterval(() => {
+                    document.title = titles[currentIndex];
+                    currentIndex = (currentIndex + 1) % titles.length; // Loop back to start
+                }, 1000);
+
+                window.titleInterval = intervalId;
             } else {
+                if (window.titleInterval) {
+                    clearInterval(window.titleInterval);
+                    window.titleInterval = null;
+                }
                 document.title = originalTitle;
             }
         };

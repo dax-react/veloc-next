@@ -36,36 +36,43 @@ const HeroSection = () => {
     {
       id: 1,
       title: 'Dedicated Team',
+      route: '/dedicated-developers', // or '/services/dedicated-team'
       options: ['Frontend Squad', 'Full-Stack Force', 'Backend Crew', 'Single Resource Pro']
     },
     {
       id: 2,
       title: 'Artificial intelligence',
+      route: 'services/artificial_intelligent',
       options: ['Machine Learning', 'Deep Learning', 'NLP Solutions', 'Computer Vision']
     },
     {
       id: 3,
       title: 'Blockchain',
+      route: 'services/blockchain_development',
       options: ['Smart Contracts', 'DeFi Solutions', 'NFT Development', 'Web3 Integration']
     },
     {
       id: 4,
       title: 'Mobile Development',
+      route: 'services/mobile_development',
       options: ['iOS Development', 'Android Development', 'React Native', 'Flutter Apps']
     },
     {
       id: 5,
       title: 'Web Development',
+      route: 'services/web_development',
       options: ['React Applications', 'Vue.js Projects', 'Angular Solutions', 'Next.js Sites']
     },
     {
       id: 6,
       title: 'Backend Developer',
+      route: 'services/backend_development',
       options: ['Node.js APIs', 'Python Backend', 'Java Services', 'Database Design']
     },
     {
       id: 7,
       title: 'Design',
+      route: 'services/ui_ux',
       options: ['UI Design', 'UX Research', 'Brand Identity', 'Prototyping']
     }
   ];
@@ -195,7 +202,7 @@ const HeroSection = () => {
 
   return (
     <>
-     <TitleActivityWatcher activeTitle="Home" />
+      <TitleActivityWatcher activeTitle="Home" />
       <div className="hero-wrapper">
         <Box className="hero-content">
           <Typography variant="h2" className="hero-title aos fade-up">
@@ -333,7 +340,6 @@ const HeroSection = () => {
 
       <div className="capabilities-section">
         <h3 className="capabilities-label aos fade-up">Our Capabilities</h3>
-
         <div className="capabilities-container">
           {capabilities.map((item, index) => (
             <div
@@ -342,14 +348,19 @@ const HeroSection = () => {
               data-delay={index * 50}
               onMouseEnter={() => setActiveItem(item.id)}
               onMouseLeave={() => setActiveItem(null)}
+              onClick={() => router.push(item.route)}
+              style={{ cursor: 'pointer' }}
             >
               <h2 className="capability-title">{item.title}</h2>
-
               {activeItem === item.id && (
                 <div className="capability-options">
                   <div className="options-grid">
                     {item.options.map((option, idx) => (
-                      <div key={idx} className="option-box" style={{ animationDelay: `${idx * 0.1}s` }}>
+                      <div
+                        key={idx}
+                        className="option-box"
+                        style={{ animationDelay: `${idx * 0.1}s` }}
+                      >
                         {option}
                       </div>
                     ))}

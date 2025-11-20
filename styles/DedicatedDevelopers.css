@@ -1,3 +1,18 @@
+/* Add this at the very top of your CSS file to set global font family */
+.dd-wrapper,
+.dd-wrapper * {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Override specific Josefin Sans usage */
+.industries-section,
+.why-choose-section,
+.industry-box p,
+.feature-title,
+.why-choose-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
 /* Main wrapper to isolate styles and prevent horizontal scroll */
 .dd-wrapper {
     width: 100%;
@@ -360,8 +375,6 @@
 }
 
 /* ===== PRICING SECTION ===== */
-/* components/PricingSection.css */
-
 .dd-pricing-section {
     padding: 80px 20px;
     background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
@@ -408,7 +421,7 @@
 .dd-pricing-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 15px 40px rgba(124, 77, 255, 0.15);
-    border-color: #7c4dff;
+    border-color: #bb00ff !important;
     z-index: 10;
 }
 
@@ -417,6 +430,40 @@
     box-shadow: 0 15px 40px rgba(124, 77, 255, 0.2);
     transform: translateY(-10px) scale(1.03);
     z-index: 5;
+}
+
+.dd-pricing-card {
+    overflow: visible;
+}
+
+.dd-recommended-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.dd-recommended-badge-flat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #667eea;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px 8px 0 0;
 }
 
 .dd-pricing-card.dd-enterprise {
@@ -468,7 +515,6 @@
     transition: all 0.3s ease;
     gap: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-
 }
 
 .dd-plan-item:hover {
@@ -564,7 +610,6 @@
 
 .dd-pricing-btn.btn-primary:hover {
     background: linear-gradient(90deg, #5344BC 0%, #8D2BAB 100%);
-
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(124, 77, 255, 0.4);
 }
@@ -583,7 +628,6 @@
 
 /* ===== RESPONSIVE DESIGN ===== */
 
-/* Large Tablets (769px - 1024px) */
 @media (max-width: 1024px) {
     .dd-pricing-container {
         grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
@@ -591,7 +635,6 @@
     }
 }
 
-/* Tablets (481px - 768px) */
 @media (max-width: 768px) {
     .dd-pricing-section {
         padding: 60px 15px;
@@ -615,7 +658,6 @@
     }
 }
 
-/* Mobile (≤480px) */
 @media (max-width: 480px) {
     .dd-pricing-card {
         padding: 30px 20px;
@@ -623,15 +665,13 @@
     }
 }
 
-/* Extra Small (≤375px) */
 @media (max-width: 375px) {
     .dd-pricing-section {
         padding: 50px 15px;
     }
 }
 
-/* components/IndustriesSection.css */
-
+/* ===== INDUSTRIES SECTION ===== */
 .industries-section {
     width: 100%;
     background: rgba(217, 217, 217, 0.25);
@@ -694,7 +734,6 @@
 }
 
 .industry-box p {
-    font-family: 'Josefin Sans', sans-serif !important;
     font-weight: 400;
     font-size: 19px;
     color: #000;
@@ -707,8 +746,6 @@
 }
 
 /* Responsive Design */
-
-/* Large Desktop (1440px - 1920px) */
 @media (max-width: 1600px) {
     .industries-section {
         padding: 60px 60px;
@@ -730,7 +767,6 @@
     }
 }
 
-/* Desktop (1200px - 1440px) */
 @media (max-width: 1440px) {
     .industries-section {
         padding: 50px 50px;
@@ -760,7 +796,6 @@
     }
 }
 
-/* Small Desktop / Large Tablet (1024px - 1200px) */
 @media (max-width: 1200px) {
     .industries-section {
         padding: 50px 40px;
@@ -798,7 +833,6 @@
     }
 }
 
-/* Tablet (768px - 1024px) */
 @media (max-width: 1024px) {
     .industries-section {
         padding: 40px 30px;
@@ -837,7 +871,6 @@
     }
 }
 
-/* Small Tablet (640px - 768px) */
 @media (max-width: 768px) {
     .industries-section {
         flex-direction: column;
@@ -878,7 +911,6 @@
     }
 }
 
-/* Mobile (480px - 640px) */
 @media (max-width: 640px) {
     .industries-section {
         padding: 35px 20px;
@@ -908,7 +940,6 @@
     }
 }
 
-/* Small Mobile (320px - 480px) */
 @media (max-width: 480px) {
     .industries-section {
         padding: 30px 16px;
@@ -941,7 +972,6 @@
     }
 }
 
-/* Extra Small Mobile (< 320px) */
 @media (max-width: 360px) {
     .industries-section {
         padding: 25px 12px;
@@ -965,9 +995,8 @@
     }
 }
 
-/* components/TestimonialCarousel.css */
-
-.testimonial-section {
+/* ===== TESTIMONIAL CAROUSEL SECTION ===== */
+.testimonial-section-ourwork {
     background: rgba(21, 12, 78, 1);
     padding: 80px 20px;
     min-height: 500px;
@@ -977,13 +1006,13 @@
     overflow: hidden;
 }
 
-.container {
+.testimonial-section-ourwork .container {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
 }
 
-.section-title {
+.testimonial-section-ourwork .section-title {
     color: #ffffff;
     text-align: center;
     font-size: 64px;
@@ -991,7 +1020,7 @@
     margin-bottom: 60px;
 }
 
-.carousel-wrapper {
+.testimonial-section-ourwork .carousel-wrapper {
     position: relative;
     display: flex;
     align-items: center;
@@ -999,7 +1028,7 @@
     gap: 40px;
 }
 
-.carousel-container {
+.testimonial-section-ourwork .carousel-container {
     position: relative;
     width: 100%;
     max-width: 1100px;
@@ -1010,7 +1039,7 @@
     overflow: visible;
 }
 
-.carousel-track {
+.testimonial-section-ourwork .carousel-track {
     position: relative;
     width: 100%;
     height: 100%;
@@ -1019,7 +1048,7 @@
     justify-content: center;
 }
 
-.testimonial-card {
+.testimonial-section-ourwork .testimonial-card {
     position: absolute;
     background: #ffffff;
     border-radius: 8px;
@@ -1035,17 +1064,23 @@
     transform: scale(0.8) translateX(0);
     z-index: 1;
     pointer-events: none;
+    left: 50%;
+    margin-left: -190px;
+    top: 50%;
+    margin-top: -120px;
 }
 
-/* Left Card */
-.testimonial-card.left {
+.testimonial-section-ourwork .testimonial-card:not(.mounted) {
+    transition: none;
+}
+
+.testimonial-section-ourwork .testimonial-card.left {
     transform: scale(0.85) translateX(-420px) translateY(0);
     opacity: 0.5;
     z-index: 5;
 }
 
-/* Center Card (Active) */
-.testimonial-card.center {
+.testimonial-section-ourwork .testimonial-card.center {
     transform: scale(1.05) translateX(0) translateY(0);
     opacity: 1;
     z-index: 10;
@@ -1053,34 +1088,31 @@
     pointer-events: auto;
 }
 
-/* Right Card */
-.testimonial-card.right {
+.testimonial-section-ourwork .testimonial-card.right {
     transform: scale(0.85) translateX(420px) translateY(0);
     opacity: 0.5;
     z-index: 5;
 }
 
-/* Hidden Cards */
-.testimonial-card.hidden {
+.testimonial-section-ourwork .testimonial-card.hidden {
     opacity: 0;
     transform: scale(0.7) translateX(0);
     pointer-events: none;
 }
 
-.quote-text {
+.testimonial-section-ourwork .quote-text {
     margin-bottom: 24px;
     flex-grow: 1;
 }
 
-.quote-text p {
+.testimonial-section-ourwork .quote-text p {
     color: #1a1447;
     font-size: 17px;
     line-height: 1.6;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.author-info {
+.testimonial-section-ourwork .author-info {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1088,7 +1120,7 @@
     border-top: 1px solid #e5e7eb;
 }
 
-.author-image {
+.testimonial-section-ourwork .author-image {
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -1097,34 +1129,32 @@
     border: 2px solid #f3f4f6;
 }
 
-.author-image img {
+.testimonial-section-ourwork .author-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.author-details {
+.testimonial-section-ourwork .author-details {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.author-name {
+.testimonial-section-ourwork .author-name {
     color: #1a1447;
     font-size: 1rem;
     font-weight: 700;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.author-title {
+.testimonial-section-ourwork .author-title {
     color: rgba(66, 48, 196, 1);
     font-size: 0.875rem;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.carousel-button {
+.testimonial-section-ourwork .carousel-button {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
@@ -1141,155 +1171,160 @@
     backdrop-filter: blur(10px);
 }
 
-.carousel-button:hover:not(:disabled) {
+.testimonial-section-ourwork .carousel-button:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.5);
     transform: scale(1.08);
 }
 
-.carousel-button:active:not(:disabled) {
+.testimonial-section-ourwork .carousel-button:active:not(:disabled) {
     transform: scale(0.95);
 }
 
-.carousel-button:disabled {
+.testimonial-section-ourwork .carousel-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.prev-button,
-.next-button {
+.testimonial-section-ourwork .prev-button,
+.testimonial-section-ourwork .next-button {
     position: relative;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .testimonial-card.left {
+    .testimonial-section-ourwork .testimonial-card.left {
         transform: scale(0.8) translateX(-380px);
     }
 
-    .testimonial-card.right {
+    .testimonial-section-ourwork .testimonial-card.right {
         transform: scale(0.8) translateX(380px);
     }
 
-    .carousel-wrapper {
+    .testimonial-section-ourwork .carousel-wrapper {
         gap: 30px;
     }
 }
 
 @media (max-width: 1024px) {
-    .testimonial-card {
+    .testimonial-section-ourwork .testimonial-card {
         width: 300px;
         min-height: 220px;
+        margin-left: -150px;
+        margin-top: -110px;
     }
 
-    .testimonial-card.left {
+    .testimonial-section-ourwork .testimonial-card.left {
         transform: scale(0.75) translateX(-340px);
     }
 
-    .testimonial-card.right {
+    .testimonial-section-ourwork .testimonial-card.right {
         transform: scale(0.75) translateX(340px);
     }
 
-    .testimonial-card.center {
+    .testimonial-section-ourwork .testimonial-card.center {
         transform: scale(1) translateX(0);
     }
 }
 
 @media (max-width: 768px) {
-    .section-title {
+    .testimonial-section-ourwork .section-title {
         font-size: 2rem;
         margin-bottom: 40px;
     }
 
-    .carousel-container {
+    .testimonial-section-ourwork .carousel-container {
         height: 260px;
     }
 
-    .testimonial-card {
+    .testimonial-section-ourwork .testimonial-card {
         width: 280px;
         padding: 24px;
         min-height: 200px;
+        margin-left: -140px;
+        margin-top: -100px;
     }
 
-    .testimonial-card.left,
-    .testimonial-card.right {
+    .testimonial-section-ourwork .testimonial-card.left,
+    .testimonial-section-ourwork .testimonial-card.right {
         opacity: 0.3;
         transform: scale(0.7) translateX(0);
     }
 
-    .testimonial-card.left {
+    .testimonial-section-ourwork .testimonial-card.left {
         transform: scale(0.7) translateX(-250px);
     }
 
-    .testimonial-card.right {
+    .testimonial-section-ourwork .testimonial-card.right {
         transform: scale(0.7) translateX(250px);
     }
 
-    .carousel-button {
+    .testimonial-section-ourwork .carousel-button {
         width: 50px;
         height: 50px;
     }
 
-    .carousel-wrapper {
+    .testimonial-section-ourwork .carousel-wrapper {
         gap: 20px;
     }
 
-    .quote-text p {
+    .testimonial-section-ourwork .quote-text p {
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 640px) {
-    .testimonial-section {
+    .testimonial-section-ourwork .testimonial-section {
         padding: 60px 15px;
     }
 
-    .section-title {
+    .testimonial-section-ourwork .section-title {
         font-size: 1.75rem;
     }
 
-    .carousel-container {
+    .testimonial-section-ourwork .carousel-container {
         max-width: 100%;
     }
 
-    .testimonial-card {
+    .testimonial-section-ourwork .testimonial-card {
         width: 260px;
         padding: 20px;
+        margin-left: -130px;
     }
 
-    .testimonial-card.left,
-    .testimonial-card.right {
+    .testimonial-section-ourwork .testimonial-card.left,
+    .testimonial-section-ourwork .testimonial-card.right {
         opacity: 0;
         transform: scale(0.6) translateX(0);
     }
 
-    .carousel-button {
+    .testimonial-section-ourwork .carousel-button {
         width: 44px;
         height: 44px;
     }
 
-    .carousel-wrapper {
+    .testimonial-section-ourwork .carousel-wrapper {
         gap: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .section-title {
+    .testimonial-section-ourwork .section-title {
         font-size: 1.5rem;
     }
 
-    .testimonial-card {
+    .testimonial-section-ourwork .testimonial-card {
         width: 240px;
+        margin-left: -120px;
     }
 
-    .carousel-button {
+    .testimonial-section-ourwork .carousel-button {
         width: 40px;
         height: 40px;
     }
 }
 
-/* components/WhyChooseVeloc.css */
-
+/* ===== WHY CHOOSE SECTION ===== */
 .why-choose-section {
     background: #ffffff;
     padding: 80px 20px;
@@ -1310,7 +1345,6 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 64px;
-    font-family: Josefin Sans, sans-serif;
     letter-spacing: -0.5px;
 }
 
@@ -1362,7 +1396,6 @@
     font-size: 22px;
     font-weight: 700;
     margin: 0 0 12px 0;
-    font-family: Josefin Sans, sans-serif;
     letter-spacing: -0.3px;
 }
 
@@ -1371,7 +1404,6 @@
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Responsive Design */

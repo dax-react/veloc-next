@@ -896,7 +896,7 @@ const MultiStepForm = () => {
                 <div style={styles.formCard}>
                     <CloseTwoTone
                         style={styles.closeBtn}
-                        onClick={() => router.push("/")}
+                        onClick={() => router.push("/dedicated-developers")}
                     />
 
 

@@ -1,5 +1,21 @@
 /* src/styles/OurWork.css */
 
+/* Global font family override for entire Our Work page */
+.our-work-container,
+.our-work-container *,
+.tabs-bar,
+.tabs-bar *,
+.approach-container-enhanced,
+.approach-container-enhanced *,
+.what-we-built,
+.what-we-built *,
+.portfolio-section,
+.portfolio-section *,
+.experience-section,
+.experience-section * {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
 .our-work-container {
     display: flex;
     justify-content: center;
@@ -8,7 +24,6 @@
     background: url('../public/images/ourwork-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     overflow: hidden;
 }
@@ -70,7 +85,6 @@
     }
 }
 
-
 .tabs-bar {
     background-color: #120942;
     padding: 0 30px;
@@ -78,7 +92,6 @@
 
 .tabs-bar .MuiTab-root {
     color: #d7d3e3 !important;
-    font-family: "Poppins", sans-serif;
     font-size: 15px;
     text-transform: none;
     padding-right: 45px;
@@ -96,12 +109,10 @@
 }
 
 /* Enhanced Approach Section CSS - Complete Code */
-/* Replace your entire approach section CSS with this */
 
 .approach-container-enhanced {
     background-color: #F8F8F8;
     padding: 0;
-    font-family: 'Futura', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     padding-bottom: 90px;
     overflow: hidden;
 }
@@ -112,8 +123,8 @@
 }
 
 .approach-container-enhanced .approach-title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 44px;
+    font-size: 52px;
+    /* Increased from 44px */
     font-weight: 700;
     color: rgba(44, 44, 44, 0.87);
     margin-bottom: 25px;
@@ -291,8 +302,8 @@
 
 /* Section Heading with Hover */
 .approach-container-enhanced .section-heading {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 32px;
+    font-size: 36px;
+    /* Increased from 32px */
     font-weight: 600;
     color: rgba(43, 43, 43, 1);
     margin-bottom: 22px;
@@ -324,7 +335,8 @@
 
 /* Section Text */
 .approach-container-enhanced .section-text {
-    font-size: 14px;
+    font-size: 16px;
+    /* Increased from 14px */
     line-height: 1.85;
     color: #5A5A5A;
     letter-spacing: 0.1px;
@@ -345,6 +357,10 @@
         padding: 50px 60px 35px;
     }
 
+    .approach-container-enhanced .approach-title {
+        font-size: 46px;
+    }
+
     .approach-container-enhanced .section-left,
     .approach-container-enhanced .section-right {
         padding: 50px 60px;
@@ -356,6 +372,14 @@
 
     .approach-container-enhanced .content-wrapper {
         max-width: 450px;
+    }
+
+    .approach-container-enhanced .section-heading {
+        font-size: 32px;
+    }
+
+    .approach-container-enhanced .section-text {
+        font-size: 15px;
     }
 
     .approach-container-enhanced .approach-number {
@@ -378,7 +402,7 @@
     }
 
     .approach-container-enhanced .approach-title {
-        font-size: 38px;
+        font-size: 42px;
     }
 
     .approach-container-enhanced .section-left,
@@ -387,11 +411,11 @@
     }
 
     .approach-container-enhanced .section-heading {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .approach-container-enhanced .section-text {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .approach-container-enhanced .illustration-container {
@@ -422,22 +446,19 @@
     }
 
     .approach-container-enhanced .approach-title {
-        font-size: 34px;
+        font-size: 38px;
         text-align: center;
     }
 
-    /* Hide desktop numbers on mobile */
     .approach-container-enhanced .desktop-only {
         display: none !important;
     }
 
-    /* Show mobile dividers */
     .approach-container-enhanced .mobile-section-divider {
         display: block;
         margin: 20px 0;
     }
 
-    /* Stack sections vertically on mobile */
     .approach-container-enhanced .approach-section {
         flex-direction: column !important;
         min-height: auto;
@@ -453,7 +474,6 @@
         margin: 0 !important;
     }
 
-    /* Remove desktop borders on mobile */
     .approach-container-enhanced .approach-border-right,
     .approach-container-enhanced .approach-border-right-alt {
         border-right: none;
@@ -478,7 +498,7 @@
     }
 
     .approach-container-enhanced .section-heading {
-        font-size: 28px;
+        font-size: 30px;
         margin-bottom: 18px;
     }
 
@@ -488,7 +508,7 @@
     }
 
     .approach-container-enhanced .section-text {
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.75;
         padding-right: 30px;
     }
@@ -501,7 +521,7 @@
     }
 
     .approach-container-enhanced .approach-title {
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .approach-container-enhanced .section-left,
@@ -510,11 +530,11 @@
     }
 
     .approach-container-enhanced .section-heading {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .approach-container-enhanced .section-text {
-        font-size: 12px;
+        font-size: 13px;
         line-height: 1.7;
     }
 
@@ -530,30 +550,30 @@
 /* Extra Small Devices (360px and below) */
 @media (max-width: 360px) {
     .approach-container-enhanced .approach-title {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .approach-container-enhanced .section-heading {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .approach-container-enhanced .section-text {
-        font-size: 11px;
+        font-size: 12px;
     }
 }
 
 /* Large Desktop Optimizations (1600px and above) */
 @media (min-width: 1600px) {
     .approach-container-enhanced .approach-title {
-        font-size: 54px;
+        font-size: 60px;
     }
 
     .approach-container-enhanced .section-heading {
-        font-size: 38px;
+        font-size: 42px;
     }
 
     .approach-container-enhanced .section-text {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .approach-container-enhanced .illustration-container {
@@ -599,12 +619,11 @@
 .what-we-built {
     text-align: left;
     padding: 40px 100px 100px 100px;
-    font-family: 'Poppins', sans-serif;
 }
 
 .what-we-built .title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 50px;
+    font-size: 56px;
+    /* Increased from 50px */
     font-weight: 700;
     color: #111;
     margin-bottom: 30px;
@@ -643,25 +662,20 @@
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #f8e8e5 0%, #f5ddd8 100%);
-    color: #8b7b75;
     height: 30vh;
-
 }
 
 .what-we-built .card:nth-child(2) {
     grid-column: span 2;
     grid-row: span 1;
     background: linear-gradient(135deg, #f3e8f5 0%, #ecdff0 100%);
-    color: #9b7ba3;
 }
 
 .what-we-built .card:nth-child(3) {
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e8e8f5 0%, #ddddef 100%);
-    color: #7b7b9b;
     height: 30vh;
-
 }
 
 .what-we-built .card:nth-child(4) {
@@ -670,14 +684,12 @@
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e3f0f5 0%, #d8e8ef 100%);
-    color: #6b8b9b;
 }
 
 .what-we-built .card:nth-child(5) {
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #fffae8 0%, #fff5dd 100%);
-    color: #a39b7b;
     height: 33.2vh;
 }
 
@@ -686,7 +698,6 @@
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e8f5f0 0%, #ddefea 100%);
-    color: #7b9b8b;
 }
 
 .what-we-built .card:nth-child(7) {
@@ -695,7 +706,6 @@
     grid-column: span 1;
     grid-row: span 1;
     background: linear-gradient(135deg, #e8e8f5 0%, #ddddef 100%);
-    color: #7b7b9b;
 }
 
 /* Special styling for Shopify card (if it has the B icon) */
@@ -710,9 +720,9 @@
 }
 
 .what-we-built h3 {
-    font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 18px;
+    /* Increased from 17px */
     line-height: 1.4;
     margin: 0;
 }
@@ -725,7 +735,7 @@
     }
 
     .what-we-built .title {
-        font-size: 42px;
+        font-size: 48px;
     }
 
     .what-we-built .grid-container {
@@ -757,7 +767,7 @@
     }
 
     .what-we-built .title {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .what-we-built .grid-container {
@@ -783,7 +793,7 @@
     }
 
     .what-we-built .title {
-        font-size: 30px;
+        font-size: 34px;
         margin-bottom: 20px;
     }
 
@@ -804,7 +814,6 @@
         min-height: 130px;
     }
 
-    /* If odd number of cards → last one full width */
     .what-we-built .card:last-child:nth-child(odd) {
         flex: 1 1 100%;
         max-width: 100%;
@@ -816,15 +825,13 @@
     }
 
     .what-we-built h3 {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 
-/* Unique wrapper to avoid affecting other components */
-
 .portfolio-title {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 50px;
+    font-size: 56px;
+    /* Increased from 50px */
     font-weight: 700;
     color: #fff;
     margin-bottom: 20px;
@@ -832,7 +839,8 @@
 }
 
 .portfolio-subtext {
-    font-size: 16px;
+    font-size: 17px;
+    /* Increased from 16px */
     color: #d7d3e3;
     line-height: 1.7;
 }
@@ -856,11 +864,11 @@
     }
 
     .portfolio-title {
-        font-size: 42px;
+        font-size: 46px;
     }
 
     .portfolio-subtext {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 
@@ -870,11 +878,11 @@
     }
 
     .portfolio-title {
-        font-size: 34px;
+        font-size: 38px;
     }
 
     .portfolio-subtext {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
@@ -884,12 +892,12 @@
     }
 
     .portfolio-title {
-        font-size: 28px;
+        font-size: 32px;
         line-height: 1.3;
     }
 
     .portfolio-subtext {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .portfolio-tabs-container {
@@ -903,7 +911,6 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 80px 100px;
-    font-family: 'Poppins', sans-serif;
     color: #111;
     background-color: #fff;
 }
@@ -914,8 +921,8 @@
 }
 
 .left-content h2 {
-    font-family: Josefin Sans;
-    font-size: 32px;
+    font-size: 36px;
+    /* Increased from 32px */
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0.5px;
@@ -928,9 +935,9 @@
 }
 
 .right-content p {
-    font-family: Segoe UI;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 17px;
+    /* Increased from 16px */
     line-height: 32px;
     color: rgba(0, 0, 0, 1);
     margin-bottom: 15px;
@@ -952,6 +959,10 @@
     }
 
     .left-content h2 {
-        font-size: 1.5rem;
+        font-size: 30px;
+    }
+
+    .right-content p {
+        font-size: 16px;
     }
 }
