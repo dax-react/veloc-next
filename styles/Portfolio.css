@@ -23,6 +23,10 @@
     /* space from navbar */
     color: #fff;
     text-align: center;
+    background: url('../public/images/hero-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
     /* centers all text inside */
 }
 

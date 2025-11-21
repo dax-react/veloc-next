@@ -1,36 +1,34 @@
-// app/our-work/page.js or pages/our-work.js (depending on your Next.js version)
-'use client'; // Required for App Router if using client-side features
+// app/our-work/page.js
+'use client';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'; // or 'next/router' for Pages Router
+import { useRouter } from 'next/navigation';
 import { Tab, Tabs, Typography } from '@mui/material';
-import { FaBrain, FaGlobe, FaLink, FaMobileAlt, FaPencilRuler, FaServer, FaStore } from 'react-icons/fa';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import '../../styles/OurWork.css';
 import TitleActivityWatcher from "@/components/TitleActivityWatcher";
-// Import images - adjust paths based on your project structure
+import { portfolioItems, categories } from '@/data/portfolioData';
+import { Code } from '@mui/icons-material';
+import Link from 'next/link';
+
+// Import images
 import footerlogo from '@/public/images/footerlogo.png';
 import approach1 from '@/public/images/aprroach1.png';
 import approach2 from '@/public/images/aprroach2.png';
 import approach3 from '@/public/images/aprroach3.png';
 import approach4 from '@/public/images/aprroach4.png';
-
-import ourwork1 from '../../public/images/ourwork1.png'
-import ourwork2 from '../../public/images/ourwork2.png'
-import ourwork13 from '../../public/images/ourwork13.png'
-import ourwor4 from '../../public/images/ourwork4.png'
-import ourwor5 from '../../public/images/ourwork5.png'
-import ourwor6 from '../../public/images/ourwork6.png'
-import ourwork7 from '../../public/images/ourwork7.png'
-import Link from 'next/link';
-import { Code } from '@mui/icons-material';
+import ourwork1 from '../../public/images/ourwork1.png';
+import ourwork2 from '../../public/images/ourwork2.png';
+import ourwork13 from '../../public/images/ourwork13.png';
+import ourwor4 from '../../public/images/ourwork4.png';
+import ourwor5 from '../../public/images/ourwork5.png';
+import ourwor6 from '../../public/images/ourwork6.png';
 
 const OurWork = () => {
     const [value, setValue] = useState(0);
     const router = useRouter();
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsPerView, setItemsPerView] = useState(3);
 
@@ -72,96 +70,32 @@ const OurWork = () => {
         }
     ];
 
-    const portfolioItems = [
-        {
-            id: 1,
-            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
-            category: "Safara",
-            title: "Discover trusted professionals and service providers around you, all in one place.",
-            subtitle: "Mobile app development",
-            textInside: false,
-            isShort: false,
-            link: "/projects/safara",
-            projectName: "Safara"
-        },
-        {
-            id: 2,
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
-            category: "Gymflex",
-            title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service",
-            subtitle: "Mobile app development",
-            textInside: false,
-            isShort: true,
-            link: "/projects/gymflex",
-            projectName: "Gymflex"
-        },
-        {
-            id: 3,
-            image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&h=300&fit=crop",
-            category: "Kids Portal",
-            title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform",
-            subtitle: "Mobile app development",
-            textInside: false,
-            isShort: false,
-            link: "/projects/kids-portal",
-            projectName: "Kids Portal"
-        },
-        {
-            id: 4,
-            image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&h=300&fit=crop",
-            category: "Kids Portal",
-            title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform",
-            subtitle: "Mobile app development",
-            textInside: true,
-            isShort: false,
-            link: "/projects/kids-portal",
-            projectName: "Kids Portal"
-        },
-        {
-            id: 5,
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
-            category: "Gymflex",
-            title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service",
-            subtitle: "Mobile app development",
-            textInside: true,
-            isShort: true,
-            link: "/projects/gymflex",
-            projectName: "Gymflex"
-        },
-        {
-            id: 6,
-            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
-            category: "Safara",
-            title: "Discover trusted professionals and service providers around you, all in one place.",
-            subtitle: "Mobile app development",
-            textInside: true,
-            isShort: false,
-            link: "/projects/safara",
-            projectName: "Safara"
-        }
-    ];
-
-    // Get unique project names for tabs
-    // const categories = ["All Projects", ...Array.from(new Set(portfolioItems.map(item => item.projectName)))];
-    // const filteredPortfolioItems = value === 0
-    //     ? portfolioItems
-    //     : portfolioItems.filter(item => item.projectName === categories[value]);
-    const categories = ["All Projects", "web development", "blockchain development", "ui ux design", "Mobile app development", "artificial intelligence", "shopify development", "backend development"];
-    const filteredPortfolioItems = value === 0
-        ? portfolioItems
-        : portfolioItems.filter(item => item.subtitle === categories[value]);
-
-    // Filter portfolio items based on selected tab
-
     const services = [
-        { title: "Web Development", icon: <Image src={ourwork1} alt='ourwork1' /> },
-        { title: "Blockchain Development", icon: <Image src={ourwork2} alt='ourwork1' /> },
-        { title: "UI UX Design", icon: <Image src={ourwork13} alt='ourwork1' /> },
-        { title: "Mobile App Development", icon: <Image src={ourwor4} alt='ourwork1' /> },
-        { title: "Artificial Intelligence", icon: <Image src={ourwor5} alt='ourwork1' /> },
-        { title: "Shopify Development", icon: <Image src={ourwor6} alt='ourwork1' /> },
+        { title: "Web Development", icon: <Image src={ourwork1} alt='Web Development' /> },
+        { title: "Blockchain Development", icon: <Image src={ourwork2} alt='Blockchain Development' /> },
+        { title: "UI UX Design", icon: <Image src={ourwork13} alt='UI UX Design' /> },
+        { title: "Mobile App Development", icon: <Image src={ourwor4} alt='Mobile App Development' /> },
+        { title: "Artificial Intelligence", icon: <Image src={ourwor5} alt='Artificial Intelligence' /> },
+        { title: "Shopify Development", icon: <Image src={ourwor6} alt='Shopify Development' /> },
         { title: "Backend Development", icon: <Code style={{ 'fontSize': '50px' }} /> },
     ];
+
+    // Filter portfolio items based on selected category
+    const getFilteredItems = () => {
+        const selectedCategory = categories[value];
+        if (selectedCategory === "All") {
+            // Get unique items for "All" view
+            const seen = new Set();
+            return portfolioItems.filter(item => {
+                if (seen.has(item.slug)) return false;
+                seen.add(item.slug);
+                return true;
+            });
+        }
+        return portfolioItems.filter(item => item.category === selectedCategory);
+    };
+
+    const filteredPortfolioItems = getFilteredItems();
 
     const handleChange = (e, newValue) => {
         setValue(newValue);
@@ -195,12 +129,15 @@ const OurWork = () => {
             easing: "ease-in-out",
         });
     }, []);
+
     useEffect(() => {
         document.title = "Our Work";
     }, []);
+
     const handleNavigate = (link) => {
         router.push(link);
     };
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) =>
@@ -226,14 +163,11 @@ const OurWork = () => {
 
                     <div className="grid-container">
                         {services.map((service, index) => (
-                            <div
-                                className="card"
-                                key={index}
-                            >
+                            <div className="card" key={index}>
                                 <div className="icon" data-aos="zoom-in">
                                     {service.icon}
                                 </div>
-                                <h3 >{service.title}</h3>
+                                <h3>{service.title}</h3>
                             </div>
                         ))}
                     </div>
@@ -268,23 +202,11 @@ const OurWork = () => {
 
             <div className="portfolio-wrapper">
                 <div className="portfolio-container">
-                    <div
-                        className="portfolio-header"
-                        data-aos="fade-up"
-                        data-aos-duration="800"
-                    >
-                        <h1
-                            className="portfolio-title"
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                        >
+                    <div className="portfolio-header" data-aos="fade-up" data-aos-duration="800">
+                        <h1 className="portfolio-title" data-aos="fade-up" data-aos-delay="100">
                             Let Our Work Speak for Itself
                         </h1>
-                        <p
-                            className="portfolio-subtext"
-                            data-aos="fade-up"
-                            data-aos-delay="200"
-                        >
+                        <p className="portfolio-subtext" data-aos="fade-up" data-aos-delay="200">
                             Each project we deliver is a reflection of our commitment to creativity,
                             usability, and performance.
                             <br />
@@ -340,28 +262,19 @@ const OurWork = () => {
                             filteredPortfolioItems.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className={`portfolio-card ${item.textInside ? 'text-inside' : 'text-outside'} ${item.isShort ? 'short-image' : ''}`}
+                                    className="portfolio-card text-outside"
                                     data-delay={index * 100}
                                     onClick={() => handleNavigate(item.link)}
+                                    style={{ cursor: 'pointer' }}
                                 >
                                     <div className="card-image">
-                                        <img src={item.image} alt={item.category} />
-                                        {item.textInside && (
-                                            <div className="card-content-overlay">
-                                                <p className="card-category">{item.category}</p>
-                                                <h3 className="card-title">{item.title}</h3>
-                                                <p className="card-subtitle">{item.subtitle}</p>
-                                            </div>
-                                        )}
+                                        <img src={item.image} alt={item.title} />
                                     </div>
-
-                                    {!item.textInside && (
-                                        <div className="card-content">
-                                            <p className="card-category">{item.category}</p>
-                                            <h3 className="card-title">{item.title}</h3>
-                                            <p className="card-subtitle">{item.subtitle}</p>
-                                        </div>
-                                    )}
+                                    <div className="card-content">
+                                        <p className="card-category">{item.category}</p>
+                                        <h3 className="card-title">{item.title}</h3>
+                                        <p className="card-subtitle">{item.subtitle}</p>
+                                    </div>
                                 </div>
                             ))
                         ) : (
@@ -371,7 +284,6 @@ const OurWork = () => {
                             </div>
                         )}
                     </div>
-
                 </div>
             </div>
 
@@ -388,9 +300,7 @@ const OurWork = () => {
                         </div>
                         <h1 className="approach-number desktop-only">01</h1>
                     </div>
-
                     <div className="mobile-section-divider"></div>
-
                     <div className="section-right">
                         <div className="content-wrapper" data-aos="fade-left" data-aos-delay="300">
                             <h2 className="section-heading">Understanding</h2>
@@ -410,9 +320,7 @@ const OurWork = () => {
                             </p>
                         </div>
                     </div>
-
                     <div className="mobile-section-divider"></div>
-
                     <div className="section-right">
                         <h1 className="approach-number desktop-only">02</h1>
                         <div className="illustration-container" data-aos="zoom-in" data-aos-delay="200">
@@ -428,9 +336,7 @@ const OurWork = () => {
                         </div>
                         <h1 className="approach-number desktop-only">03</h1>
                     </div>
-
                     <div className="mobile-section-divider"></div>
-
                     <div className="section-right">
                         <div className="content-wrapper" data-aos="fade-left" data-aos-delay="300">
                             <h2 className="section-heading">Development</h2>
@@ -450,9 +356,7 @@ const OurWork = () => {
                             </p>
                         </div>
                     </div>
-
                     <div className="mobile-section-divider"></div>
-
                     <div className="section-right">
                         <h1 className="approach-number desktop-only">04</h1>
                         <div className="illustration-container" data-aos="zoom-in" data-aos-delay="200">

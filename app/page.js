@@ -1,18 +1,20 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "../styles/Home.css";
 import footerlogo from '../public/images/footerlogo.png';
 import Link from "next/link";
 import TitleActivityWatcher from "@/components/TitleActivityWatcher";
+import { portfolioItems, categories } from '@/data/portfolioData';
+
 const HeroSection = () => {
   const [activeItem, setActiveItem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
-
+  const [value, setValue] = useState(0);
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -77,68 +79,25 @@ const HeroSection = () => {
     }
   ];
 
-  const portfolioItems = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
-      category: "Safara",
-      title: "Discover trusted professionals and service providers around you, all in one place.",
-      subtitle: "Mobile app development",
-      textInside: false,
-      isShort: false,
-      link: "/projects/safara"
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
-      category: "Gymflex",
-      title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service",
-      subtitle: "Mobile app development",
-      textInside: false,
-      isShort: true,
-      link: "/projects/gymflex"
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&h=300&fit=crop",
-      category: "Kids Portal",
-      title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform",
-      subtitle: "Mobile app development",
-      textInside: false,
-      isShort: false,
-      link: "/projects/kids-portal"
-    },
-    {
-      id: 4,
-      image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&h=300&fit=crop",
-      category: "Kids Portal",
-      title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform",
-      subtitle: "Mobile app development",
-      textInside: true,
-      isShort: false,
-      link: "/projects/kids-portal"
-    },
-    {
-      id: 5,
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
-      category: "Gymflex",
-      title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service",
-      subtitle: "Mobile app development",
-      textInside: true,
-      isShort: true,
-      link: "/projects/gymflex"
-    },
-    {
-      id: 6,
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
-      category: "Safara",
-      title: "Discover trusted professionals and service providers around you, all in one place.",
-      subtitle: "Mobile app development",
-      textInside: true,
-      isShort: false,
-      link: "/projects/safara"
+  const getFilteredItems = () => {
+    const selectedCategory = categories[value];
+    if (selectedCategory === "All") {
+      // Get unique items for "All" view
+      const seen = new Set();
+      return portfolioItems.filter(item => {
+        if (seen.has(item.slug)) return false;
+        seen.add(item.slug);
+        return true;
+      });
     }
-  ];
+    return portfolioItems.filter(item => item.category === selectedCategory);
+  };
+
+  const filteredPortfolioItems = getFilteredItems();
+
+  const handleChange = (e, newValue) => {
+    setValue(newValue);
+  };
 
   const testimonials = [
     {
@@ -199,16 +158,9 @@ const HeroSection = () => {
     window.addEventListener("resize", updateItemsPerView);
     return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === maxIndex ? 0 : prevIndex + 1
-      );
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [maxIndex]);
+  const handleNavigate = (link) => {
+    router.push(link);
+  };
 
 
   return (
@@ -390,34 +342,73 @@ const HeroSection = () => {
             <h1 className="portfolio-title aos fade-up" data-delay="100">Have a Closer Look</h1>
           </div>
 
-          <div className="portfolio-grid">
-            {portfolioItems.map((item, index) => (
-              <div
-                key={item.id}
-                className={`portfolio-card aos zoom-in ${item.textInside ? 'text-inside' : 'text-outside'} ${item.isShort ? 'short-image' : ''}`}
-                data-delay={index * 100}
-                onClick={() => router.push(item.link)}
-                style={{ cursor: "pointer" }}
-              >
-                <div className="card-image">
-                  <img src={item.image} alt={item.category} />
-                  {item.textInside && (
-                    <div className="card-content-overlay">
-                      <p className="card-category">{item.category}</p>
-                      <h3 className="card-title">{item.title}</h3>
-                      <p className="card-subtitle">{item.subtitle}</p>
-                    </div>
-                  )}
-                </div>
-                {!item.textInside && (
+          <div className="portfolio-tabs-container" data-aos="fade-up" data-aos-delay="300">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              textColor="inherit"
+              TabIndicatorProps={{
+                style: {
+                  backgroundColor: "#fff",
+                  height: "3px",
+                  borderRadius: "2px",
+                },
+              }}
+              sx={{
+                minHeight: "50px",
+                overflowX: "auto",
+                "& .MuiTab-root": {
+                  textTransform: "none",
+                  fontSize: "15px",
+                  fontFamily: "Poppins, sans-serif",
+                  color: "#d7d3e3",
+                  paddingRight: "45px",
+                  "@media (max-width: 768px)": {
+                    fontSize: "13px",
+                    paddingRight: "25px",
+                  },
+                  "@media (max-width: 480px)": {
+                    fontSize: "12px",
+                    paddingRight: "15px",
+                  },
+                },
+                "& .Mui-selected": {
+                  color: "#ffffff",
+                  fontWeight: "500",
+                },
+              }}
+            >
+              {categories.map((label, index) => (
+                <Tab key={index} label={label} />
+              ))}
+            </Tabs>
+          </div>
+          <div className="portfolio-grid" style={{ marginTop: "8vh" }}>
+            {filteredPortfolioItems.length > 0 ? (
+              filteredPortfolioItems.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="portfolio-card text-outside"
+                  data-delay={index * 100}
+                  onClick={() => handleNavigate(item.link)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="card-image">
+                    <img src={item.image} alt={item.title} />
+                  </div>
                   <div className="card-content">
                     <p className="card-category">{item.category}</p>
                     <h3 className="card-title">{item.title}</h3>
                     <p className="card-subtitle">{item.subtitle}</p>
                   </div>
-                )}
+                </div>
+              ))
+            ) : (
+              <div className="coming-soon-box">
+                <h2>🚧 Coming Soon</h2>
+                <p>Projects for this category will be added shortly.</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
