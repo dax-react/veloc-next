@@ -156,7 +156,17 @@ const webDevlopment = {
             { id: "04", title: "PHP Laravel", desc: "Enhance your store's performance with third-party app integrations or custom-built Shopify apps.", img: phpwebdev }
         ]
     },
-    projects: shopifyPageData.projects,
+    projects: {
+        title: "Our Web Development Work",
+        items: [
+            { id: 1, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smitle", category: "Mobile app development", size: "large", link: "/smitle" },
+            { id: 2, image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 3, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 4, image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 5, image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 6, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smiile", category: "Mobile app development", size: "large", link: "/smitle" }
+        ]
+    },
     carousel: shopifyPageData.carousel
 };
 
@@ -187,7 +197,17 @@ const mobileDevlopment = {
             { id: "04", title: "Android", desc: "Enhance your store's performance with third-party app integrations or custom-built Shopify apps.", img: androidwebdev }
         ]
     },
-    projects: shopifyPageData.projects,
+    projects: {
+        title: "Our Mobile development Work",
+        items: [
+            { id: 1, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smitle", category: "Mobile app development", size: "large", link: "/smitle" },
+            { id: 2, image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 3, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 4, image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 5, image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 6, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smiile", category: "Mobile app development", size: "large", link: "/smitle" }
+        ]
+    },
     carousel: shopifyPageData.carousel
 };
 
@@ -209,7 +229,17 @@ const backendDevlopment = {
         ]
     },
     services: mobileDevlopment.services,
-    projects: shopifyPageData.projects,
+    projects: {
+        title: "Our Backend Development Work",
+        items: [
+            { id: 1, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smitle", category: "Mobile app development", size: "large", link: "/smitle" },
+            { id: 2, image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 3, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 4, image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 5, image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 6, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smiile", category: "Mobile app development", size: "large", link: "/smitle" }
+        ]
+    },
     carousel: shopifyPageData.carousel
 };
 
@@ -240,7 +270,17 @@ const artificialIntelligent = {
             { id: "04", title: "PyTorch", desc: "Enhance your store's performance with third-party app integrations or custom-built Shopify apps.", img: pytorchai }
         ]
     },
-    projects: shopifyPageData.projects,
+    projects: {
+        title: "Our Artificial Intelligent Work",
+        items: [
+            { id: 1, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smitle", category: "Mobile app development", size: "large", link: "/smitle" },
+            { id: 2, image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 3, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 4, image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 5, image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 6, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smiile", category: "Mobile app development", size: "large", link: "/smitle" }
+        ]
+    },
     carousel: shopifyPageData.carousel
 };
 
@@ -262,7 +302,17 @@ const blockchainDevelopment = {
         ]
     },
     services: artificialIntelligent.services,
-    projects: shopifyPageData.projects,
+    projects: {
+        title: "Our Blockchain Development Work",
+        items: [
+            { id: 1, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smitle", category: "Mobile app development", size: "large", link: "/smitle" },
+            { id: 2, image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 3, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 4, image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 5, image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 6, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smiile", category: "Mobile app development", size: "large", link: "/smitle" }
+        ]
+    },
     carousel: shopifyPageData.carousel
 };
 
@@ -283,7 +333,17 @@ const uiUx = {
             { id: 6, title: "Competitive Advantage", icon: icon6uiux }
         ]
     },
-    projects: shopifyPageData.projects,
+    projects: {
+        title: "Our UI UX Design Work",
+        items: [
+            { id: 1, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smitle", category: "Mobile app development", size: "large", link: "/smitle" },
+            { id: 2, image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 3, image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 4, image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=800&fit=crop", title: "Discover trusted professionals and service providers around you, all in one place.", company: "Safara", category: "Mobile app development", size: "large", link: "/safara" },
+            { id: 5, image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop", title: "GymFlex provides a solution to this problem by offering a mobile gym subscription service", company: "Gymflex", category: "Mobile app development", size: "small", link: "/gymflex" },
+            { id: 6, image: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=800&fit=crop", title: "Group Gifting, Wishlists & Goal-Based Boxes all in one sleek platform", company: "Smiile", category: "Mobile app development", size: "large", link: "/smitle" }
+        ]
+    },
     carousel: shopifyPageData.carousel
 };
 

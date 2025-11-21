@@ -829,6 +829,30 @@
     }
 }
 
+.coming-soon-box {
+    width: 100%;
+    text-align: center;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+}
+
+.coming-soon-box h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.coming-soon-box p {
+    font-size: 18px;
+    color: #fff;
+}
+
 .portfolio-title {
     font-size: 56px;
     /* Increased from 50px */

@@ -1,4 +1,4 @@
-/* Footer Base */
+    /* Footer Base */
 .footer {
     background-color: #1a1a1a;
     color: #ffffff;
@@ -290,5 +290,251 @@
         width: 35px;
         height: 35px;
         font-size: 16px;
+    }
+}
+
+:root {
+    --bg: #06060a;
+    --muted: #bfc4c9;
+    --neon: #7df2ff;
+    /* neon cyan */
+    --glow: 0 8px 24px rgba(125, 242, 255, 0.08), 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.footer {
+    background: linear-gradient(180deg, rgba(6, 6, 10, 0.98), rgba(10, 10, 14, 0.98));
+    color: #e6eef6;
+    padding: 36px 28px;
+    font-family: Inter, system-ui, sans-serif;
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr 320px;
+    gap: 22px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left area */
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.logoRow {
+    margin-bottom: 6px;
+}
+
+.contact {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.contactItem {
+    margin-bottom: 8px;
+}
+
+/* Middle columns */
+.columns {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+
+.col h4 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+}
+
+.col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.col li {
+    margin-bottom: 8px;
+}
+
+.col a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+/* Right rotator */
+.rotator {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    min-height: 150px;
+}
+
+.bgVideo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* viewport */
+.rotatorViewport {
+    width: 220px;
+    height: 160px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: var(--glow);
+    border: 1px solid rgba(255, 255, 255, 0.035);
+    padding: 12px;
+}
+
+/* slide */
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.98);
+    transition:
+        opacity 700ms cubic-bezier(.22, .9, .3, 1),
+        transform 700ms cubic-bezier(.22, .9, .3, 1),
+        filter 700ms;
+    pointer-events: none;
+}
+
+/* visible slide */
+.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* neon svg */
+.monumentSvg {
+    max-width: 130px;
+    max-height: 86px;
+    filter: drop-shadow(0 6px 18px rgba(125, 242, 255, 0.12));
+    opacity: 0.95;
+    mix-blend-mode: screen;
+    transition: filter .7s;
+    /* subtle neon stroke using CSS mask isn't necessary for svg outlines if svg contains stroke color */
+    transform-origin: center;
+}
+
+/* caption and flag */
+.caption {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    color: #cfe8ea;
+    font-size: 12px;
+    opacity: 0.95;
+}
+
+.flagWrap {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 36px;
+    height: 24px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.flag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* controls */
+.controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    z-index: 2;
+}
+
+.ctrlBtn {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* bottom */
+.bottom {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.social {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+/* reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .slide,
+    .monumentSvg {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* responsive */
+@media (max-width: 980px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .rotator {
+        order: 3;
+    }
+
+    .columns {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
     }
 }

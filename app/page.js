@@ -86,7 +86,7 @@ const HeroSection = () => {
       subtitle: "Mobile app development",
       textInside: false,
       isShort: false,
-      link: "/safara"
+      link: "/projects/safara"
     },
     {
       id: 2,
@@ -96,7 +96,7 @@ const HeroSection = () => {
       subtitle: "Mobile app development",
       textInside: false,
       isShort: true,
-      link: "/gymflex"
+      link: "/projects/gymflex"
     },
     {
       id: 3,
@@ -106,7 +106,7 @@ const HeroSection = () => {
       subtitle: "Mobile app development",
       textInside: false,
       isShort: false,
-      link: "/kids-portal"
+      link: "/projects/kids-portal"
     },
     {
       id: 4,
@@ -116,7 +116,7 @@ const HeroSection = () => {
       subtitle: "Mobile app development",
       textInside: true,
       isShort: false,
-      link: "/kids-portal"
+      link: "/projects/kids-portal"
     },
     {
       id: 5,
@@ -126,7 +126,7 @@ const HeroSection = () => {
       subtitle: "Mobile app development",
       textInside: true,
       isShort: true,
-      link: "/gymflex"
+      link: "/projects/gymflex"
     },
     {
       id: 6,
@@ -136,7 +136,7 @@ const HeroSection = () => {
       subtitle: "Mobile app development",
       textInside: true,
       isShort: false,
-      link: "/safara"
+      link: "/projects/safara"
     }
   ];
 
@@ -199,6 +199,17 @@ const HeroSection = () => {
     window.addEventListener("resize", updateItemsPerView);
     return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === maxIndex ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [maxIndex]);
+
 
   return (
     <>

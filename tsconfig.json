@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/our-work/page.js", "app/about-us/page.js", "app/page.js", "app/dedicated-developers/page.js", "app/dedicated-developers-forms/page.js"  ],
+, "app/our-work/page.js", "app/about-us/page.js", "app/page.js", "app/dedicated-developers/page.js", "app/dedicated-developers-forms/page.js", "app/projects/[slug]/ProjectPageClient.tsx", "data/projects.ts"  ],
   "exclude": ["node_modules"]
 }

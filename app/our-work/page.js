@@ -81,7 +81,7 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: false,
             isShort: false,
-            link: "/safara",
+            link: "/projects/safara",
             projectName: "Safara"
         },
         {
@@ -92,7 +92,7 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: false,
             isShort: true,
-            link: "/gymflex",
+            link: "/projects/gymflex",
             projectName: "Gymflex"
         },
         {
@@ -103,7 +103,7 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: false,
             isShort: false,
-            link: "/kids-portal",
+            link: "/projects/kids-portal",
             projectName: "Kids Portal"
         },
         {
@@ -114,7 +114,7 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: true,
             isShort: false,
-            link: "/kids-portal",
+            link: "/projects/kids-portal",
             projectName: "Kids Portal"
         },
         {
@@ -125,7 +125,7 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: true,
             isShort: true,
-            link: "/gymflex",
+            link: "/projects/gymflex",
             projectName: "Gymflex"
         },
         {
@@ -136,18 +136,22 @@ const OurWork = () => {
             subtitle: "Mobile app development",
             textInside: true,
             isShort: false,
-            link: "/safara",
+            link: "/projects/safara",
             projectName: "Safara"
         }
     ];
 
     // Get unique project names for tabs
-    const categories = ["All Projects", ...Array.from(new Set(portfolioItems.map(item => item.projectName)))];
-
-    // Filter portfolio items based on selected tab
+    // const categories = ["All Projects", ...Array.from(new Set(portfolioItems.map(item => item.projectName)))];
+    // const filteredPortfolioItems = value === 0
+    //     ? portfolioItems
+    //     : portfolioItems.filter(item => item.projectName === categories[value]);
+    const categories = ["All Projects", "web development", "blockchain development", "ui ux design", "Mobile app development", "artificial intelligence", "shopify development", "backend development"];
     const filteredPortfolioItems = value === 0
         ? portfolioItems
-        : portfolioItems.filter(item => item.projectName === categories[value]);
+        : portfolioItems.filter(item => item.subtitle === categories[value]);
+
+    // Filter portfolio items based on selected tab
 
     const services = [
         { title: "Web Development", icon: <Image src={ourwork1} alt='ourwork1' /> },
@@ -197,6 +201,15 @@ const OurWork = () => {
     const handleNavigate = (link) => {
         router.push(link);
     };
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === maxIndex ? 0 : prevIndex + 1
+            );
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [maxIndex]);
 
     return (
         <>
@@ -323,33 +336,42 @@ const OurWork = () => {
                     </div>
 
                     <div className="portfolio-grid" style={{ marginTop: "8vh" }}>
-                        {filteredPortfolioItems.map((item, index) => (
-                            <div
-                                key={item.id}
-                                className={`portfolio-card ${item.textInside ? 'text-inside' : 'text-outside'} ${item.isShort ? 'short-image' : ''}`}
-                                data-delay={index * 100}
-                                onClick={() => handleNavigate(item.link)}
-                            >
-                                <div className="card-image">
-                                    <img src={item.image} alt={item.category} />
-                                    {item.textInside && (
-                                        <div className="card-content-overlay">
+                        {filteredPortfolioItems.length > 0 ? (
+                            filteredPortfolioItems.map((item, index) => (
+                                <div
+                                    key={item.id}
+                                    className={`portfolio-card ${item.textInside ? 'text-inside' : 'text-outside'} ${item.isShort ? 'short-image' : ''}`}
+                                    data-delay={index * 100}
+                                    onClick={() => handleNavigate(item.link)}
+                                >
+                                    <div className="card-image">
+                                        <img src={item.image} alt={item.category} />
+                                        {item.textInside && (
+                                            <div className="card-content-overlay">
+                                                <p className="card-category">{item.category}</p>
+                                                <h3 className="card-title">{item.title}</h3>
+                                                <p className="card-subtitle">{item.subtitle}</p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {!item.textInside && (
+                                        <div className="card-content">
                                             <p className="card-category">{item.category}</p>
                                             <h3 className="card-title">{item.title}</h3>
                                             <p className="card-subtitle">{item.subtitle}</p>
                                         </div>
                                     )}
                                 </div>
-                                {!item.textInside && (
-                                    <div className="card-content">
-                                        <p className="card-category">{item.category}</p>
-                                        <h3 className="card-title">{item.title}</h3>
-                                        <p className="card-subtitle">{item.subtitle}</p>
-                                    </div>
-                                )}
+                            ))
+                        ) : (
+                            <div className="coming-soon-box">
+                                <h2>🚧 Coming Soon</h2>
+                                <p>Projects for this category will be added shortly.</p>
                             </div>
-                        ))}
+                        )}
                     </div>
+
                 </div>
             </div>
 
