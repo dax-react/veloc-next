@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -12,6 +12,8 @@ import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 
 export default function ServiceDetailPage({ params }) {
     const router = useRouter();
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 6;
 
     // Unwrap params for Next.js 15+
     const resolvedParams = React.use(params);
@@ -37,6 +39,7 @@ export default function ServiceDetailPage({ params }) {
         }, 100);
 
     }, []);
+
     useEffect(() => {
         document.title = `Services`;
     }, []);
@@ -66,6 +69,74 @@ export default function ServiceDetailPage({ params }) {
     }
 
     const { hero, benefits, services, projects, carousel } = pageData;
+
+    // Pagination logic
+    const projectItems = projects?.items || [];
+    const totalPages = Math.ceil(projectItems.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentItems = projectItems.slice(startIndex, endIndex);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        // Smooth scroll to the start of projects section
+        const projectsSection = document.querySelector('.projects-grid');
+        if (projectsSection) {
+            const gridTop = projectsSection.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({
+                top: gridTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            handlePageChange(currentPage - 1);
+        }
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            handlePageChange(currentPage + 1);
+        }
+    };
+
+    // Generate page numbers with ellipsis
+    const getPageNumbers = () => {
+        const pages = [];
+        const maxVisiblePages = 5;
+
+        if (totalPages <= maxVisiblePages) {
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            if (currentPage <= 3) {
+                for (let i = 1; i <= 4; i++) {
+                    pages.push(i);
+                }
+                pages.push('ellipsis');
+                pages.push(totalPages);
+            } else if (currentPage >= totalPages - 2) {
+                pages.push(1);
+                pages.push('ellipsis');
+                for (let i = totalPages - 3; i <= totalPages; i++) {
+                    pages.push(i);
+                }
+            } else {
+                pages.push(1);
+                pages.push('ellipsis');
+                pages.push(currentPage - 1);
+                pages.push(currentPage);
+                pages.push(currentPage + 1);
+                pages.push('ellipsis');
+                pages.push(totalPages);
+            }
+        }
+
+        return pages;
+    };
 
     return (
         <>
@@ -213,7 +284,7 @@ export default function ServiceDetailPage({ params }) {
                         </h1>
 
                         <div className="projects-grid">
-                            {projects.items.map((project, index) => (
+                            {currentItems.map((project, index) => (
                                 <div
                                     key={project.id}
                                     className={`project-card ${project.size}`}
@@ -240,6 +311,53 @@ export default function ServiceDetailPage({ params }) {
                                 </div>
                             ))}
                         </div>
+
+                        {/* Pagination Controls */}
+                        {projectItems.length > itemsPerPage && (
+                            <div className="pagination-container">
+                                <button
+                                    className="pagination-arrow"
+                                    onClick={handlePrevPage}
+                                    disabled={currentPage === 1}
+                                    aria-label="Previous page"
+                                >
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+
+                                <div className="pagination-numbers">
+                                    {getPageNumbers().map((page, index) => (
+                                        page === 'ellipsis' ? (
+                                            <span key={`ellipsis-${index}`} className="pagination-ellipsis">
+                                                ...
+                                            </span>
+                                        ) : (
+                                            <button
+                                                key={page}
+                                                className={`pagination-number ${currentPage === page ? 'active' : ''}`}
+                                                onClick={() => handlePageChange(page)}
+                                                aria-label={`Go to page ${page}`}
+                                                aria-current={currentPage === page ? 'page' : undefined}
+                                            >
+                                                {page}
+                                            </button>
+                                        )
+                                    ))}
+                                </div>
+
+                                <button
+                                    className="pagination-arrow"
+                                    onClick={handleNextPage}
+                                    disabled={currentPage === totalPages}
+                                    aria-label="Next page"
+                                >
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        )}
                     </section>
                 )}
 

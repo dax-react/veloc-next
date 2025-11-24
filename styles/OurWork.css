@@ -16,6 +16,20 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
 }
 
+ .hero-wrapper-shopify {
+    padding-bottom: 8%;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../public/images/hero-bg.png') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
 .our-work-container {
     display: flex;
     justify-content: center;

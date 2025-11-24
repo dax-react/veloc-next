@@ -12,7 +12,7 @@ export const projects = [
         date: "2024",
         client: "FitLife Inc",
         category: "Mobile App",
-        video: "/videos/gymflex.mp4",
+        video: "/videos/Gymflex app ui.mp4",
         images: [
             { id: 1, url: "/images/gymflex1.png", alt: "Gymflex Dashboard" },
             { id: 3, url: "/images/gymflex3.png", alt: "Gymflex Progress" },
@@ -43,7 +43,7 @@ export const projects = [
         date: "2023",
         client: "EduPlay Studios",
         category: "Web & Mobile App",
-        video: "/videos/kids-portal.mp4",
+        video: "/videos/kidsportal.mp4",
         images: [
             { id: 1, url: "/images/kids1.png", alt: "Kids Portal Home" },
             { id: 3, url: "/images/kids3.png", alt: "Kids Portal Learning" },
@@ -105,7 +105,7 @@ export const projects = [
         date: "2020",
         client: "Retail Solutions Ltd",
         category: "Mobile app",
-        video: "/videos/smartshop.mp4",
+        video: "/videos/Black 101 App UI.mp4",
         images: [
             { id: 1, url: "/images/black1.png", alt: "SmartShop Home" },
             { id: 3, url: "/images/black3.png", alt: "SmartShop Cart" },
@@ -136,7 +136,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Carigar App.mp4",
         images: [
             { id: 1, url: "/images/criager1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/criager3.png", alt: "HealthMate Medications" },
@@ -167,7 +167,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/RYDTHRU App UI.mp4",
         images: [
             { id: 1, url: "/images/rydthru1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/rydthru3.png", alt: "HealthMate Medications" },
@@ -198,7 +198,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Email App UI.mp4",
         images: [
             { id: 1, url: "/images/rydthru1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/rydthru3.png", alt: "HealthMate Medications" },
@@ -229,7 +229,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Smitle.mp4",
         images: [
             { id: 1, url: "/images/smitle1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/smitle3.png", alt: "HealthMate Medications" },
@@ -260,7 +260,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/valutax.mp4",
         images: [
             { id: 1, url: "/images/valuetex1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/valuetex3.png", alt: "HealthMate Medications" },
@@ -291,7 +291,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Frame it for life.mp4",
         images: [
             { id: 1, url: "/images/fram1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/fram3.png", alt: "HealthMate Medications" },
@@ -322,7 +322,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Smart Business Car Park.mp4",
         images: [
             { id: 1, url: "/images/fram1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/fram3.png", alt: "HealthMate Medications" },
@@ -353,7 +353,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Soteria App.mp4",
         images: [
             { id: 1, url: "/images/soteria1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/soteria3.png", alt: "HealthMate Medications" },
@@ -384,7 +384,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/The Cryptohub.mp4",
         images: [
             { id: 1, url: "/images/crypto1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/crypto3.png", alt: "HealthMate Medications" },
@@ -415,7 +415,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Game hub.mp4",
         images: [
             { id: 1, url: "/images/game1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/game3.png", alt: "HealthMate Medications" },
@@ -446,7 +446,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Delimini landing page.mp4",
         images: [
             { id: 1, url: "/images/delimini1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/delimini3.png", alt: "HealthMate Medications" },
@@ -477,7 +477,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/MedicaBuyer.mp4",
         images: [
             { id: 1, url: "/images/medica1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/medica3.png", alt: "HealthMate Medications" },
@@ -508,7 +508,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Soteria App.mp4",
         images: [
             { id: 1, url: "/images/sotaria1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/sotaria3.png", alt: "HealthMate Medications" },
@@ -539,7 +539,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Aladdin.mp4",
         images: [
             { id: 1, url: "/images/alladin1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/alladin3.png", alt: "HealthMate Medications" },
@@ -570,7 +570,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Twin Calculator.mp4",
         images: [
             { id: 1, url: "/images/twin1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/twin3.png", alt: "HealthMate Medications" },
@@ -601,7 +601,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Aviato.mp4",
         images: [
             { id: 1, url: "/images/aviato1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/aviato3.png", alt: "HealthMate Medications" },
@@ -632,7 +632,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/AI Snap .mp4",
         images: [
             { id: 1, url: "/images/ai1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/ai3.png", alt: "HealthMate Medications" },
@@ -663,7 +663,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/HW Infotech.mp4",
         images: [
             { id: 1, url: "/images/hw1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/hw3.png", alt: "HealthMate Medications" },
@@ -694,7 +694,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Wonder Snap.mp4",
         images: [
             { id: 1, url: "/images/ws1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/ws3.png", alt: "HealthMate Medications" },
@@ -725,7 +725,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Peer me (1).mp4",
         images: [
             { id: 1, url: "/images/peerme1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/peerme3.png", alt: "HealthMate Medications" },
@@ -756,7 +756,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Profertility.mp4",
         images: [
             { id: 1, url: "/images/profertility1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/profertility3.png", alt: "HealthMate Medications" },
@@ -787,7 +787,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Clyxx (1).mp4",
         images: [
             { id: 1, url: "/images/clyx1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/clyx3.png", alt: "HealthMate Medications" },
@@ -818,7 +818,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Santander.mp4",
         images: [
             { id: 1, url: "/images/safara1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/safara3.png", alt: "HealthMate Medications" },
@@ -849,7 +849,7 @@ export const projects = [
         date: "2020",
         client: "MedTech Innovations",
         category: "Mobile App",
-        video: "/videos/healthmate.mp4",
+        video: "/videos/Soteria App .mp4",
         images: [
             { id: 1, url: "/images/tex1.png", alt: "HealthMate Dashboard" },
             { id: 3, url: "/images/tex3.png", alt: "HealthMate Medications" },

@@ -27,10 +27,10 @@ export default function AboutSection() {
         document.title = "About Us"; // becomes About Us | Veloc
     }, []);
     const stats = [
-        { number: 9, suffix: '+', label: 'Years', sublabel: 'Experience' },
+        { number: 4, suffix: '+', label: 'Years', sublabel: 'Experience' },
         { number: 100, suffix: '+', label: 'Delivers', sublabel: 'Project' },
-        { number: 90, suffix: '%', label: 'Average', sublabel: 'Client Satisfaction' },
-        { number: 3, suffix: '', label: 'Served', sublabel: 'Countries' }
+        { number: 95, suffix: '%', label: 'Average', sublabel: 'Client Satisfaction' },
+        { number: 12, suffix: '', label: 'Served', sublabel: 'Countries' }
     ];
 
     const features = [

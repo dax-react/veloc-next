@@ -15,6 +15,9 @@ const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
   const [value, setValue] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -38,7 +41,7 @@ const HeroSection = () => {
     {
       id: 1,
       title: 'Dedicated Team',
-      route: '/dedicated-developers', // or '/services/dedicated-team'
+      route: '/dedicated-developers',
       options: ['Frontend Squad', 'Full-Stack Force', 'Backend Crew', 'Single Resource Pro']
     },
     {
@@ -82,7 +85,6 @@ const HeroSection = () => {
   const getFilteredItems = () => {
     const selectedCategory = categories[value];
     if (selectedCategory === "All") {
-      // Get unique items for "All" view
       const seen = new Set();
       return portfolioItems.filter(item => {
         if (seen.has(item.slug)) return false;
@@ -94,6 +96,79 @@ const HeroSection = () => {
   };
 
   const filteredPortfolioItems = getFilteredItems();
+
+  // Reset to page 1 when filter changes
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCurrentPage(1);
+  }, [value]);
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredPortfolioItems.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = filteredPortfolioItems.slice(startIndex, endIndex);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Smooth scroll to the start of portfolio grid
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+    if (portfolioGrid) {
+      const gridTop = portfolioGrid.getBoundingClientRect().top + window.pageYOffset - 250;
+      window.scrollTo({
+        top: gridTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      handlePageChange(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      handlePageChange(currentPage + 1);
+    }
+  };
+
+  // Generate page numbers with ellipsis
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxVisiblePages = 5;
+
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= 4; i++) {
+          pages.push(i);
+        }
+        pages.push('ellipsis');
+        pages.push(totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pages.push(1);
+        pages.push('ellipsis');
+        for (let i = totalPages - 3; i <= totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        pages.push(1);
+        pages.push('ellipsis');
+        pages.push(currentPage - 1);
+        pages.push(currentPage);
+        pages.push(currentPage + 1);
+        pages.push('ellipsis');
+        pages.push(totalPages);
+      }
+    }
+
+    return pages;
+  };
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
@@ -158,10 +233,10 @@ const HeroSection = () => {
     window.addEventListener("resize", updateItemsPerView);
     return () => window.removeEventListener("resize", updateItemsPerView);
   }, []);
+
   const handleNavigate = (link) => {
     router.push(link);
   };
-
 
   return (
     <>
@@ -383,9 +458,10 @@ const HeroSection = () => {
               ))}
             </Tabs>
           </div>
+
           <div className="portfolio-grid" style={{ marginTop: "8vh" }}>
-            {filteredPortfolioItems.length > 0 ? (
-              filteredPortfolioItems.map((item, index) => (
+            {currentItems.length > 0 ? (
+              currentItems.map((item, index) => (
                 <div
                   key={item.id}
                   className="portfolio-card text-outside"
@@ -410,6 +486,53 @@ const HeroSection = () => {
               </div>
             )}
           </div>
+
+          {/* Pagination Controls */}
+          {filteredPortfolioItems.length > itemsPerPage && (
+            <div className="pagination-container">
+              <button
+                className="pagination-arrow"
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+                aria-label="Previous page"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              <div className="pagination-numbers">
+                {getPageNumbers().map((page, index) => (
+                  page === 'ellipsis' ? (
+                    <span key={`ellipsis-${index}`} className="pagination-ellipsis">
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={page}
+                      className={`pagination-number ${currentPage === page ? 'active' : ''}`}
+                      onClick={() => handlePageChange(page)}
+                      aria-label={`Go to page ${page}`}
+                      aria-current={currentPage === page ? 'page' : undefined}
+                    >
+                      {page}
+                    </button>
+                  )
+                ))}
+              </div>
+
+              <button
+                className="pagination-arrow"
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                aria-label="Next page"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
