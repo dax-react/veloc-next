@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 // Import images - adjust paths based on your project structure
 import footerlogo from '@/public/images/footerlogo.png';
@@ -17,18 +19,96 @@ export default function Contact() {
     subject: '',
     message: ''
   });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     document.title = "Contact Us";
   }, []);
+
+  // Form validation function
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+      newErrors.name = 'Name should contain only letters';
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Phone validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^[\d\s\-\+\(\)]+$/.test(formData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
+    } else if (formData.phone.replace(/\D/g, '').length < 10) {
+      newErrors.phone = 'Phone number must be at least 10 digits';
+    }
+
+    // Subject validation
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required';
+    } else if (formData.subject.trim().length < 3) {
+      newErrors.subject = 'Subject must be at least 3 characters';
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    } else if (formData.message.trim().length > 1000) {
+      newErrors.message = 'Message must not exceed 1000 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form
+    if (!validateForm()) {
+      toast.error('Please fix the errors in the form', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
 
     const portalId = "244252598";
     const formGuid = "fb621206-3269-4871-9cb1-04c7feadf7ef";
@@ -36,36 +116,47 @@ export default function Contact() {
 
     const data = {
       fields: [
-        { name: "firstname", value: formData.name },
-        { name: "email", value: formData.email },
-        { name: "phone", value: formData.phone },
-        { name: "subject", value: formData.subject },
-        { name: "message", value: formData.message },
+        { name: "firstname", value: formData.name.trim() },
+        { name: "email", value: formData.email.trim() },
+        { name: "phone", value: formData.phone.trim() },
+        { name: "subject", value: formData.subject.trim() },
+        { name: "message", value: formData.message.trim() },
       ],
     };
 
     try {
-      const response = await fetch(url, {
+      // Submit to HubSpot
+      const hubspotResponse = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      await emailjs.send(
+      // Submit to EmailJS
+      const emailResponse = await emailjs.send(
         "service_n4sxm91",
         "template_76yd6o8",
         {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
         },
         "xaklfWfIfvCP76y0o"
       );
 
-      if (response.ok) {
-        alert("Message sent successfully!");
+      if (hubspotResponse.ok && emailResponse.status === 200) {
+        toast.success(`Message sent successfully! We'll get back to you soon.`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
+        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -73,18 +164,82 @@ export default function Contact() {
           subject: "",
           message: "",
         });
+        setErrors({});
+      } else if (emailResponse.status === 200) {
+        toast.success('✅ Message sent via email successfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setErrors({});
       } else {
-        alert("HubSpot submission failed, but EmailJS sent successfully.");
+        throw new Error('Both submissions failed');
       }
     } catch (error) {
       console.error("❌ Error submitting form:", error);
-      alert("Something went wrong. Please try again.");
+
+      if (error.text) {
+        // EmailJS specific error
+        toast.error('Failed to send email. Please try again or contact us directly.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else if (error.message.includes('Failed to fetch')) {
+        toast.error('Network error. Please check your connection and try again.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      } else {
+        toast.error('Something went wrong. Please try again later.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <>
       <TitleActivityWatcher activeTitle="Contact Us" />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
       <div className="contact-wrapper">
         <style jsx>{`
 .contact-wrapper {
@@ -258,6 +413,11 @@ export default function Contact() {
   border-radius: 6px;
 }
 
+.contact-form-input.error,
+.contact-form-textarea.error {
+  border-color: #dc3545;
+}
+
 .contact-form-input::placeholder,
 .contact-form-textarea::placeholder {
   color: #b8b8b8;
@@ -269,9 +429,22 @@ export default function Contact() {
   box-shadow: 0 0 0 3px rgba(43, 39, 104, 0.08);
 }
 
+.contact-form-input.error:focus,
+.contact-form-textarea.error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
 .contact-form-textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
 }
 
 .contact-submit-btn {
@@ -286,17 +459,23 @@ export default function Contact() {
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
-  margin-top:3vh;
+  margin-top: 3vh;
 }
 
-.contact-submit-btn:hover {
+.contact-submit-btn:hover:not(:disabled) {
   background-color: #1f1b4d;
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(43, 39, 104, 0.3);
 }
 
-.contact-submit-btn:active {
+.contact-submit-btn:active:not(:disabled) {
   transform: translateY(0);
+}
+
+.contact-submit-btn:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* ==============================
@@ -437,7 +616,7 @@ export default function Contact() {
           </div>
 
           <div className="contact-form-container">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="contact-form-row">
                 <div className="contact-form-group">
                   <label className="contact-form-label">Name</label>
@@ -447,9 +626,9 @@ export default function Contact() {
                     placeholder="Eg. John deo"
                     value={formData.name}
                     onChange={handleChange}
-                    className="contact-form-input"
-                    required
+                    className={`contact-form-input ${errors.name ? 'error' : ''}`}
                   />
+                  {errors.name && <span className="error-message">{errors.name}</span>}
                 </div>
 
                 <div className="contact-form-group">
@@ -460,9 +639,9 @@ export default function Contact() {
                     placeholder="Eg. Johndeo@gmail.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className="contact-form-input"
-                    required
+                    className={`contact-form-input ${errors.email ? 'error' : ''}`}
                   />
+                  {errors.email && <span className="error-message">{errors.email}</span>}
                 </div>
               </div>
 
@@ -475,9 +654,9 @@ export default function Contact() {
                     placeholder="Eg. (+91) 000 000 0000"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="contact-form-input"
-                    required
+                    className={`contact-form-input ${errors.phone ? 'error' : ''}`}
                   />
+                  {errors.phone && <span className="error-message">{errors.phone}</span>}
                 </div>
 
                 <div className="contact-form-group">
@@ -488,9 +667,9 @@ export default function Contact() {
                     placeholder="Eg. Website Development"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="contact-form-input"
-                    required
+                    className={`contact-form-input ${errors.subject ? 'error' : ''}`}
                   />
+                  {errors.subject && <span className="error-message">{errors.subject}</span>}
                 </div>
               </div>
 
@@ -500,13 +679,18 @@ export default function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="contact-form-textarea"
-                  required
+                  className={`contact-form-textarea ${errors.message ? 'error' : ''}`}
+                  placeholder="Tell us about your project..."
                 ></textarea>
+                {errors.message && <span className="error-message">{errors.message}</span>}
               </div>
 
-              <button type="submit" className="contact-submit-btn">
-                Submit
+              <button
+                type="submit"
+                className="contact-submit-btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Submit'}
               </button>
             </form>
           </div>

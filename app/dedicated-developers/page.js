@@ -27,6 +27,7 @@ import whyicon3 from '../../public/images/whyicon3.png';
 import whyicon4 from '../../public/images/whyicon4.png';
 import { Clock, AlertTriangle, Lightbulb, Maximize2 } from 'lucide-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Head from 'next/head';
 
 
 export default function DedicatedDevelopers() {
@@ -300,6 +301,30 @@ export default function DedicatedDevelopers() {
     const { prev, current, next } = getVisibleCards();
     return (
         <>
+            <Head>
+                <title>Hire dedicated developers, Shopify Experts & Designers in Bengaluru | VELOC</title>
+
+                <meta name="description" content="Hire dedicated developers, Shopify experts, and graphic designers in Bengaluru. Startup MVPs, apps, SaaS, and custom software built fast with VELOC’s expert team." />
+                <meta name="keywords" content="hire developers Bengaluru, dedicated developers India, shopify developer Bengaluru, hire shopify experts, software development company Bengaluru, startup mvp development, saas development agency, hire graphic designer, ui ux designer Bengaluru, mobile app development Bengaluru, web development agency Bengaluru, hire react developer, hire node developer, hire flutter developer, custom shopify store development, bengaluru tech talent, outsourced development team, hire remote developers india" />
+
+                {/* OG TAGS */}
+                <meta property="og:title" content="Hire Developers, Shopify Experts & Designers | VELOC" />
+                <meta property="og:description" content="Hire dedicated developers, Shopify experts, and creative designers in Bengaluru with VELOC. Build apps, MVPs, Shopify stores & more." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://veloc.in/" />
+                <meta property="og:image" content="https://veloc.in/og-image.jpg" />
+
+                {/* TWITTER */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Hire dedicated Developers, Shopify Experts & Designers | VELOC" />
+                <meta name="twitter:description" content="Hire dedicated developers, Shopify experts, and creative designers in Bengaluru. Build apps, MVPs & Shopify stores with VELOC." />
+                <meta name="twitter:image" content="https://veloc.in/og-image.jpg" />
+
+                {/* Additional */}
+                <meta name="robots" content="index, follow" />
+                <meta name="author" content="VELOC" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            </Head>
             <TitleActivityWatcher activeTitle="Dedicated Developers" />
             <div className="dd-wrapper">
                 <div className="dedicated-developers-page">

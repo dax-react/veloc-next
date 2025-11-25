@@ -7,40 +7,22 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import emailjs from 'emailjs-com';
 import Image from 'next/image';
-import dedicated_team from '../../public/images/dedicated team.png'
-import dedicated_dev from '../../public/images/dedicated developer.png'
+import dedicated_team from '../../public/images/dedicated team.png';
+import dedicated_dev from '../../public/images/dedicated developer.png';
 import TitleActivityWatcher from "@/components/TitleActivityWatcher";
 import {
-    FaReact,
-    FaAngular,
-    FaVuejs,
-    FaNodeJs,
-    FaPython,
-    FaAws,
-    FaDocker,
-    FaJava,
-    FaAndroid,
-    FaApple,
-    FaEthereum,
-    FaLaravel,
-    FaHtml5,
-    FaJs,
-    FaGitAlt,
-    FaCloud,
-    FaCogs,
-    FaRobot,
-    FaBrain,
-    FaCube,
-    FaServer,
-    FaNetworkWired,
+    FaReact, FaAngular, FaVuejs, FaNodeJs, FaPython, FaAws, FaDocker, FaJava,
+    FaAndroid, FaApple, FaEthereum, FaLaravel, FaHtml5, FaJs, FaGitAlt, FaCloud,
+    FaCogs, FaRobot, FaBrain, FaCube, FaServer, FaNetworkWired,
 } from "react-icons/fa";
-import { Close, CloseTwoTone } from '@mui/icons-material';
-import { navigate } from 'next/dist/client/components/segment-cache-impl/navigation';
+import { CloseTwoTone } from '@mui/icons-material';
+import toast, { Toaster } from 'react-hot-toast';
 
 const MultiStepForm = () => {
     const router = useRouter();
-
     const [currentStep, setCurrentStep] = useState(1);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const [formData, setFormData] = useState({
         teamType: '',
         teamLevel: '',
@@ -64,61 +46,17 @@ const MultiStepForm = () => {
     });
 
     const techStackByRole = {
-        Frontend: [
-            "React.js",
-            "Next.js",
-            "Angular",
-            "Vue.js",
-            "Svelte",
-            "HTML/CSS/JS",
-            "TypeScript",
-        ],
-        Backend: [
-            "Node.js",
-            "Python / FastAPI",
-            "Django",
-            "Laravel / PHP",
-            "Ruby on Rails",
-            "Java / Spring Boot",
-            "Go (Golang)",
-        ],
-        Mobile: [
-            "Flutter",
-            "React Native",
-            "Native iOS (Swift / SwiftUI)",
-            "Native Android (Kotlin)",
-        ],
-        DevOps: [
-            "AWS",
-            "GCP",
-            "Azure",
-            "Docker",
-            "Kubernetes",
-            "Terraform",
-            "CI/CD",
-        ],
-        "Data / AI": [
-            "Python",
-            "TensorFlow",
-            "PyTorch",
-            "OpenAI / LLMs",
-            "LangChain",
-            "Airflow",
-            "Spark",
-        ],
-        Blockchain: [
-            "Solidity (Ethereum)",
-            "Hardhat",
-            "Web3.js",
-            "Ethers.js",
-            "Rust (Solana)",
-            "Polygon / BSC",
-            "IPFS",
-        ],
+        Frontend: ["React.js", "Next.js", "Angular", "Vue.js", "Svelte", "HTML/CSS/JS", "TypeScript"],
+        Backend: ["Node.js", "Python / FastAPI", "Django", "Laravel / PHP", "Ruby on Rails", "Java / Spring Boot", "Go (Golang)"],
+        Mobile: ["Flutter", "React Native", "Native iOS (Swift / SwiftUI)", "Native Android (Kotlin)"],
+        DevOps: ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+        "Data / AI": ["Python", "TensorFlow", "PyTorch", "OpenAI / LLMs", "LangChain", "Airflow", "Spark"],
+        Blockchain: ["Solidity (Ethereum)", "Hardhat", "Web3.js", "Ethers.js", "Rust (Solana)", "Polygon / BSC", "IPFS"],
     };
+
     const techIcons = {
         "React.js": <FaReact color="#61DBFB" size={40} />,
-        "Next.js": <FaReact color="#000" size={40} />, // fallback React icon
+        "Next.js": <FaReact color="#000" size={40} />,
         "Angular": <FaAngular color="#DD0031" size={40} />,
         "Vue.js": <FaVuejs color="#42b883" size={40} />,
         "Svelte": <FaCode color="#FF3E00" size={40} />,
@@ -161,23 +99,24 @@ const MultiStepForm = () => {
     useEffect(() => {
         document.title = "Dedicated Form";
     }, []);
+
     const handleTeamTypeSelect = (type, hours, pricing) => {
         setFormData({ ...formData, teamType: type, pricing: pricing, teamTypeDetails: hours });
         setCurrentStep(2);
     };
 
     const handleRoleSelect = (role) => {
-        setFormData({ ...formData, role: role });
+        setFormData({ ...formData, role });
         setCurrentStep(3);
     };
 
     const handleTechSelect = (tech) => {
-        setFormData({ ...formData, tech: tech });
+        setFormData({ ...formData, tech });
         setCurrentStep(4);
     };
 
     const handleLevelSelect = (level, minPrice, maxPrice) => {
-        setFormData({ ...formData, developerLevel: level, minPrice: minPrice, maxPrice: maxPrice });
+        setFormData({ ...formData, developerLevel: level, minPrice, maxPrice });
         setCurrentStep(5);
     };
 
@@ -193,34 +132,14 @@ const MultiStepForm = () => {
 
     const handleContinue = () => {
         const maxStep = formData.teamType === 'Dedicated Developer' ? 8 : 7;
-        if (currentStep < maxStep) {
-            setCurrentStep(currentStep + 1);
-        }
-    };
-
-    const handleEditStep = (step) => {
-        setCurrentStep(step);
-    };
-
-    const isStep4Valid = () => {
-        return formData.startWindow && formData.duration && formData.hoursPerMonth;
-    };
-
-    const isStep5Valid = () => {
-        return formData.budget.trim() !== '';
-    };
-
-    const isStep6Valid = () => {
-        return formData.name.trim() !== '' &&
-            formData.company.trim() !== '' &&
-            formData.email.trim() !== '';
+        if (currentStep < maxStep) setCurrentStep(currentStep + 1);
     };
 
     const handleBack = () => {
-        if (currentStep > 1) {
-            setCurrentStep(currentStep - 1);
-        }
+        if (currentStep > 1) setCurrentStep(currentStep - 1);
     };
+
+    const handleEditStep = (step) => setCurrentStep(step);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -231,32 +150,29 @@ const MultiStepForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const isStep4Valid = () => formData.startWindow && formData.duration && formData.hoursPerMonth;
+    const isStep5Valid = () => formData.budget.trim() !== '';
+    const isStep6Valid = () => formData.name.trim() !== '' && formData.company.trim() !== '' && formData.email.trim() !== '';
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         const portalId = "244252598";
         const formId = "45972b40-6205-4bcd-94c2-45218c16056b";
         const hubspotEndpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
 
-        const fields = Object.keys(formData).map((key) => ({
-            name: key,
-            value: formData[key],
-        }));
+        const fields = Object.keys(formData).map(key => ({ name: key, value: formData[key] }));
 
         const payload = {
             fields,
-            context: {
-                pageUri: window.location.href,
-                pageName: document.title,
-            },
+            context: { pageUri: window.location.href, pageName: document.title }
         };
 
         try {
-            const response = await fetch(hubspotEndpoint, {
+            const hubspotRes = await fetch(hubspotEndpoint, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload),
             });
 
@@ -289,40 +205,26 @@ const MultiStepForm = () => {
                 "xaklfWfIfvCP76y0o"
             );
 
-            if (response.ok) {
-                console.log("✅ Submitted to HubSpot and EmailJS:", formData);
-                alert("Form submitted successfully!");
-
-                setFormData({
-                    teamType: "",
-                    teamLevel: "",
-                    pricing: "",
-                    focusArea: "",
-                    role: "",
-                    tech: "",
-                    developerLevel: "",
-                    minPrice: "",
-                    maxPrice: "",
-                    startWindow: "ASAP",
-                    duration: "1-3 month",
-                    hoursPerMonth: "176",
-                    budget: "",
-                    skills: "",
-                    name: "",
-                    company: "",
-                    email: "",
-                    phone: "",
-                    additionalInfo: "",
+            if (hubspotRes.ok) {
+                toast.success("Thank you! We'll contact you soon!", {
+                    duration: 5000,
+                    position: "top-center",
+                    style: { background: '#10b981', color: 'white', fontSize: '17px', padding: '16px 24px' },
                 });
 
-                router.push("/");
+                // Redirect after a short delay so user sees the toast
+                setTimeout(() => router.push("/"), 1800);
             } else {
-                console.error("❌ HubSpot error:", response.statusText);
-                alert("HubSpot submission failed, but email was sent successfully.");
+                throw new Error("HubSpot error");
             }
         } catch (err) {
-            console.error("Submission error:", err);
-            alert("Error submitting form. Please try again.");
+            console.error(err);
+            toast.error("Oops! Something went wrong. Please try again.", {
+                duration: 6000,
+                style: { background: '#ef4444', color: 'white' },
+            });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -330,19 +232,15 @@ const MultiStepForm = () => {
         const totalSteps = formData.teamType === 'Dedicated Developer' ? 7 : 6;
         return (
             <div style={styles.progressContainer}>
-                {Array.from({ length: totalSteps }, (_, i) => i + 1).map((step) => (
+                {Array.from({ length: totalSteps }, (_, i) => i + 1).map(step => (
                     <div
                         key={step}
-                        style={{
-                            ...styles.progressBar,
-                            ...(step <= currentStep ? styles.progressBarActive : {})
-                        }}
-                    ></div>
+                        style={{ ...styles.progressBar, ...(step <= currentStep ? styles.progressBarActive : {}) }}
+                    />
                 ))}
             </div>
         );
     };
-
     const focusAreaOptions = [
         { icon: <FaCode size={28} />, label: 'Frontend' },
         { icon: <FaCog size={28} />, label: 'Backend' },
@@ -892,14 +790,14 @@ const MultiStepForm = () => {
     return (
         <>
             <TitleActivityWatcher activeTitle="Dedicated form" />
+            <Toaster position="top-center" />
+
             <div style={styles.container}>
                 <div style={styles.formCard}>
                     <CloseTwoTone
                         style={styles.closeBtn}
                         onClick={() => router.push("/dedicated-developers")}
                     />
-
-
                     <h1 style={styles.formTitle}>Get a personalized quote</h1>
 
                     {renderProgressBar()}
@@ -917,9 +815,29 @@ const MultiStepForm = () => {
 
                     <div style={styles.buttonContainer}>
                         {currentStep > 1 && ((formData.teamType === 'Dedicated team (POD)' && currentStep < 7) || (formData.teamType === 'Dedicated Developer' && currentStep < 8)) && (
-                            <button style={styles.btnBack} onClick={handleBack}>
-                                Back
-                            </button>
+                            <button style={styles.btnBack} onClick={handleBack}>Back</button>
+                        )}
+
+                        {/* Final Submit Button with Loader */}
+                        {((formData.teamType === 'Dedicated team (POD)' && currentStep === 7) || (formData.teamType === 'Dedicated Developer' && currentStep === 8)) && (
+                            <>
+                                <button style={styles.btnBack} onClick={handleBack}>Back</button>
+                                <button
+                                    style={{
+                                        ...styles.btnPrimary,
+                                        opacity: isSubmitting ? 0.6 : 1,
+                                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                                    }}
+                                    onClick={handleSubmit}
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? (
+                                        <>Submitting… <span className="spinner" /></>
+                                    ) : (
+                                        "Send"
+                                    )}
+                                </button>
+                            </>
                         )}
 
                         {((formData.teamType === 'Dedicated team (POD)' && currentStep < 4) || (formData.teamType === 'Dedicated Developer' && currentStep < 5)) && (
@@ -981,20 +899,25 @@ const MultiStepForm = () => {
                                 </button>
                             </>
                         )}
-
-                        {((formData.teamType === 'Dedicated team (POD)' && currentStep === 7) || (formData.teamType === 'Dedicated Developer' && currentStep === 8)) && (
-                            <>
-                                <button style={styles.btnBack} onClick={handleBack}>
-                                    Back
-                                </button>
-                                <button style={styles.btnPrimary} onClick={handleSubmit}>
-                                    Send
-                                </button>
-                            </>
-                        )}
                     </div>
                 </div>
             </div>
+            <style jsx>{`
+                .spinner {
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid #ffffff;
+                    border-top: 2px solid transparent;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                    margin-left: 10px;
+                }
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `}</style>
         </>
     );
 };

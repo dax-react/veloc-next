@@ -294,7 +294,16 @@ const blockchainDevelopment = {
             { id: 6, title: "New Business Models", icon: icon6blockchaindev }
         ]
     },
-    services: artificialIntelligent.services,
+    services: {
+        title: "Our Blockchain Services",
+        description: "From sleek designs to flawless functionality, we craft mobile apps that captivate and connect. Built to perform and designed to impress, our apps redefine what's possible on every screen. Let's bring your vision to life in the palm of your hand.",
+        items: [
+            { id: "01", title: "Python", desc: "Tailor-made designs that reflect your brand identity and deliver a smooth, conversion-focused user experience.", img: pythonai },
+            { id: "02", title: "Open AI", desc: "Tailor-made designs that reflect your brand identity and deliver a smooth, conversion-focused user experience.", img: openai },
+            { id: "03", title: "Tensorflow", desc: "Enhance your store's performance with third-party app integrations or custom-built Shopify apps.", img: tensorflowai },
+            { id: "04", title: "PyTorch", desc: "Enhance your store's performance with third-party app integrations or custom-built Shopify apps.", img: pytorchai }
+        ]
+    },
     projects: {
         title: "Our Blockchain Development Work",
         items: getPortfolioByCategory("Blockchain")
