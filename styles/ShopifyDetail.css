@@ -119,6 +119,10 @@
     animation-delay: 3s;
 }
 
+.shopify-box {
+    padding: 5vh 0vh;
+}
+
 .shopify-detail-page .shopify-title {
     color: white;
     font-size: 42px;

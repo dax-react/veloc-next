@@ -246,7 +246,7 @@ export default function ServiceDetailPage({ params }) {
                 {/* SERVICES SECTION */}
                 {services && services.items && services.items.length > 0 && (
                     <section className="shopify-services">
-                        <div className="container" style={{ display: "flex", flexDirection: "column" }}>
+                        <div className="shopify-box" style={{ display: "flex", flexDirection: "column" }}>
                             <div data-aos="fade-up">
                                 <h2>{services.title}</h2>
                                 <p>{services.description}</p>
